@@ -1,2 +1,3 @@
 # University-mangament-system
-nothing
+College Data Structures Project built with C++
+
