@@ -15,7 +15,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -32,7 +31,6 @@ public:
     QLabel *label_21;
     QLineEdit *password_11;
     QLabel *label_22;
-    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *LoginPage)
@@ -47,7 +45,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(50, 110, 400, 261));
+        groupBox_2->setGeometry(QRect(40, 100, 400, 261));
         groupBox_2->setMaximumSize(QSize(500, 500));
         groupBox_2->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         pushButton_20 = new QPushButton(groupBox_2);
@@ -88,10 +86,6 @@ public:
 "font-weight: bold;\n"
 "color:white;"));
         LoginPage->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(LoginPage);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 500, 21));
-        LoginPage->setMenuBar(menubar);
         statusbar = new QStatusBar(LoginPage);
         statusbar->setObjectName("statusbar");
         LoginPage->setStatusBar(statusbar);

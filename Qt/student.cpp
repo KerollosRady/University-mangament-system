@@ -1,0 +1,132 @@
+#pragma once
+#include <ctime>
+#include <string>
+#include "student.h"
+#include <cmath>
+#include <algorithm>
+#define inRange(x, l, r) (l <= x && x <= r)
+student::student(int year, int id, const string& name, int numberOfCourses)
+{
+    this->name = name;
+    this->ID = GenerateID(id, year);
+    setPassword(GeneratePassword());
+    setEmail(GenerateEmail());
+    this->finishedCourses = vector<bool>(numberOfCourses);
+    this->courseGPA = vector<float>(numberOfCourses);
+    this->academicSemster = 1;
+    this->academicYear = 1;
+    this->CGPA = 0.0;
+}
+
+student::student()
+{
+}
+
+void student::SemesterUpdate()
+{
+    this->academicSemster++;
+    this->academicYear = (int)ceil(academicSemster / 2.0);
+
+    // updating CGPA & finishedCourses
+    int finishedCnt = count(finishedCourses.begin(),finishedCourses.end(), 1);
+    CGPA *= finishedCnt;
+    for (auto& id : progressCourses)
+    {
+        if (courseGPA[id] < 2)
+            courseGPA[id] = 0;
+        finishedCourses[id] = (bool)courseGPA[id];
+        CGPA += courseGPA[id];
+    }
+    CGPA /=max(int(progressCourses.size() + finishedCnt),1) ;
+
+    progressCourses.clear();
+    //	 determining max hours allowed depending on GPA
+    if (inRange(CGPA, 3, 4))
+        this->maximumHoursAllowed = 21;
+    else if (inRange(CGPA, 2, 3))
+        this->maximumHoursAllowed = 18;
+    else if (inRange(CGPA, 0, 2))
+        this->maximumHoursAllowed = 14;
+}
+
+void student::ViewAvailableCourses(const vector<Course>& c)
+{
+    for (int i = 0; i < academicSemster * 5; i++)
+    {
+        cout << c[i].name << endl;
+    }
+}
+
+void student::FilterCourse(const vector<Course>& c)
+{
+    for (int i = 0; i < academicSemster * 5; i++)
+    {
+        if (!finishedCourses[i] && maximumHoursAllowed>=c[i].hours)
+        {
+            bool ok = 1;
+            for (auto pre : c[i].PreReqCourses)
+                ok &= finishedCourses[pre] ;
+            if (ok)
+                cout << c[i].name << el ;
+        }
+    }
+}
+
+void student::ViewDetailsCourse(vector<Course>& course, code id)
+{
+    course[id].DisplayData();
+}
+
+void student::RegisterCourse(code c)
+{
+    progressCourses.push_back(c);
+}
+
+void student::ViewAllcourses(const vector<Course>&course)
+{
+    cout << "Finished courses"<<el;
+    for (int i = 0; i < finishedCourses.size(); i++)
+    {
+        if (finishedCourses[i])
+        {
+            cout << course[i].name << el;
+        }
+    }
+    cout << "Progress Courses" << el;
+    for (auto c : progressCourses)
+        cout << course[c].name << el;
+
+}
+
+void student::ViewCourseGrade_CGPA(const vector<Course>&course)
+{
+    cout << " cumulative GPA" << el;
+    cout << CGPA << el;
+    for (int i = 0; i < finishedCourses.size(); i++)
+    {
+        if (finishedCourses[i])
+        {
+            cout <<course[i].name<<" Grade : " << courseGPA[i] << el;
+        }
+    }
+}
+
+void student::EditData()
+{
+    string oldpass ;
+    cout << "Enter Old Password  : " << el;
+    cin >> oldpass;
+
+    if (oldpass == getPassword()) {
+        string newPass , reNewPass;
+        cout << "Enter New Password : " << el;
+        cin >> newPass;
+        cout << "Renter New Password : " << el;
+        cin >> reNewPass;
+        if (newPass == reNewPass)
+            setPassword(newPass);
+    }
+}
+
+
+
