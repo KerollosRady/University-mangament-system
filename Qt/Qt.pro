@@ -10,21 +10,27 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    adminpage.cpp \
     course.cpp \
     main.cpp \
     loginpage.cpp \
     student.cpp \
+    studentpage.cpp \
     user.cpp
 
 HEADERS += \
     admin.h \
+    adminpage.h \
     course.h \
     loginpage.h \
     student.h \
+    studentpage.h \
     user.h
 
 FORMS += \
-    loginpage.ui
+    adminpage.ui \
+    loginpage.ui \
+    studentpage.ui
 
 TRANSLATIONS += \
     Qt_en_GB.ts

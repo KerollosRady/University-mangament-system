@@ -1,11 +1,8 @@
 
 #include "loginpage.h"
-
 #include <QApplication>
-
 #include <QLocale>
 #include <QTranslator>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -19,8 +16,8 @@ int main(int argc, char *argv[])
             break;
         }
     }
-
     LoginPage w;
+    w.pre() ;
     w.show();
     return a.exec();
 }

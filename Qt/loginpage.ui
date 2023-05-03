@@ -45,7 +45,7 @@ color:white;</string>
     <property name="title">
      <string> Login form</string>
     </property>
-    <widget class="QPushButton" name="pushButton_20">
+    <widget class="QToolButton" name="toolButton_20">
      <property name="geometry">
       <rect>
        <x>250</x>

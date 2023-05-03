@@ -15,8 +15,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,7 +26,7 @@ class Ui_LoginPage
 public:
     QWidget *centralwidget;
     QGroupBox *groupBox_2;
-    QPushButton *pushButton_20;
+    QToolButton *toolButton_20;
     QLineEdit *username_11;
     QLabel *label_21;
     QLineEdit *password_11;
@@ -48,12 +48,12 @@ public:
         groupBox_2->setGeometry(QRect(40, 100, 400, 261));
         groupBox_2->setMaximumSize(QSize(500, 500));
         groupBox_2->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
-        pushButton_20 = new QPushButton(groupBox_2);
-        pushButton_20->setObjectName("pushButton_20");
-        pushButton_20->setGeometry(QRect(250, 190, 93, 28));
-        pushButton_20->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton_20->setMouseTracking(false);
-        pushButton_20->setStyleSheet(QString::fromUtf8("    background-color: #1c335f;\n"
+        toolButton_20 = new QToolButton(groupBox_2);
+        toolButton_20->setObjectName("toolButton_20");
+        toolButton_20->setGeometry(QRect(250, 190, 93, 28));
+        toolButton_20->setCursor(QCursor(Qt::PointingHandCursor));
+        toolButton_20->setMouseTracking(false);
+        toolButton_20->setStyleSheet(QString::fromUtf8("    background-color: #1c335f;\n"
 "    border-radius: 10px;\n"
 "    color: white;\n"
 ""));
@@ -99,7 +99,7 @@ public:
     {
         LoginPage->setWindowTitle(QCoreApplication::translate("LoginPage", "LoginPage", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("LoginPage", " Login form", nullptr));
-        pushButton_20->setText(QCoreApplication::translate("LoginPage", "Login", nullptr));
+        toolButton_20->setText(QCoreApplication::translate("LoginPage", "Login", nullptr));
         label_21->setText(QCoreApplication::translate("LoginPage", "    Email", nullptr));
         password_11->setText(QString());
         label_22->setText(QCoreApplication::translate("LoginPage", "Password", nullptr));

@@ -5,7 +5,7 @@
 #include <cmath>
 #include <algorithm>
 #define inRange(x, l, r) (l <= x && x <= r)
-student::student(int year, int id, const string& name, int numberOfCourses)
+Student::Student(int year, int id, const string& name, int numberOfCourses)
 {
     this->name = name;
     this->ID = GenerateID(id, year);
@@ -18,11 +18,11 @@ student::student(int year, int id, const string& name, int numberOfCourses)
     this->CGPA = 0.0;
 }
 
-student::student()
+Student::Student()
 {
 }
 
-void student::SemesterUpdate()
+void Student::SemesterUpdate()
 {
     this->academicSemster++;
     this->academicYear = (int)ceil(academicSemster / 2.0);
@@ -49,7 +49,7 @@ void student::SemesterUpdate()
         this->maximumHoursAllowed = 14;
 }
 
-void student::ViewAvailableCourses(const vector<Course>& c)
+void Student::ViewAvailableCourses(const vector<Course>& c)
 {
     for (int i = 0; i < academicSemster * 5; i++)
     {
@@ -57,7 +57,7 @@ void student::ViewAvailableCourses(const vector<Course>& c)
     }
 }
 
-void student::FilterCourse(const vector<Course>& c)
+void Student::FilterCourse(const vector<Course>& c)
 {
     for (int i = 0; i < academicSemster * 5; i++)
     {
@@ -72,17 +72,17 @@ void student::FilterCourse(const vector<Course>& c)
     }
 }
 
-void student::ViewDetailsCourse(vector<Course>& course, code id)
+void Student::ViewDetailsCourse(vector<Course>& course, code id)
 {
     course[id].DisplayData();
 }
 
-void student::RegisterCourse(code c)
+void Student::RegisterCourse(code c)
 {
     progressCourses.push_back(c);
 }
 
-void student::ViewAllcourses(const vector<Course>&course)
+void Student::ViewAllcourses(const vector<Course>&course)
 {
     cout << "Finished courses"<<el;
     for (int i = 0; i < finishedCourses.size(); i++)
@@ -98,7 +98,7 @@ void student::ViewAllcourses(const vector<Course>&course)
 
 }
 
-void student::ViewCourseGrade_CGPA(const vector<Course>&course)
+void Student::ViewCourseGrade_CGPA(const vector<Course>&course)
 {
     cout << " cumulative GPA" << el;
     cout << CGPA << el;
@@ -111,7 +111,7 @@ void student::ViewCourseGrade_CGPA(const vector<Course>&course)
     }
 }
 
-void student::EditData()
+void Student::EditData()
 {
     string oldpass ;
     cout << "Enter Old Password  : " << el;

@@ -4,7 +4,7 @@
 #include "user.h"
 #include"Course.h"
 #define el '\n'
-class student : public user
+class Student : public user
 {
 public:
     int maximumHoursAllowed;
@@ -14,8 +14,8 @@ public:
     vector<bool> finishedCourses;
     vector<code> progressCourses;
     vector<float> courseGPA;
-    student(int year, int id, const string& name, int numberOfCourses);
-    student();
+    Student(int year, int id, const string& name, int numberOfCourses);
+    Student();
     void SemesterUpdate();
     void ViewAvailableCourses(const vector<Course>&);
     void FilterCourse(const vector<Course>&);
