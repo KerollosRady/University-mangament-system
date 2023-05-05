@@ -25,10 +25,10 @@ public:
     {
         if (AdminPage->objectName().isEmpty())
             AdminPage->setObjectName("AdminPage");
-        AdminPage->resize(400, 300);
+        AdminPage->resize(1287, 662);
         label = new QLabel(AdminPage);
         label->setObjectName("label");
-        label->setGeometry(QRect(0, 0, 401, 301));
+        label->setGeometry(QRect(0, 0, 1301, 671));
         label->setLayoutDirection(Qt::LeftToRight);
         label->setStyleSheet(QString::fromUtf8("background : rgb(222, 169, 255)rgb(221, 223, 255)"));
         label->setAlignment(Qt::AlignCenter);

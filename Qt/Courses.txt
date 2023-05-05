@@ -1,0 +1,15 @@
+Programming 1
+Dr.Hanan
+1000
+6
+
+Programming 2
+Dr.Hanan
+500
+12
+0
+Programming 3
+Dr.Hanan
+2000
+12
+0 1

@@ -3,7 +3,8 @@
 #include "ui_loginpage.h"
 #include <algorithm>
 #include <math.h>
-
+#include <QFile>
+#include <QTextStream>
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginPage)
@@ -14,13 +15,43 @@ LoginPage::LoginPage(QWidget *parent)
 }
 
 void LoginPage::load_data(){
-     Course c1;
-     c1.insert("Programming 1", "Dr.Hanan", 500, 3,{});
-     Course c2;
-     c2.insert("Programming 2", "Dr.Hanan", 1000, 6, { 0 });
-     Course c3;
-     c3.insert("Programming 3", "Dr.Hanan", 2000, 12, { 0,1 });
-     course = {c1,c2,c3} ;
+    QFile file("../Qt/Courses.txt") ;
+    /*
+    name
+    instructore
+    MaxNumOfStud
+    hours
+    PreReqCourses
+    */
+    if(!file.exists() || !file.open(QIODevice::ReadOnly)){
+        qCritical()<<file.errorString()<<el ;
+        return ;
+    }
+    QTextStream stream (&file) ;
+    while(!stream.atEnd()){
+        QString line[5]  ;
+        for(int i=0 ;i<5 ;i++)
+            line[i] = stream.readLine() ;
+        set<int> s;
+        string snum ="";
+        for(int i=0 ;i<line[4].size() ;i++)
+        {
+            if(!line[4][i].isDigit())
+            {
+                s.insert(stoi(snum)) ;
+                snum="" ;
+                continue ;
+            }
+            snum+=line[4][i].toLatin1();
+        }
+        if(!snum.empty())
+            s.insert(stoi(snum)) ;
+        Course c ;
+        c.insert(line[0].toStdString(),line[1].toStdString(),line[2].toInt(),line[3].toInt(),s) ;
+        course.push_back(c) ;
+    }
+    for(auto c : course)
+        c.DisplayData() ;
      student.resize(last_year+1) ;
      student[last_year]={
                                Student(2023, 0, "abdo", 3),
@@ -73,6 +104,10 @@ void LoginPage::on_toolButton_20_clicked()
          if( year>=0 && year<=last_year && id>=0 &&
              id<student[year].size() && student[year][id].getPassword() == pass.toStdString())
             this->hide() , ptrStudentPage->show() ;
+         else
+         {
+
+         }
     }
 }
 
