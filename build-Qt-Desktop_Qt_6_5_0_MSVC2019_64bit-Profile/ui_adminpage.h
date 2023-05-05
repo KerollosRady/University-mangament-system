@@ -12,26 +12,20 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QLabel>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_AdminPage
 {
 public:
-    QLabel *label;
 
     void setupUi(QDialog *AdminPage)
     {
         if (AdminPage->objectName().isEmpty())
             AdminPage->setObjectName("AdminPage");
         AdminPage->resize(1287, 662);
-        label = new QLabel(AdminPage);
-        label->setObjectName("label");
-        label->setGeometry(QRect(0, 0, 1301, 671));
-        label->setLayoutDirection(Qt::LeftToRight);
-        label->setStyleSheet(QString::fromUtf8("background : rgb(222, 169, 255)rgb(221, 223, 255)"));
-        label->setAlignment(Qt::AlignCenter);
+        AdminPage->setStyleSheet(QString::fromUtf8("background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);\n"
+"border-radius:10px;"));
 
         retranslateUi(AdminPage);
 
@@ -41,7 +35,6 @@ public:
     void retranslateUi(QDialog *AdminPage)
     {
         AdminPage->setWindowTitle(QCoreApplication::translate("AdminPage", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("AdminPage", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">Admin Page </span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

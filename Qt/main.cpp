@@ -1,4 +1,3 @@
-
 #include "loginpage.h"
 #include <QApplication>
 #include <QLocale>
