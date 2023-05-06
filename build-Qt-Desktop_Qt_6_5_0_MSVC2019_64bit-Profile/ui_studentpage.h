@@ -1,13 +1,11 @@
+#pragma once
 /********************************************************************************
-** Form generated from reading UI file 'studentpage.ui'
+** Form generated from reading UI file ''
 **
 ** Created by: Qt User Interface Compiler version 6.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
-
-#ifndef UI_STUDENTPAGE_H
-#define UI_STUDENTPAGE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -26,7 +24,7 @@ class Ui_StudentPage
 public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QLabel *label_2;
+    QLabel *welcome_to_ums;
     QPushButton *pushButton_5;
     QListView *listView;
     QPushButton *HomeButton;
@@ -56,10 +54,10 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 731, 600));
-        label_2 = new QLabel(scrollAreaWidgetContents);
-        label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(110, 130, 641, 351));
-        label_2->setStyleSheet(QString::fromUtf8("color:rgb(255, 255, 255);\n"
+        welcome_to_ums = new QLabel(scrollAreaWidgetContents);
+        welcome_to_ums->setObjectName("label_2");
+        welcome_to_ums->setGeometry(QRect(110, 130, 641, 351));
+        welcome_to_ums->setStyleSheet(QString::fromUtf8("color:rgb(255, 255, 255);\n"
 "font: 36pt \"Castellar\";\n"
 "    font-weight: 900;\n"
 "    background-color: transparent;\n"
@@ -146,7 +144,7 @@ public:
     void retranslateUi(QDialog *StudentPage)
     {
         StudentPage->setWindowTitle(QCoreApplication::translate("StudentPage", "Dialog", nullptr));
-        label_2->setText(QCoreApplication::translate("StudentPage", "Welcome To Ums", nullptr));
+        welcome_to_ums->setText(QCoreApplication::translate("StudentPage", "Welcome To Ums", nullptr));
         pushButton_5->setText(QCoreApplication::translate("StudentPage", "Logout", nullptr));
         HomeButton->setText(QCoreApplication::translate("StudentPage", "Home", nullptr));
         MyCoursesButton->setText(QCoreApplication::translate("StudentPage", "My Courses", nullptr));
@@ -167,4 +165,3 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_STUDENTPAGE_H

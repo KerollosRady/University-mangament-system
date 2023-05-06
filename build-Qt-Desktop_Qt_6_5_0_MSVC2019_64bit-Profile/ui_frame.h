@@ -26,9 +26,9 @@ public:
     QPushButton *ChangePassBtn;
     QLabel *label;
     QLabel *label_2;
-    QLabel *label_3;
-    QLabel *Email_2;
     QLabel *label_4;
+    QLabel *pass;
+    QLabel *label_3;
     QLineEdit *newPass;
     QLabel *label_5;
     QLabel *id;
@@ -73,21 +73,21 @@ public:
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(30, 250, 121, 71));
         label_2->setAlignment(Qt::AlignCenter);
-        label_3 = new QLabel(Frame);
-        label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(30, 340, 121, 71));
-        label_3->setAlignment(Qt::AlignCenter);
-        Email_2 = new QLabel(Frame);
-        Email_2->setObjectName("Email_2");
-        Email_2->setGeometry(QRect(160, 340, 271, 71));
-        Email_2->setStyleSheet(QString::fromUtf8("    border-radius: 10px;\n"
-"\n"
-"text-align:center;"));
-        Email_2->setAlignment(Qt::AlignCenter);
         label_4 = new QLabel(Frame);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(30, 440, 121, 71));
+        label_4->setGeometry(QRect(30, 340, 121, 71));
         label_4->setAlignment(Qt::AlignCenter);
+        pass = new QLabel(Frame);
+        pass->setObjectName("pass");
+        pass->setGeometry(QRect(160, 340, 271, 71));
+        pass->setStyleSheet(QString::fromUtf8("    border-radius: 10px;\n"
+"\n"
+"text-align:center;"));
+        pass->setAlignment(Qt::AlignCenter);
+        label_3 = new QLabel(Frame);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(30, 440, 121, 71));
+        label_3->setAlignment(Qt::AlignCenter);
         newPass = new QLineEdit(Frame);
         newPass->setObjectName("newPass");
         newPass->setGeometry(QRect(160, 440, 271, 71));
@@ -156,9 +156,9 @@ public:
         ChangePassBtn->setText(QCoreApplication::translate("Frame", "Change Password", nullptr));
         label->setText(QCoreApplication::translate("Frame", "Name", nullptr));
         label_2->setText(QCoreApplication::translate("Frame", "Email", nullptr));
-        label_3->setText(QCoreApplication::translate("Frame", "Password", nullptr));
-        Email_2->setText(QString());
-        label_4->setText(QCoreApplication::translate("Frame", "New Password", nullptr));
+        label_4->setText(QCoreApplication::translate("Frame", "Password", nullptr));
+        pass->setText(QString());
+        label_3->setText(QCoreApplication::translate("Frame", "New Password", nullptr));
         newPass->setPlaceholderText(QCoreApplication::translate("Frame", "Write a new password", nullptr));
         label_5->setText(QCoreApplication::translate("Frame", "ID", nullptr));
         id->setText(QString());

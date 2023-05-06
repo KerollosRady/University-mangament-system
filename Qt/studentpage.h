@@ -19,7 +19,7 @@ public:
 
 private:
     Ui::StudentPage *ui;
-    Student stud ;
+    Student *stud ;
     Frame * ptrFrame ;
 
 public:
