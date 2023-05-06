@@ -22,5 +22,7 @@ void StudentPage::on_Profile_currentIndexChanged(int index)
 {
     if(index==1)
         ui->scrollArea->setWidget( ptrFrame = new Frame );
+    else
+        ptrFrame->hide() ;
 }
 

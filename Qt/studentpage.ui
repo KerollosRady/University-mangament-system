@@ -88,10 +88,10 @@ border-radius:10px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">    font-weight: 600;
+	font-size:20px;
     border-radius: 10px;
-    color: white;
-    background-color: transparent;
-
+    color: #ffffff;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
 </string>
    </property>
    <property name="text">

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
@@ -28,13 +29,13 @@ public:
     QWidget *scrollAreaWidgetContents;
     QScrollBar *verticalScrollBar;
     QPushButton *pushButton_5;
-    QLabel *name;
     QListView *listView;
     QPushButton *HomeButton;
     QPushButton *MyCoursesButton;
     QPushButton *RegisterButton;
     QPushButton *GradeButton;
     QLabel *label;
+    QComboBox *Profile;
 
     void setupUi(QDialog *StudentPage)
     {
@@ -49,7 +50,7 @@ public:
         scrollArea->setObjectName("scrollArea");
         scrollArea->setGeometry(QRect(260, 90, 731, 1000000));
         scrollArea->setMinimumSize(QSize(0, 1000000));
-        scrollArea->setStyleSheet(QString::fromUtf8("background-color:#eee;"));
+        scrollArea->setStyleSheet(QString::fromUtf8("background-color:white;"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
@@ -64,17 +65,10 @@ public:
         pushButton_5->setGeometry(QRect(870, 20, 111, 51));
         pushButton_5->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_5->setStyleSheet(QString::fromUtf8("    font-weight: 600;\n"
+"	font-size:20px;\n"
 "    border-radius: 10px;\n"
-"    color: white;\n"
-"    background-color: transparent;\n"
-"\n"
-""));
-        name = new QLabel(StudentPage);
-        name->setObjectName("name");
-        name->setGeometry(QRect(290, 30, 321, 31));
-        name->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font: 16pt \"Arial\";\n"
-"    background-color: transparent;\n"
+"    color: #ffffff;\n"
+"background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);\n"
 ""));
         listView = new QListView(StudentPage);
         listView->setObjectName("listView");
@@ -129,6 +123,14 @@ public:
 "\n"
 ""));
         label->setAlignment(Qt::AlignCenter);
+        Profile = new QComboBox(StudentPage);
+        Profile->addItem(QString());
+        Profile->addItem(QString());
+        Profile->setObjectName("Profile");
+        Profile->setGeometry(QRect(270, 30, 141, 24));
+        Profile->setStyleSheet(QString::fromUtf8("color:white;\n"
+"font: 16pt \"Arial\";\n"
+"    background-color: transparent;"));
 
         retranslateUi(StudentPage);
 
@@ -139,13 +141,15 @@ public:
     {
         StudentPage->setWindowTitle(QCoreApplication::translate("StudentPage", "Dialog", nullptr));
         pushButton_5->setText(QCoreApplication::translate("StudentPage", "Logout", nullptr));
-        name->setText(QCoreApplication::translate("StudentPage", "Anton Abdalla Soliman", nullptr));
         HomeButton->setText(QCoreApplication::translate("StudentPage", "Home", nullptr));
         MyCoursesButton->setText(QCoreApplication::translate("StudentPage", "My Courses", nullptr));
         RegisterButton->setText(QCoreApplication::translate("StudentPage", "Register\n"
 "course", nullptr));
         GradeButton->setText(QCoreApplication::translate("StudentPage", "Grade", nullptr));
         label->setText(QCoreApplication::translate("StudentPage", "UMS", nullptr));
+        Profile->setItemText(0, QCoreApplication::translate("StudentPage", "Name", nullptr));
+        Profile->setItemText(1, QCoreApplication::translate("StudentPage", "My Profile", nullptr));
+
     } // retranslateUi
 
 };
