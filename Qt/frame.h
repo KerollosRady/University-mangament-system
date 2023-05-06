@@ -2,7 +2,7 @@
 #define FRAME_H
 
 #include <QFrame>
-
+#include <student.h>
 namespace Ui {
 class Frame;
 }
@@ -12,11 +12,14 @@ class Frame : public QFrame
     Q_OBJECT
 
 public:
-    explicit Frame(QWidget *parent = nullptr);
+    explicit Frame(QWidget *parent = nullptr  , Student *stud = nullptr);
     ~Frame();
 
 private:
     Ui::Frame *ui;
+    Student *stud ;
+public :
+    void load_data() ;
 };
 
 #endif // FRAME_H

@@ -17,7 +17,6 @@
 #include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
-#include <QtWidgets/QScrollBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,7 +26,7 @@ class Ui_StudentPage
 public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QScrollBar *verticalScrollBar;
+    QLabel *label_2;
     QPushButton *pushButton_5;
     QListView *listView;
     QPushButton *HomeButton;
@@ -48,17 +47,24 @@ public:
 "border-radius:10px;"));
         scrollArea = new QScrollArea(StudentPage);
         scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(260, 90, 731, 1000000));
-        scrollArea->setMinimumSize(QSize(0, 1000000));
-        scrollArea->setStyleSheet(QString::fromUtf8("background-color:white;"));
+        scrollArea->setGeometry(QRect(260, 90, 731, 600));
+        scrollArea->setMinimumSize(QSize(0, 600));
+        scrollArea->setMaximumSize(QSize(16777215, 600));
+        scrollArea->setStyleSheet(QString::fromUtf8("background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #1c335f, stop:1 #13112d);\n"
+""));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 731, 1000000));
-        verticalScrollBar = new QScrollBar(scrollAreaWidgetContents);
-        verticalScrollBar->setObjectName("verticalScrollBar");
-        verticalScrollBar->setGeometry(QRect(710, 20, 16, 761));
-        verticalScrollBar->setOrientation(Qt::Vertical);
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 731, 600));
+        label_2 = new QLabel(scrollAreaWidgetContents);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(110, 130, 641, 351));
+        label_2->setStyleSheet(QString::fromUtf8("color:rgb(255, 255, 255);\n"
+"font: 36pt \"Castellar\";\n"
+"    font-weight: 900;\n"
+"    background-color: transparent;\n"
+"\n"
+""));
         scrollArea->setWidget(scrollAreaWidgetContents);
         pushButton_5 = new QPushButton(StudentPage);
         pushButton_5->setObjectName("pushButton_5");
@@ -66,7 +72,7 @@ public:
         pushButton_5->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_5->setStyleSheet(QString::fromUtf8("    font-weight: 600;\n"
 "	font-size:20px;\n"
-"    border-radius: 10px;\n"
+"    border-radius: 25px;\n"
 "    color: #ffffff;\n"
 "background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);\n"
 ""));
@@ -140,6 +146,7 @@ public:
     void retranslateUi(QDialog *StudentPage)
     {
         StudentPage->setWindowTitle(QCoreApplication::translate("StudentPage", "Dialog", nullptr));
+        label_2->setText(QCoreApplication::translate("StudentPage", "Welcome To Ums", nullptr));
         pushButton_5->setText(QCoreApplication::translate("StudentPage", "Logout", nullptr));
         HomeButton->setText(QCoreApplication::translate("StudentPage", "Home", nullptr));
         MyCoursesButton->setText(QCoreApplication::translate("StudentPage", "My Courses", nullptr));
