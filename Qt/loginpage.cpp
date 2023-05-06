@@ -102,8 +102,10 @@ void LoginPage::on_toolButton_20_clicked()
             id+=pow(10,8-i-1)*usr[i].digitValue() ;
          year-=2000 ;
          if( year>=0 && year<=last_year && id>=0 &&
-             id<student[year].size() && student[year][id].getPassword() == pass.toStdString())
+             id<student[year].size() && student[year][id].getPassword() == pass.toStdString()){
+            ptrStudentPage->load_data(year,id,student) ;
             this->hide() , ptrStudentPage->show() ;
+         }
          else
          {
 

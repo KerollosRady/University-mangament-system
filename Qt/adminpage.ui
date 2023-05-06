@@ -20,7 +20,7 @@ border-radius:10px;</string>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>330</x>
      <y>110</y>
      <width>951</width>
      <height>551</height>
@@ -166,8 +166,8 @@ course</string>
   <widget class="QLabel" name="name">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>30</y>
+     <x>380</x>
+     <y>40</y>
      <width>321</width>
      <height>31</height>
     </rect>
