@@ -11,10 +11,13 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     adminpage.cpp \
+    adminwelcome.cpp \
     course.cpp \
     frame.cpp \
+    invaliddata.cpp \
     main.cpp \
     loginpage.cpp \
+    newcourse.cpp \
     student.cpp \
     studentpage.cpp \
     user.cpp
@@ -22,17 +25,23 @@ SOURCES += \
 HEADERS += \
     admin.h \
     adminpage.h \
+    adminwelcome.h \
     course.h \
     frame.h \
+    invaliddata.h \
     loginpage.h \
+    newcourse.h \
     student.h \
     studentpage.h \
     user.h
 
 FORMS += \
     adminpage.ui \
+    adminwelcome.ui \
     frame.ui \
+    invaliddata.ui \
     loginpage.ui \
+    newcourse.ui \
     studentpage.ui
 
 TRANSLATIONS += \

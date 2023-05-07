@@ -2,7 +2,8 @@
 #define ADMINPAGE_H
 
 #include <QDialog>
-
+#include <newCourse.h>
+#include "adminwelcome.h"
 namespace Ui {
 class AdminPage;
 }
@@ -18,8 +19,13 @@ public:
 private slots:
     void on_logout_clicked();
 
+    void on_NewCourse_clicked();
+    void on_HomeButton_clicked();
+
 private:
     Ui::AdminPage *ui;
+    newCourse * ptrCourse ;
+    adminwelcome * welcome;
 };
 
 #endif // ADMINPAGE_H
