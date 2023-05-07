@@ -27,5 +27,6 @@ public:
 private slots:
     void on_Profile_currentIndexChanged(int index);
     void on_pushButton_5_clicked();
+    void on_HomeButton_clicked();
 };
 

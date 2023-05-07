@@ -81,7 +81,6 @@ void Student::RegisterCourse(code c)
 {
     progressCourses.push_back(c);
 }
-
 void Student::ViewAllcourses(const vector<Course>&course)
 {
     cout << "Finished courses"<<el;
@@ -116,7 +115,6 @@ void Student::EditData()
     string oldpass ;
     cout << "Enter Old Password  : " << el;
     cin >> oldpass;
-
     if (oldpass == getPassword()) {
         string newPass , reNewPass;
         cout << "Enter New Password : " << el;

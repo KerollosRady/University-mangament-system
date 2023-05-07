@@ -27,6 +27,7 @@ bool newCourse::isInt(string s){
 
 
 void newCourse::on_Add_clicked(){
+//    qCritical<<"fjsdklfjsd" ;
     QString name = ui->lineEdit_1->text();
     QString instructor = ui->lineEdit_2->text();
     QString hours = ui->lineEdit_3->text();
@@ -40,9 +41,9 @@ void newCourse::on_Add_clicked(){
         (new invalidData)->show(); return;
     }
     string _name = name.toStdString();
-    string _instructor = name.toStdString();
-    int _hours = stoi(maxStd.toStdString());
-    int _maxStd = stoi(hours.toStdString());
+    string _instructor = instructor.toStdString();
+    int  _maxStd= stoi(maxStd.toStdString());
+    int  _hours= stoi(hours.toStdString());
 
     if (_hours <= 0 || _maxStd <= 0){
         (new invalidData)->show(); return;
@@ -51,6 +52,4 @@ void newCourse::on_Add_clicked(){
     c.isElective = ui->checkBox->isChecked();
     c.insert(_name, _instructor, _maxStd, _hours, {});
     courses->push_back(c);
-    cout<<"added " ;
 }
-

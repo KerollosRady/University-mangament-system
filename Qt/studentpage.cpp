@@ -36,3 +36,9 @@ void StudentPage::on_pushButton_5_clicked()
     loginpage->show() ;
 }
 
+
+void StudentPage::on_HomeButton_clicked()
+{
+    string s = ui->label->text().toStdString() ;
+}
+

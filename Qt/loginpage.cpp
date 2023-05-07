@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <invaliddata.h>
+
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginPage)
@@ -13,6 +14,8 @@ LoginPage::LoginPage(QWidget *parent)
     ui->setupUi(this);
     ptrStudentPage = new StudentPage(nullptr, this) ;
     ptrAdminPage   = new AdminPage(nullptr,this,&course) ;
+    pre() ;
+    show();
 }
 
 void LoginPage::load_data(){

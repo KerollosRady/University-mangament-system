@@ -36,7 +36,6 @@ void Frame::on_ChangePassBtn_clicked()
         ui->validation->setText("Password has been changed successfully");
         ui->validation->setStyleSheet("background-color: transparent;color : green ;") ;
         this->ui->pass->setText(QString::fromStdString(stud->getPassword())) ;
-
     }
     else
     {

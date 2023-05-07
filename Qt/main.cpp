@@ -16,7 +16,5 @@ int main(int argc, char *argv[])
         }
     }
     LoginPage w;
-    w.pre() ;
-    w.show();
     return a.exec();
 }
