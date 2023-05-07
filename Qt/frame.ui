@@ -73,6 +73,10 @@ text-align:center;</string>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 30px;
+   color : rgb(170, 0, 0)</string>
+   </property>
    <property name="text">
     <string>Change Password</string>
    </property>
@@ -323,6 +327,29 @@ font: 36pt &quot;Castellar&quot;;
    </property>
    <property name="text">
     <string>MY PROFILE</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="validation">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>520</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+color:rgb(255, 255, 255);
+    background-color: transparent;
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

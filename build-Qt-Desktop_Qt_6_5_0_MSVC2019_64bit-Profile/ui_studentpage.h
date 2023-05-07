@@ -1,11 +1,13 @@
-#pragma once
 /********************************************************************************
-** Form generated from reading UI file ''
+** Form generated from reading UI file 'studentpage.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
+
+#ifndef UI_STUDENTPAGE_H
+#define UI_STUDENTPAGE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -45,7 +47,7 @@ public:
 "border-radius:10px;"));
         scrollArea = new QScrollArea(StudentPage);
         scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(260, 90, 731, 600));
+        scrollArea->setGeometry(QRect(260, 80, 731, 600));
         scrollArea->setMinimumSize(QSize(0, 600));
         scrollArea->setMaximumSize(QSize(16777215, 600));
         scrollArea->setStyleSheet(QString::fromUtf8("background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #1c335f, stop:1 #13112d);\n"
@@ -55,7 +57,7 @@ public:
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 731, 600));
         welcome_to_ums = new QLabel(scrollAreaWidgetContents);
-        welcome_to_ums->setObjectName("label_2");
+        welcome_to_ums->setObjectName("welcome_to_ums");
         welcome_to_ums->setGeometry(QRect(110, 130, 641, 351));
         welcome_to_ums->setStyleSheet(QString::fromUtf8("color:rgb(255, 255, 255);\n"
 "font: 36pt \"Castellar\";\n"
@@ -165,3 +167,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
+#endif // UI_STUDENTPAGE_H

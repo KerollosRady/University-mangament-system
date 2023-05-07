@@ -20,6 +20,8 @@ private:
     Student *stud ;
 public :
     void load_data() ;
+private slots:
+    void on_ChangePassBtn_clicked();
 };
 
 #endif // FRAME_H

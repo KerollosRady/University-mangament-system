@@ -1,6 +1,4 @@
 #pragma once
-#ifndef LOGINPAGE_H
-#define LOGINPAGE_H
 #include <QMainWindow>
 #include <adminpage.h>
 #include <studentpage.h>
@@ -34,4 +32,3 @@ public :
     void save_data() ;
 };
 
-#endif // LOGINPAGE_H

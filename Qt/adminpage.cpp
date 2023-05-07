@@ -1,21 +1,20 @@
 #include "adminpage.h"
 #include "ui_adminpage.h"
-#include <loginpage.h>
-AdminPage::AdminPage(QWidget *parent) :
+AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage) :
     QDialog(parent),
     ui(new Ui::AdminPage)
 {
     ui->setupUi(this);
+    this->loginpage = loginpage ;
 }
 
 AdminPage::~AdminPage()
 {
     delete ui;
 }
-
 void AdminPage::on_logout_clicked()
 {
     this->hide()  ;
-    (new LoginPage)->show() ;
+    loginpage->show() ;
 }
 
