@@ -147,6 +147,25 @@ color:white;</string>
       <string>Password</string>
      </property>
     </widget>
+    <widget class="QLabel" name="incorrectEmail">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>180</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+color : red;
+font-size:20px;
+font: 700 9pt;</string>
+     </property>
+     <property name="text">
+      <string>Email or password is incorrect</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

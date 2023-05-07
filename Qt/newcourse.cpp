@@ -10,6 +10,15 @@ newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
 {
     ui->setupUi(this);
     this->courses = courses ;
+    clear();
+}
+
+newCourse::~newCourse()
+{
+    delete ui;
+}
+void newCourse::clear(){
+    ui->listWidget->clear();
     for(auto c : *courses)
     {
         // Create checkable items and add them to the list widget
@@ -17,21 +26,12 @@ newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
         item1->setFlags(item1->flags() | Qt::ItemIsUserCheckable);
         item1->setCheckState(Qt::Unchecked);
     }
-    connect(ui->listWidget, &QListWidget::itemChanged, [=](QListWidgetItem *item){
-        if (item->checkState() == Qt::Checked)
-        {
-            qDebug() << item->text() << "is checked";
-        }
-        else
-        {
-            qDebug() << item->text() << "is unchecked";
-        }
-    });
-}
 
-newCourse::~newCourse()
-{
-    delete ui;
+    ui->lineEdit_1->setText("");
+    ui->lineEdit_2->setText("");
+    ui->lineEdit_3->setText("");
+    ui->lineEdit_4->setText("");
+    ui->checkBox->setCheckState(Qt::Unchecked);
 }
 
 bool newCourse::isInt(string s){
@@ -41,10 +41,15 @@ bool newCourse::isInt(string s){
             return false;
     return true;
 }
-
+void newCourse::invalidInputData(int idx = 1){
+    if (idx == 0)
+        ui->check_add->setText("You must fill all Fields");
+    else
+        ui->check_add->setText("Hours and Muximum Students must be a positive integer");
+    ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+}
 
 void newCourse::on_Add_clicked(){
-//    qCritical<<"fjsdklfjsd" ;
 
     QString name = ui->lineEdit_1->text();
     QString instructor = ui->lineEdit_2->text();
@@ -52,11 +57,13 @@ void newCourse::on_Add_clicked(){
     QString maxStd = ui->lineEdit_4->text();
 
     if (name.size() == 0 || instructor.size() == 0 || hours.size() == 0 || maxStd.size() == 0){
-        (new invalidData)->show(); return;
+        invalidInputData(0);
+        return;
     }
 
     if (!isInt(hours.toStdString()) || !isInt(maxStd.toStdString())){
-        (new invalidData)->show(); return;
+        invalidInputData();
+        return;
     }
     string _name = name.toStdString();
     string _instructor = instructor.toStdString();
@@ -64,22 +71,24 @@ void newCourse::on_Add_clicked(){
     int  _hours= stoi(hours.toStdString());
 
     if (_hours <= 0 || _maxStd <= 0){
-        (new invalidData)->show(); return;
+        invalidInputData();
+        return;
     }
     Course c;
     set<int> s;
     QListWidget *pre = ui->listWidget ;
-    qDebug() << (QString::fromStdString(to_string(pre->count()))) ;
+    //qDebug() << (QString::fromStdString(to_string(pre->count()))) ;
     for(int i=0 ;i< pre->count() ;i++)
     {
         if(pre->item(i)->checkState()== Qt::Checked)
         {
             s.insert(i) ;
-//            qDebug() << pre->item(i)->text() << "is checked";
-
         }
     }
     c.isElective = ui->checkBox->isChecked();
     c.insert(_name, _instructor, _maxStd, _hours, s);
     courses->push_back(c);
+    ui->check_add->setText("Added successfully");
+    ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
+    clear();
 }

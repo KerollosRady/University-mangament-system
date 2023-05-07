@@ -30,7 +30,7 @@ void AdminPage::on_logout_clicked()
 void AdminPage::on_NewCourse_clicked()
 {
 
-    ptrCourse = new newCourse(nullptr,courses) ;
+    ptrCourse = new newCourse(nullptr,courses);
     ui->scrollArea->setWidget(ptrCourse) , ptrCourse->show();
 
 }

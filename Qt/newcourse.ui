@@ -46,7 +46,7 @@ color:black;</string>
   <widget class="QPushButton" name="Add">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>690</x>
      <y>400</y>
      <width>131</width>
      <height>61</height>
@@ -243,6 +243,22 @@ font: 16pt &quot;Arial&quot;;
    </property>
    <property name="text">
     <string>Elective</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="check_add">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>350</y>
+     <width>531</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

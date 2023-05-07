@@ -5,7 +5,6 @@
 #include <math.h>
 #include <QFile>
 #include <QTextStream>
-#include <invaliddata.h>
 
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
@@ -16,6 +15,7 @@ LoginPage::LoginPage(QWidget *parent)
     ptrAdminPage   = new AdminPage(nullptr,this,&course) ;
     pre() ;
     show();
+    ui->incorrectEmail->hide();
 }
 
 void LoginPage::load_data(){
@@ -83,11 +83,12 @@ void LoginPage::on_toolButton_20_clicked()
 {
     QString usr = ui->username_11->text() ;
     QString pass= ui->password_11->text() ;
-    if(usr=="Admin" &&  pass == "Admin123"){
+    if(usr=="" &&  pass == ""){
          this->hide() , ptrAdminPage->home(), ptrAdminPage->show();
+         ui->incorrectEmail->hide();
     }
     else if(usr.size()!=19)
-         (new invalidData)->show() ;
+         ui->incorrectEmail->show();
     else
     {
          string s = "@cis.asu.eg" ;
@@ -107,11 +108,12 @@ void LoginPage::on_toolButton_20_clicked()
          if( year>=0 && year<=last_year && id>=0 &&
              id<student[year].size() && student[year][id].getPassword() == pass.toStdString()){
             ptrStudentPage->load_data(year,id,student) ;
+            ui->incorrectEmail->hide();
             this->hide() , ptrStudentPage->show() ;
          }
          else
          {
-            (new invalidData)->show() ;
+            ui->incorrectEmail->show();
          }
     }
 }

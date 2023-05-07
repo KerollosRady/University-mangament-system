@@ -2,7 +2,6 @@
 #define NEWCOURSE_H
 #include <QDialog>
 #include <string>
-#include "invaliddata.h"
 #include "course.h"
 namespace Ui {
 class newCourse;
@@ -15,6 +14,8 @@ class newCourse : public QDialog
 public:
     explicit newCourse(QWidget *parent = nullptr, vector<Course>*courses =nullptr);
     bool isInt(std::string);
+    void invalidInputData(int);
+    void clear();
     ~newCourse();
 
 private slots:
