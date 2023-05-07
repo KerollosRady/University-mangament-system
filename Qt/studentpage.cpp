@@ -10,9 +10,6 @@ StudentPage::StudentPage(QWidget *parent , QMainWindow *loginpage ) :QDialog(par
 StudentPage::~StudentPage()
 {
     delete ui;
-    delete stud ;
-    delete ptrFrame  ;
-    delete loginpage ;
 }
 
 void StudentPage::load_data(int year , int id , vector<vector<Student>> &student ){
@@ -24,12 +21,11 @@ void StudentPage::load_data(int year , int id , vector<vector<Student>> &student
 void StudentPage::on_Profile_currentIndexChanged(int index)
 {
     if(index==1){
-        ptrFrame = new Frame(nullptr,stud) ;
-        ui->scrollArea->setWidget(ptrFrame) , ptrFrame->show() ;
+        ui->scrollArea->setWidget(new Frame(nullptr,stud));
     }
     else
     {
-        ui->scrollArea->setWidget(new FrameWelcome);
+        ui->scrollArea->setWidget( new FrameWelcome) ;
     }
 }
 

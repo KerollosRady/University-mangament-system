@@ -15,7 +15,6 @@ newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
 newCourse::~newCourse()
 {
     delete ui;
-    delete courses ;
 }
 
 bool newCourse::isInt(string s){
@@ -52,5 +51,6 @@ void newCourse::on_Add_clicked(){
     c.isElective = ui->checkBox->isChecked();
     c.insert(_name, _instructor, _maxStd, _hours, {});
     courses->push_back(c);
+    cout<<"added " ;
 }
 

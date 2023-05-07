@@ -17,7 +17,6 @@ public:
 
 private slots:
     void on_logout_clicked();
-
     void on_NewCourse_clicked();
     void on_HomeButton_clicked();
 
@@ -27,5 +26,7 @@ private:
     adminwelcome * welcome;
     QMainWindow * loginpage ;
     vector<Course>* courses ;
+public :
+    void home() ;
 };
 

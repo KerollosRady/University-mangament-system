@@ -10,5 +10,6 @@ FrameWelcome::FrameWelcome(QWidget *parent) :
 
 FrameWelcome::~FrameWelcome()
 {
+    qCritical()<<"delete Frame Welcome" ;
     delete ui;
 }

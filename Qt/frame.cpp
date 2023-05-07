@@ -12,6 +12,7 @@ Frame::Frame(QWidget *parent, Student *stud ) :
 
 Frame::~Frame()
 {
+    qCritical()<<"delete My profile " ;
     delete ui;
 }
 
@@ -39,7 +40,7 @@ void Frame::on_ChangePassBtn_clicked()
     }
     else
     {
-        ui->validation->setText("Secure password: 1 digit, 1 uppercase, 1 lowercase. Length: 8-16.");
+        ui->validation->setText("Secure password: 1 digit, 1 uppercase, 1 lowercase.\n Length: 8-16.");
         ui->validation->setStyleSheet("background-color: transparent;color : red ;") ;
     }
 }

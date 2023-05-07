@@ -335,9 +335,9 @@ font: 36pt &quot;Castellar&quot;;
   <widget class="QLabel" name="validation">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>520</y>
-     <width>261</width>
+     <width>271</width>
      <height>41</height>
     </rect>
    </property>

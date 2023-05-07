@@ -5,6 +5,7 @@
 #include <math.h>
 #include <QFile>
 #include <QTextStream>
+#include <invaliddata.h>
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginPage)
@@ -81,10 +82,10 @@ void LoginPage::on_toolButton_20_clicked()
     QString usr = ui->username_11->text() ;
     QString pass= ui->password_11->text() ;
     if(usr=="Admin" &&  pass == "Admin123"){
-        this->hide()  , ptrAdminPage->show();
+         this->hide() , ptrAdminPage->home(), ptrAdminPage->show();
     }
     else if(usr.size()!=19)
-         return ;
+         (new invalidData)->show() ;
     else
     {
          string s = "@cis.asu.eg" ;
@@ -108,7 +109,7 @@ void LoginPage::on_toolButton_20_clicked()
          }
          else
          {
-
+            (new invalidData)->show() ;
          }
     }
 }

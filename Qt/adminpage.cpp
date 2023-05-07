@@ -15,11 +15,10 @@ AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, vector<Course>*cou
 
 AdminPage::~AdminPage()
 {
+    cout<<"delete ui; delete ptrCourse ; delete welcome;" ;
     delete ui;
     delete ptrCourse ;
     delete welcome;
-    delete loginpage ;
-    delete courses ;
 }
 void AdminPage::on_logout_clicked()
 {
@@ -40,6 +39,11 @@ void AdminPage::on_NewCourse_clicked()
 void AdminPage::on_HomeButton_clicked()
 {
 
+    welcome = new adminwelcome(nullptr);
+    ui->scrollArea->setWidget(welcome) , welcome->show();
+}
+
+void AdminPage::home(){
     welcome = new adminwelcome(nullptr);
     ui->scrollArea->setWidget(welcome) , welcome->show();
 }

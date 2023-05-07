@@ -21,7 +21,6 @@ public:
 private:
     Ui::StudentPage *ui;
     Student *stud ;
-    Frame * ptrFrame  ;
     QMainWindow *loginpage ;
 public:
     void load_data(int year , int id , vector<vector<Student>>&student) ;
