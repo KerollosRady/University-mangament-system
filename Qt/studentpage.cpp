@@ -1,15 +1,18 @@
 #include "studentpage.h"
 #include "ui_studentpage.h"
-StudentPage::StudentPage(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::StudentPage)
+#include <loginpage.h>
+StudentPage::StudentPage(QWidget *parent , QMainWindow *loginpage ) :QDialog(parent),ui(new Ui::StudentPage)
 {
     ui->setupUi(this);
+    this->loginpage = loginpage ;
 }
 
 StudentPage::~StudentPage()
 {
     delete ui;
+    delete stud ;
+    delete ptrFrame  ;
+    delete loginpage ;
 }
 
 void StudentPage::load_data(int year , int id , vector<vector<Student>> &student ){
@@ -25,6 +28,15 @@ void StudentPage::on_Profile_currentIndexChanged(int index)
         ui->scrollArea->setWidget(ptrFrame) , ptrFrame->show() ;
     }
     else
-        ptrFrame->hide() ;
+    {
+        ui->scrollArea->setWidget(new FrameWelcome);
+    }
+}
+
+
+void StudentPage::on_pushButton_5_clicked()
+{
+    this->hide() ;
+    loginpage->show() ;
 }
 

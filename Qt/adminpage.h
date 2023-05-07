@@ -1,9 +1,8 @@
-#ifndef ADMINPAGE_H
-#define ADMINPAGE_H
-
+#pragma once
 #include <QDialog>
 #include <newCourse.h>
 #include "adminwelcome.h"
+#include <QMainWindow>
 namespace Ui {
 class AdminPage;
 }
@@ -13,7 +12,7 @@ class AdminPage : public QDialog
     Q_OBJECT
 
 public:
-    explicit AdminPage(QWidget *parent = nullptr);
+    explicit AdminPage(QWidget *parent = nullptr, QMainWindow * loginpage= nullptr);
     ~AdminPage();
 
 private slots:
@@ -26,6 +25,6 @@ private:
     Ui::AdminPage *ui;
     newCourse * ptrCourse ;
     adminwelcome * welcome;
+    QMainWindow * loginpage ;
 };
 
-#endif // ADMINPAGE_H

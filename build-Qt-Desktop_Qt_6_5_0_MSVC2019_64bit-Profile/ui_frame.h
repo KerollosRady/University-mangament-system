@@ -37,6 +37,7 @@ public:
     QLabel *label_7;
     QLabel *AllowedHours;
     QLabel *label_8;
+    QLabel *validation;
 
     void setupUi(QFrame *Frame)
     {
@@ -65,6 +66,8 @@ public:
         ChangePassBtn->setObjectName("ChangePassBtn");
         ChangePassBtn->setGeometry(QRect(480, 450, 171, 61));
         ChangePassBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        ChangePassBtn->setStyleSheet(QString::fromUtf8("    border-radius: 30px;\n"
+"   color : rgb(170, 0, 0)"));
         label = new QLabel(Frame);
         label->setObjectName("label");
         label->setGeometry(QRect(30, 160, 121, 71));
@@ -142,6 +145,15 @@ public:
 "\n"
 ""));
         label_8->setAlignment(Qt::AlignCenter);
+        validation = new QLabel(Frame);
+        validation->setObjectName("validation");
+        validation->setGeometry(QRect(170, 520, 261, 41));
+        validation->setStyleSheet(QString::fromUtf8("\n"
+"color:rgb(255, 255, 255);\n"
+"    background-color: transparent;\n"
+"\n"
+""));
+        validation->setAlignment(Qt::AlignCenter);
 
         retranslateUi(Frame);
 
@@ -167,6 +179,7 @@ public:
         label_7->setText(QCoreApplication::translate("Frame", "Allowed Hours", nullptr));
         AllowedHours->setText(QString());
         label_8->setText(QCoreApplication::translate("Frame", "MY PROFILE", nullptr));
+        validation->setText(QString());
     } // retranslateUi
 
 };

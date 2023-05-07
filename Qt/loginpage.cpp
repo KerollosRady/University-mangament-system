@@ -10,8 +10,8 @@ LoginPage::LoginPage(QWidget *parent)
     , ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
-    ptrStudentPage = new StudentPage() ;
-    ptrAdminPage   = new AdminPage() ;
+    ptrStudentPage = new StudentPage(nullptr, this) ;
+    ptrAdminPage   = new AdminPage(nullptr,this) ;
 }
 
 void LoginPage::load_data(){

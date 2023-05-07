@@ -25,3 +25,22 @@ void Frame::load_data(){
     this->ui->AcadimicYear->setText(QString::fromStdString(to_string(stud->academicYear))) ;
 
 }
+
+void Frame::on_ChangePassBtn_clicked()
+{
+    string s = this->ui->newPass->text().toStdString();
+    bool ok =stud->validate_password(s) ;
+    if(ok){
+        stud->setPassword(s) ;
+        ui->validation->setText("Password has been changed successfully");
+        ui->validation->setStyleSheet("background-color: transparent;color : green ;") ;
+        this->ui->pass->setText(QString::fromStdString(stud->getPassword())) ;
+
+    }
+    else
+    {
+        ui->validation->setText("Write a strong password .");
+        ui->validation->setStyleSheet("background-color: transparent;color : red ;") ;
+    }
+}
+
