@@ -4,16 +4,18 @@
 #include <iostream>
 using namespace std;
 
-newCourse::newCourse(QWidget *parent) :
+newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
     QDialog(parent),
     ui(new Ui::newCourse)
 {
     ui->setupUi(this);
+    this->courses = courses ;
 }
 
 newCourse::~newCourse()
 {
     delete ui;
+    delete courses ;
 }
 
 bool newCourse::isInt(string s){
@@ -26,7 +28,6 @@ bool newCourse::isInt(string s){
 
 
 void newCourse::on_Add_clicked(){
-    vector<Course> courses;
     QString name = ui->lineEdit_1->text();
     QString instructor = ui->lineEdit_2->text();
     QString hours = ui->lineEdit_3->text();
@@ -50,6 +51,6 @@ void newCourse::on_Add_clicked(){
     Course c;
     c.isElective = ui->checkBox->isChecked();
     c.insert(_name, _instructor, _maxStd, _hours, {});
-    courses.push_back(c);
+    courses->push_back(c);
 }
 

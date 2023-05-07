@@ -13,7 +13,7 @@ class newCourse : public QDialog
     Q_OBJECT
 
 public:
-    explicit newCourse(QWidget *parent = nullptr);
+    explicit newCourse(QWidget *parent = nullptr, vector<Course>*courses =nullptr);
     bool isInt(std::string);
     ~newCourse();
 
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::newCourse *ui;
+    vector<Course>*courses ;
 };
 
 #endif // NEWCOURSE_H

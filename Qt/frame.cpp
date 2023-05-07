@@ -39,7 +39,7 @@ void Frame::on_ChangePassBtn_clicked()
     }
     else
     {
-        ui->validation->setText("Write a strong password .");
+        ui->validation->setText("Secure password: 1 digit, 1 uppercase, 1 lowercase. Length: 8-16.");
         ui->validation->setStyleSheet("background-color: transparent;color : red ;") ;
     }
 }
