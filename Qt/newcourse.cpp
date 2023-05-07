@@ -10,7 +10,6 @@ newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
 {
     ui->setupUi(this);
     this->courses = courses ;
-
     for(auto c : *courses)
     {
         // Create checkable items and add them to the list widget
@@ -77,6 +76,7 @@ void newCourse::on_Add_clicked(){
         {
             s.insert(i) ;
 //            qDebug() << pre->item(i)->text() << "is checked";
+
         }
     }
     c.isElective = ui->checkBox->isChecked();
