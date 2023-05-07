@@ -81,7 +81,6 @@ LoginPage::~LoginPage()
 }
 void LoginPage::on_toolButton_20_clicked()
 {
-    // "yearid@cis.asu.eg"
     QString usr = ui->username_11->text() ;
     QString pass= ui->password_11->text() ;
     if(usr=="Admin" &&  pass == "Admin123"){

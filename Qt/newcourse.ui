@@ -32,7 +32,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
+    <string notr="true">    border-radius: 10px;
+background:white;
 color:black;</string>
    </property>
    <property name="text">
@@ -55,7 +56,8 @@ color:black;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
+    <string notr="true">    border-radius: 30px;
+background:white;
 color:black;</string>
    </property>
    <property name="text">
@@ -72,7 +74,8 @@ color:black;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
+    <string notr="true">    border-radius: 10px;
+background:white;
 color:black;</string>
    </property>
    <property name="text">
@@ -92,7 +95,8 @@ color:black;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
+    <string notr="true">    border-radius: 10px;
+background:white;
 color:black;</string>
    </property>
    <property name="text">
@@ -112,7 +116,8 @@ color:black;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
+    <string notr="true">    border-radius: 10px;
+background:white;
 color:black;</string>
    </property>
    <property name="text">
@@ -125,52 +130,22 @@ color:black;</string>
   <widget class="QCheckBox" name="checkBox">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>140</x>
      <y>350</y>
      <width>121</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
-color:black;</string>
+    <string notr="true">color:white;
+font: 15pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string>Elective</string>
    </property>
-  </widget>
-  <widget class="QComboBox" name="preReq">
-   <property name="geometry">
-    <rect>
-     <x>610</x>
-     <y>100</y>
-     <width>241</width>
-     <height>24</height>
-    </rect>
+   <property name="tristate">
+    <bool>true</bool>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background:white;</string>
-   </property>
-   <item>
-    <property name="text">
-     <string>Pre Required Courses</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <selectedon>:/i18n/Qt_en_GB.qm</selectedon>
-     </iconset>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>math1</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>math2</string>
-    </property>
-   </item>
   </widget>
   <widget class="QLineEdit" name="lineEdit_1">
    <property name="geometry">
@@ -183,7 +158,9 @@ color:black;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background:white;
-color:black;</string>
+color:black;
+    border-radius: 10px;
+</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
@@ -196,7 +173,8 @@ color:black;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white;
+    <string notr="true">    border-radius: 10px;
+background:white;
 color:black;</string>
    </property>
   </widget>
@@ -211,7 +189,8 @@ color:black;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background:white;
-color:black;</string>
+color:black;    border-radius: 10px;
+</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_4">
@@ -225,7 +204,49 @@ color:black;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background:white;
-color:black;</string>
+color:black;
+    border-radius: 10px;
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>70</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255);
+background-color: transparent;
+font: 700 12pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>PreRequiredcourse</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>110</y>
+     <width>271</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: white ;
+border-radius:10px;
+font: 600 12pt &quot;Yu Gothic UI Semibold&quot;;
+color : black ; </string>
+   </property>
+   <property name="itemAlignment">
+    <set>Qt::AlignHCenter</set>
    </property>
   </widget>
  </widget>

@@ -10,6 +10,24 @@ newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
 {
     ui->setupUi(this);
     this->courses = courses ;
+
+    for(auto c : *courses)
+    {
+        // Create checkable items and add them to the list widget
+        QListWidgetItem *item1 = new QListWidgetItem(QString::fromStdString(c.name), ui->listWidget);
+        item1->setFlags(item1->flags() | Qt::ItemIsUserCheckable);
+        item1->setCheckState(Qt::Unchecked);
+    }
+    connect(ui->listWidget, &QListWidget::itemChanged, [=](QListWidgetItem *item){
+        if (item->checkState() == Qt::Checked)
+        {
+            qDebug() << item->text() << "is checked";
+        }
+        else
+        {
+            qDebug() << item->text() << "is unchecked";
+        }
+    });
 }
 
 newCourse::~newCourse()
@@ -28,6 +46,7 @@ bool newCourse::isInt(string s){
 
 void newCourse::on_Add_clicked(){
 //    qCritical<<"fjsdklfjsd" ;
+
     QString name = ui->lineEdit_1->text();
     QString instructor = ui->lineEdit_2->text();
     QString hours = ui->lineEdit_3->text();
@@ -49,7 +68,18 @@ void newCourse::on_Add_clicked(){
         (new invalidData)->show(); return;
     }
     Course c;
+    set<int> s;
+    QListWidget *pre = ui->listWidget ;
+    qDebug() << (QString::fromStdString(to_string(pre->count()))) ;
+    for(int i=0 ;i< pre->count() ;i++)
+    {
+        if(pre->item(i)->checkState()== Qt::Checked)
+        {
+            s.insert(i) ;
+//            qDebug() << pre->item(i)->text() << "is checked";
+        }
+    }
     c.isElective = ui->checkBox->isChecked();
-    c.insert(_name, _instructor, _maxStd, _hours, {});
+    c.insert(_name, _instructor, _maxStd, _hours, s);
     courses->push_back(c);
 }

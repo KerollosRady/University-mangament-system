@@ -24,6 +24,7 @@ private:
     QMainWindow *loginpage ;
 public:
     void load_data(int year , int id , vector<vector<Student>>&student) ;
+    void home() ;
 private slots:
     void on_Profile_currentIndexChanged(int index);
     void on_pushButton_5_clicked();

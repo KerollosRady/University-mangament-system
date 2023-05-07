@@ -39,6 +39,9 @@ void StudentPage::on_pushButton_5_clicked()
 
 void StudentPage::on_HomeButton_clicked()
 {
-    string s = ui->label->text().toStdString() ;
+    home();
+}
+void StudentPage::home(){
+    ui->scrollArea->setWidget(new FrameWelcome) ;
 }
 
