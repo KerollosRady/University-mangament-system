@@ -14,14 +14,17 @@ SOURCES += \
     adminwelcome.cpp \
     course.cpp \
     editCourse.cpp \
+    debuging.cpp \
     frame.cpp \
     framewelcome.cpp \
     main.cpp \
     loginpage.cpp \
     newcourse.cpp \
+    newstudent.cpp \
     student.cpp \
     studentpage.cpp \
-    user.cpp
+    user.cpp \
+    viewcourses.cpp
 
 HEADERS += \
     admin.h \
@@ -29,23 +32,29 @@ HEADERS += \
     adminwelcome.h \
     course.h \
     editCourse.h \
+    debuging.h \
     frame.h \
     framewelcome.h \
     loginpage.h \
     newcourse.h \
+    newstudent.h \
     student.h \
     studentpage.h \
-    user.h
+    user.h \
+    viewcourses.h
 
 FORMS += \
     adminpage.ui \
     adminwelcome.ui \
     editcourse.ui \
+    debuging.ui \
     frame.ui \
     framewelcome.ui \
     loginpage.ui \
     newcourse.ui \
-    studentpage.ui
+    newstudent.ui \
+    studentpage.ui \
+    viewcourses.ui
 
 TRANSLATIONS += \
     Qt_en_GB.ts

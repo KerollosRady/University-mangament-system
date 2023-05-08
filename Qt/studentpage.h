@@ -14,13 +14,14 @@ class StudentPage : public QDialog
     Q_OBJECT
 
 public:
-    explicit StudentPage(QWidget *parent = nullptr,QMainWindow *loginpage = nullptr );
+    explicit StudentPage(QWidget *parent = nullptr,QMainWindow *loginpage = nullptr , vector<Course>* courses  = nullptr );
     void ProfileProperties();
     ~StudentPage();
 
 private:
     Ui::StudentPage *ui;
     Student *stud ;
+    vector<Course>* courses ;
     QMainWindow *loginpage ;
 public:
     void load_data(int year , int id , vector<vector<Student>>&student) ;
@@ -29,5 +30,6 @@ private slots:
     void on_Profile_currentIndexChanged(int index);
     void on_pushButton_5_clicked();
     void on_HomeButton_clicked();
+    void on_MyCoursesButton_clicked();
 };
 

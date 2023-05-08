@@ -5,13 +5,14 @@
 #include <math.h>
 #include <QFile>
 #include <QTextStream>
-
+#include <debuging.h>
+#include <ui_debuging.h>
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
-    ptrStudentPage = new StudentPage(nullptr, this) ;
+    ptrStudentPage = new StudentPage(nullptr, this, &course) ;
     ptrAdminPage   = new AdminPage(nullptr,this,&course) ;
     pre() ;
     show();
@@ -61,8 +62,13 @@ void LoginPage::load_data(){
                                Student(2023, 0, "abdo", 3),
                                Student(2023, 1, "kero", 3),
                                Student(2023, 2, "bebo", 3)};
-     for(auto std : student[23])
-         cout<<std.getEmail()<<' '<<std.getPassword()<<endl ;
+     for (auto &s : student[last_year]){
+        s.progressCourses = {0,1,2} ;
+//        for(int i=0 ;i<3 ;i++)
+//            s.progressCourses.push_back(i);
+     }
+//     for (auto& s : student[last_year])
+//        s.SemesterUpdate();
 }
 void LoginPage::pre(){
      // get current system time
@@ -106,8 +112,8 @@ void LoginPage::on_toolButton_20_clicked()
             id+=pow(10,8-i-1)*usr[i].digitValue() ;
          year-=2000 ;
          if( year>=0 && year<=last_year && id>=0 &&
-             id<student[year].size() && student[year][id].getPassword() == pass.toStdString()){
-            ptrStudentPage->load_data(year,id,student) ;
+             id<student[year].size() && student[year][id].getPassword() == pass.toStdString() ){
+             ptrStudentPage->load_data(year,id,student) ;
             ui->incorrectEmail->hide();
             ptrStudentPage->show(), this->hide();
          }
