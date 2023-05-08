@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>700</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1000</width>
-    <height>700</height>
+    <width>1280</width>
+    <height>720</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1000</width>
-    <height>700</height>
+    <width>1280</width>
+    <height>720</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,22 +32,22 @@ border-radius:10px;</string>
   <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>80</y>
-     <width>731</width>
-     <height>600</height>
+     <x>270</x>
+     <y>100</y>
+     <width>1000</width>
+     <height>590</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>0</width>
-     <height>600</height>
+     <height>0</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>16777215</width>
-     <height>600</height>
+     <height>4645465</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -57,20 +57,23 @@ border-radius:10px;</string>
    <property name="widgetResizable">
     <bool>true</bool>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
    <widget class="QWidget" name="scrollAreaWidgetContents">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>731</width>
-      <height>600</height>
+      <width>1000</width>
+      <height>590</height>
      </rect>
     </property>
     <widget class="QLabel" name="welcome_to_ums">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>130</y>
+       <x>190</x>
+       <y>100</y>
        <width>641</width>
        <height>351</height>
       </rect>
@@ -86,13 +89,16 @@ font: 36pt &quot;Castellar&quot;;
      <property name="text">
       <string>Welcome To Ums</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </widget>
   </widget>
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>870</x>
+     <x>1129</x>
      <y>20</y>
      <width>111</width>
      <height>51</height>
@@ -119,14 +125,14 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
      <x>0</x>
      <y>0</y>
      <width>256</width>
-     <height>691</height>
+     <height>700</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="HomeButton">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>73</x>
      <y>170</y>
      <width>141</width>
      <height>71</height>
@@ -150,8 +156,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <widget class="QPushButton" name="MyCoursesButton">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>260</y>
+     <x>70</x>
+     <y>290</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -174,8 +180,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <widget class="QPushButton" name="RegisterButton">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>440</y>
+     <x>70</x>
+     <y>540</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -199,8 +205,8 @@ course</string>
   <widget class="QPushButton" name="GradeButton">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>350</y>
+     <x>70</x>
+     <y>410</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -223,8 +229,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>30</y>
+     <x>60</x>
+     <y>40</y>
      <width>161</width>
      <height>91</height>
     </rect>
@@ -248,9 +254,9 @@ font: 36pt &quot;Castellar&quot;;
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>30</y>
+     <y>20</y>
      <width>141</width>
-     <height>24</height>
+     <height>46</height>
     </rect>
    </property>
    <property name="styleSheet">

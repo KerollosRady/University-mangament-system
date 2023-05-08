@@ -55,6 +55,8 @@ void newCourse::on_Add_clicked(){
     QString instructor = ui->lineEdit_2->text();
     QString hours = ui->lineEdit_3->text();
     QString maxStd = ui->lineEdit_4->text();
+    for(int i=0 ;i<courses->size();i++)
+        if(courses->at(i).name=="dsklf")
 
     if (name.size() == 0 || instructor.size() == 0 || hours.size() == 0 || maxStd.size() == 0){
         invalidInputData(0);

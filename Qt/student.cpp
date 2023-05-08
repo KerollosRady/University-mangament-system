@@ -4,7 +4,9 @@
 #include "student.h"
 #include <cmath>
 #include <algorithm>
+#define el  '\n'
 #define inRange(x, l, r) (l <= x && x <= r)
+
 Student::Student(int year, int id, const string& name, int numberOfCourses)
 {
     this->name = name;
@@ -12,10 +14,10 @@ Student::Student(int year, int id, const string& name, int numberOfCourses)
     setPassword(GeneratePassword());
     setEmail(GenerateEmail());
     this->finishedCourses = vector<bool>(numberOfCourses);
-    this->courseGPA = vector<float>(numberOfCourses);
-    this->academicSemster = 1;
-    this->academicYear = 1;
-    this->CGPA = 0.0;
+    this->courseGPA       = vector<float>(numberOfCourses);
+    this->academicSemster = 1  ;
+    this->academicYear    = 1  ;
+    this->CGPA            = 0.0;
 }
 
 Student::Student()
@@ -37,7 +39,7 @@ void Student::SemesterUpdate()
         finishedCourses[id] = (bool)courseGPA[id];
         CGPA += courseGPA[id];
     }
-    CGPA /=max(int(progressCourses.size() + finishedCnt),1) ;
+    CGPA /= max(int(progressCourses.size() + finishedCnt),1) ;
 
     progressCourses.clear();
     //	 determining max hours allowed depending on GPA
@@ -94,9 +96,7 @@ void Student::ViewAllcourses(const vector<Course>&course)
     cout << "Progress Courses" << el;
     for (auto c : progressCourses)
         cout << course[c].name << el;
-
 }
-
 void Student::ViewCourseGrade_CGPA(const vector<Course>&course)
 {
     cout << " cumulative GPA" << el;

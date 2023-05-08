@@ -31,7 +31,7 @@ void Frame::on_ChangePassBtn_clicked()
 {
     string s = this->ui->newPass->text().toStdString();
     bool ok =stud->validate_password(s) ;
-    if(ok){
+    if(ok && this->ui->newPass->text() == this->ui->confirmpass->text()){
         stud->setPassword(s) ;
         ui->validation->setText("Password has been changed successfully");
         ui->validation->setStyleSheet("background-color: transparent;color : green ;") ;
@@ -39,7 +39,11 @@ void Frame::on_ChangePassBtn_clicked()
     }
     else
     {
+        if(!ok)
         ui->validation->setText("Secure password: 1 digit, 1 uppercase, 1 lowercase.\n Length: 8-16.");
+        else
+        ui->validation->setText("Password and confirm password does not match");
+
         ui->validation->setStyleSheet("background-color: transparent;color : red ;") ;
     }
 }
