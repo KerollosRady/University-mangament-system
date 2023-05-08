@@ -32,8 +32,8 @@ void StudentPage::on_Profile_currentIndexChanged(int index)
 
 void StudentPage::on_pushButton_5_clicked()
 {
-    this->hide() ;
     loginpage->show() ;
+    this->hide() ;
 }
 
 

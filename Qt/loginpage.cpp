@@ -84,7 +84,7 @@ void LoginPage::on_toolButton_20_clicked()
     QString usr = ui->username_11->text() ;
     QString pass= ui->password_11->text() ;
     if(usr=="" &&  pass == ""){
-         this->hide() , ptrAdminPage->home(), ptrAdminPage->show();
+         ptrAdminPage->home(), ptrAdminPage->show() , this->hide();
          ui->incorrectEmail->hide();
     }
     else if(usr.size()!=19)
@@ -109,7 +109,7 @@ void LoginPage::on_toolButton_20_clicked()
              id<student[year].size() && student[year][id].getPassword() == pass.toStdString()){
             ptrStudentPage->load_data(year,id,student) ;
             ui->incorrectEmail->hide();
-            this->hide() , ptrStudentPage->show() ;
+            ptrStudentPage->show(), this->hide();
          }
          else
          {

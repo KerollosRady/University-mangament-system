@@ -21,6 +21,8 @@ public:
 private slots:
     void on_Add_clicked();
 
+    void on_clear_clicked();
+
 private:
     Ui::newCourse *ui;
     vector<Course>*courses ;

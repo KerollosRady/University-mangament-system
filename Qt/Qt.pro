@@ -13,6 +13,7 @@ SOURCES += \
     adminpage.cpp \
     adminwelcome.cpp \
     course.cpp \
+    editCourse.cpp \
     frame.cpp \
     framewelcome.cpp \
     main.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     adminpage.h \
     adminwelcome.h \
     course.h \
+    editCourse.h \
     frame.h \
     framewelcome.h \
     loginpage.h \
@@ -38,6 +40,7 @@ HEADERS += \
 FORMS += \
     adminpage.ui \
     adminwelcome.ui \
+    editcourse.ui \
     frame.ui \
     framewelcome.ui \
     loginpage.ui \

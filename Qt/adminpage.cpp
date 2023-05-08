@@ -26,24 +26,24 @@ void AdminPage::on_logout_clicked()
     loginpage->show() ;
 }
 
-
 void AdminPage::on_NewCourse_clicked()
 {
-
     ptrCourse = new newCourse(nullptr,courses);
     ui->scrollArea->setWidget(ptrCourse) , ptrCourse->show();
-
 }
-
 
 void AdminPage::on_HomeButton_clicked()
 {
-
     welcome = new adminwelcome(nullptr);
     ui->scrollArea->setWidget(welcome) , welcome->show();
 }
-
 void AdminPage::home(){
     welcome = new adminwelcome(nullptr);
     ui->scrollArea->setWidget(welcome) , welcome->show();
 }
+void AdminPage::on_EditCourse_clicked()
+{
+    ptrEdit = new EditCourse(nullptr,courses);
+    ui->scrollArea->setWidget(ptrEdit), ptrEdit->show();
+}
+
