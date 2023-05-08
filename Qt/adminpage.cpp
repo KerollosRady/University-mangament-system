@@ -47,3 +47,10 @@ void AdminPage::on_EditCourse_clicked()
     ui->scrollArea->setWidget(ptrEdit), ptrEdit->show();
 }
 
+void AdminPage::on_NewStudent_clicked()
+{
+    newStd = new newStudent(nullptr);
+    ui->scrollArea->setWidget(newStd);
+    newStd->show();
+}
+

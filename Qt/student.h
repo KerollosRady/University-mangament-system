@@ -11,6 +11,7 @@ public:
     float CGPA;
     int academicYear;
     int academicSemster;
+    bool graduated = false;
     vector<bool> finishedCourses;
     vector<code> progressCourses ;
     vector<float> courseGPA;

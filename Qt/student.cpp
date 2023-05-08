@@ -27,21 +27,33 @@ Student::Student()
 void Student::SemesterUpdate()
 {
     this->academicSemster++;
-    this->academicYear = (int)ceil(academicSemster / 2.0);
-
     // updating CGPA & finishedCourses
+
     int finishedCnt = count(finishedCourses.begin(),finishedCourses.end(), 1);
+    int allFinished = finishedCnt;
+
     CGPA *= finishedCnt;
+
     for (auto& id : progressCourses)
     {
         if (courseGPA[id] < 2)
             courseGPA[id] = 0;
-        finishedCourses[id] = (bool)courseGPA[id];
+        else
+            allFinished++, finishedCourses[id] = 1;
         CGPA += courseGPA[id];
     }
+
     CGPA /= max(int(progressCourses.size() + finishedCnt),1) ;
 
+
     progressCourses.clear();
+    academicYear = allFinished/10 + 1;
+
+    if (academicYear == 5){
+        graduated = 1;
+        return;
+    }
+
     //	 determining max hours allowed depending on GPA
     if (inRange(CGPA, 3, 4))
         this->maximumHoursAllowed = 21;
@@ -53,15 +65,7 @@ void Student::SemesterUpdate()
 
 void Student::ViewAvailableCourses(const vector<Course>& c)
 {
-    for (int i = 0; i < academicSemster * 5; i++)
-    {
-        cout << c[i].name << endl;
-    }
-}
-
-void Student::FilterCourse(const vector<Course>& c)
-{
-    for (int i = 0; i < academicSemster * 5; i++)
+    for (int i = 0; i < c.size(); i++)
     {
         if (!finishedCourses[i] && maximumHoursAllowed>=c[i].hours)
         {
@@ -72,6 +76,11 @@ void Student::FilterCourse(const vector<Course>& c)
                 cout << c[i].name << el ;
         }
     }
+}
+
+void Student::FilterCourse(const vector<Course>& c)
+{
+    //
 }
 
 void Student::ViewDetailsCourse(vector<Course>& course, code id)

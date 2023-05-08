@@ -4,6 +4,7 @@
 #include "adminwelcome.h"
 #include <QMainWindow>
 #include <editCourse.h>
+#include <newstudent.h>
 
 namespace Ui {
 class AdminPage;
@@ -21,7 +22,8 @@ private slots:
     void on_logout_clicked();
     void on_NewCourse_clicked();
     void on_HomeButton_clicked();
-    void on_EditCourse_clicked();
+    void on_EditCourse_clicked();    
+    void on_NewStudent_clicked();
 
 private:
     Ui::AdminPage *ui;
@@ -30,6 +32,7 @@ private:
     QMainWindow * loginpage ;
     vector<Course>* courses ;
     EditCourse * ptrEdit;
+    newStudent *newStd;
 public :
     void home() ;
 };
