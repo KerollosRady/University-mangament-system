@@ -128,11 +128,17 @@ font: 16pt &quot;Arial&quot;;
    <property name="text">
     <string>Elective</string>
    </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="clear">
    <property name="geometry">
     <rect>
-     <x>844</x>
+     <x>684</x>
      <y>440</y>
      <width>131</width>
      <height>61</height>
@@ -156,7 +162,7 @@ font-size:20px;
   <widget class="QPushButton" name="Edit">
    <property name="geometry">
     <rect>
-     <x>684</x>
+     <x>844</x>
      <y>440</y>
      <width>131</width>
      <height>61</height>
@@ -187,10 +193,11 @@ font-size:20px;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: white ;
-border-radius:10px;
-font: 600 12pt &quot;Yu Gothic UI Semibold&quot;;
-color : black ; </string>
+    <string notr="true">font-size:20px;
+color :white;
+border-radius: 10px;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="check_add">
@@ -257,9 +264,10 @@ color:black;
    </property>
    <property name="styleSheet">
     <string notr="true">font-size:20px;
-color : rgb(0, 9, 40);
+color :white;
 border-radius: 10px;
-background:rgb(203, 203, 203);</string>
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
    </property>
    <item>
     <property name="text">

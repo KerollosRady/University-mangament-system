@@ -57,8 +57,7 @@ void newCourse::on_Add_clicked(){
     QString instructor = ui->lineEdit_2->text();
     int hours = ui->spinBox->value();
     QString maxStd = ui->lineEdit_4->text();
-    for(int i=0 ;i<courses->size();i++)
-        if(courses->at(i).name=="dsklf")
+
 
     if (name.size() == 0 || instructor.size() == 0 || maxStd.size() == 0){
         invalidInputData(0);
@@ -85,6 +84,7 @@ void newCourse::on_Add_clicked(){
             return;
         }
     }
+
     Course c;
     set<int> s;
     QListWidget *pre = ui->listWidget ;
@@ -108,4 +108,3 @@ void newCourse::on_clear_clicked()
     clear();
     ui->check_add->setText("");
 }
-

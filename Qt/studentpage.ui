@@ -95,13 +95,13 @@ font: 36pt &quot;Castellar&quot;;
     </widget>
    </widget>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="Logout">
    <property name="geometry">
     <rect>
-     <x>1129</x>
+     <x>1110</x>
      <y>20</y>
-     <width>111</width>
-     <height>51</height>
+     <width>151</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="cursor">
@@ -251,30 +251,50 @@ font: 36pt &quot;Castellar&quot;;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QComboBox" name="Profile">
+  <widget class="QPushButton" name="MyProfile">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>20</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:20px;
+    border-radius: 25px;
+    color: #ffffff;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>My Profile</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Name">
    <property name="geometry">
     <rect>
      <x>270</x>
      <y>20</y>
-     <width>141</width>
-     <height>46</height>
+     <width>531</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:white;
-font: 16pt &quot;Arial&quot;;
-    background-color: transparent;</string>
+    <string notr="true">    background-color: transparent;
+    font-weight: 600;
+	font-size:20px;
+    border-radius: 25px;
+    color: #ffffff;
+</string>
    </property>
-   <item>
-    <property name="text">
-     <string>Name</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>My Profile</string>
-    </property>
-   </item>
+   <property name="text">
+    <string>Abanoub Ashraf Kamel</string>
+   </property>
   </widget>
  </widget>
  <resources/>

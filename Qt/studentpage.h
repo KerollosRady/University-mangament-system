@@ -27,11 +27,11 @@ public:
     void load_data(int year , int id , vector<vector<Student>>&student) ;
     void home() ;
 private slots:
-    void on_Profile_currentIndexChanged(int index);
-    void on_pushButton_5_clicked();
     void on_HomeButton_clicked();
     void on_MyCoursesButton_clicked();
     void on_GradeButton_clicked();
     void on_RegisterButton_clicked();
+    void on_MyProfile_clicked();
+    void on_Logout_clicked();
 };
 

@@ -133,8 +133,8 @@ color:black;</string>
   <widget class="QCheckBox" name="checkBox">
    <property name="geometry">
     <rect>
-     <x>116</x>
-     <y>408</y>
+     <x>340</x>
+     <y>390</y>
      <width>121</width>
      <height>41</height>
     </rect>

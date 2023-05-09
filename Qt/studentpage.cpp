@@ -15,28 +15,10 @@ StudentPage::~StudentPage()
     delete ui;
 }
 
-void StudentPage::load_data(int year , int id , vector<vector<Student>> &student  ){
+void StudentPage::load_data(int year , int id , vector<vector<Student>> &student){
     this->stud = &student[year][id] ;
-    ui->Profile->setItemText(0,QString::fromStdString(stud->name)) ;
-    ui->Profile->setItemText(1,QString::fromStdString("My Profile")) ;
-}
-
-void StudentPage::on_Profile_currentIndexChanged(int index)
-{
-    if(index==1){
-        ui->scrollArea->setWidget(new Frame(nullptr,stud));
-    }
-    else
-    {
-        ui->scrollArea->setWidget( new FrameWelcome) ;
-    }
-}
-
-
-void StudentPage::on_pushButton_5_clicked()
-{
-    loginpage->show() ;
-    this->hide() ;
+    ui->Name->setText(QString::fromStdString(stud->name)) ;
+    ui->Name->setReadOnly(true);
 }
 
 
@@ -64,5 +46,18 @@ void StudentPage::on_GradeButton_clicked()
 void StudentPage::on_RegisterButton_clicked()
 {
      ui->scrollArea->setWidget(new RegisterForm(nullptr,courses, stud)) ;
+}
+
+
+void StudentPage::on_MyProfile_clicked()
+{
+     ui->scrollArea->setWidget(new Frame(nullptr,stud));
+}
+
+
+void StudentPage::on_Logout_clicked()
+{
+     loginpage->show() ;
+     this->hide() ;
 }
 

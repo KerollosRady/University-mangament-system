@@ -1,4 +1,3 @@
-
 #include "loginpage.h"
 #include "ui_loginpage.h"
 #include <algorithm>
@@ -13,10 +12,10 @@ LoginPage::LoginPage(QWidget *parent)
 {
     ui->setupUi(this);
     ptrStudentPage = new StudentPage(nullptr, this, &course) ;
-    ptrAdminPage   = new AdminPage(nullptr,this,&course) ;
+    ptrAdminPage   = new AdminPage(nullptr,this,&course,&student) ;
     pre() ;
     show();
-    ui->incorrectEmail->hide();
+    ui->IncorrectEmail->hide();
 }
 
 void LoginPage::load_data(){
@@ -59,16 +58,13 @@ void LoginPage::load_data(){
         c.DisplayData() ;
      student.resize(last_year+1) ;
      student[last_year]={
-                           Student(2023, 0, "abdo", 3,"Faculty of Computer and Information Sciences"),
+                               Student(2023, 0, "abdo", 3,"Faculty of Computer and Information Sciences"),
                                Student(2023, 1, "kero", 3,"Faculty of Computer and Information Sciences"),
                                Student(2023, 2, "bebo", 3,"Faculty of Computer and Information Sciences")};
      for (auto &s : student[last_year]){
         s.progressCourses = {0,1,2} ;
-//        for(int i=0 ;i<3 ;i++)
-//            s.progressCourses.push_back(i);
+        cout<<s.getEmail()<<' '<<s.getPassword()<<el ;
      }
-//     for (auto& s : student[last_year])
-//        s.SemesterUpdate();
 }
 void LoginPage::pre(){
      // get current system time
@@ -91,10 +87,10 @@ void LoginPage::on_toolButton_20_clicked()
     QString pass= ui->password_11->text() ;
     if(usr=="" &&  pass == ""){
          ptrAdminPage->home(), ptrAdminPage->show() , this->hide();
-         ui->incorrectEmail->hide();
+         ui->IncorrectEmail->hide();
     }
     else if(usr.size()!=19)
-         ui->incorrectEmail->show();
+         ui->IncorrectEmail->show();
     else
     {
          string s = "@cis.asu.eg" ;
@@ -114,12 +110,14 @@ void LoginPage::on_toolButton_20_clicked()
          if( year>=0 && year<=last_year && id>=0 &&
              id<student[year].size() && student[year][id].getPassword() == pass.toStdString() ){
              ptrStudentPage->load_data(year,id,student) ;
-            ui->incorrectEmail->hide();
+            ui->IncorrectEmail->hide();
              ptrStudentPage->home() , ptrStudentPage->show(), this->hide() ;
+            ui->IncorrectEmail->hide();
+            ptrStudentPage->show(), this->hide();
          }
          else
          {
-            ui->incorrectEmail->show();
+            ui->IncorrectEmail->show();
          }
     }
 }

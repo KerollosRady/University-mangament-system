@@ -221,30 +221,6 @@ font: 25pt &quot;Castellar&quot;;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="profile">
-   <property name="geometry">
-    <rect>
-     <x>940</x>
-     <y>20</y>
-     <width>151</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">    font-weight: 600;
-	font-size:20px;
-    border-radius: 30px;
-    color: #ffffff;
-background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
-</string>
-   </property>
-   <property name="text">
-    <string>View Profile</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="NewCourse">
    <property name="geometry">
     <rect>
@@ -326,7 +302,6 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <zorder>NewStudent</zorder>
   <zorder>HomeButton</zorder>
   <zorder>label</zorder>
-  <zorder>profile</zorder>
   <zorder>NewCourse</zorder>
   <zorder>name</zorder>
   <zorder>logout</zorder>

@@ -15,7 +15,8 @@ class AdminPage : public QDialog
     Q_OBJECT
 
 public:
-    explicit AdminPage(QWidget *parent = nullptr, QMainWindow * loginpage= nullptr ,  vector<Course>*courses = nullptr );
+    explicit AdminPage(QWidget *parent = nullptr, QMainWindow * loginpage= nullptr ,  vector<Course>*courses = nullptr,
+                       vector<vector<Student>>* st = nullptr);
     ~AdminPage();
 
 private slots:
@@ -33,6 +34,7 @@ private:
     vector<Course>* courses ;
     EditCourse * ptrEdit;
     newStudent *newStd;
+    vector<vector<Student>> * students;
 public :
     void home() ;
 };

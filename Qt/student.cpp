@@ -69,7 +69,7 @@ void Student::ViewAvailableCourses(const vector<Course>& c)
 {
     for (int i = 0; i < c.size(); i++)
     {
-        if (!finishedCourses[i] && maximumHoursAllowed>=c[i].hours)
+        if (!finishedCourses[i] && maximumHoursAllowed >= c[i].hours)
         {
             bool ok = 1;
             for (auto pre : c[i].PreReqCourses)
