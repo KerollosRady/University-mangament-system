@@ -13,6 +13,8 @@ LoginPage::LoginPage(QWidget *parent)
     ui->setupUi(this);
     ptrStudentPage = new StudentPage(nullptr, this, &course) ;
     ptrAdminPage   = new AdminPage(nullptr,this,&course,&student) ;
+    filter_courses.filterByElectivity.resize(2);
+    filter_courses.filterByHours.resize(10) ;
     pre() ;
     show();
     ui->IncorrectEmail->hide();
@@ -54,8 +56,15 @@ void LoginPage::load_data(){
         c.insert(line[0].toStdString(),line[1].toStdString(),line[2].toInt(),line[3].toInt(),s) ;
         course.push_back(c) ;
     }
+    int i=0 ;
     for(auto c : course)
+    {
         c.DisplayData() ;
+        int b = (c.isElective==true) ;
+        filter_courses.filterByElectivity[b].insert(i) ;
+        filter_courses.filterByHours[c.hours].insert(i) ;
+        filter_courses.filterByInstructor[c.instructor].insert(i++) ;
+    }
      student.resize(last_year+1) ;
      student[last_year]={
                                Student(2023, 0, "abdo", 3,"Faculty of Computer and Information Sciences"),

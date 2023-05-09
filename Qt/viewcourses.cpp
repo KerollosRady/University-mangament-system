@@ -3,7 +3,7 @@
 #include <debuging.h>
 #include <ui_debuging.h>
 #include <math.h>
-#include <iomanip> // for std::setprecision(), std::fixed
+#include <iomanip>
 #include <sstream>
 ViewCourses::ViewCourses(QWidget *parent, Student * stud  , vector<Course> *course , bool current   ) :
     QWidget(parent),

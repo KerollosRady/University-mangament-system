@@ -5,6 +5,7 @@
 #include <student.h>
 #include <ctime>
 #include <unordered_map>
+#include <filtercourses.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginPage; }
 QT_END_NAMESPACE
@@ -27,8 +28,7 @@ private:
     int last_year=0;
     vector<Course> course ;
     vector<vector<Student>> student ;
-
-
+    filtercourses filter_courses ;
 public :
     void load_data() ;
     void pre() ;
