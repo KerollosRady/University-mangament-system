@@ -31,5 +31,7 @@ private slots:
     void on_pushButton_5_clicked();
     void on_HomeButton_clicked();
     void on_MyCoursesButton_clicked();
+    void on_GradeButton_clicked();
+    void on_RegisterButton_clicked();
 };
 

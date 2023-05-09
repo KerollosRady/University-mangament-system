@@ -30,11 +30,11 @@ EditCourse::~EditCourse()
 }
 
 void EditCourse::clear(){
-    ui->listWidget->clear();
     ui->lineEdit_1->setText("");
     ui->lineEdit_2->setText("");
     ui->spinBox->setValue(1);
     ui->lineEdit_4->setText("");
+    ui->listWidget->clear();
 
     for(auto cc : *courses)
     {

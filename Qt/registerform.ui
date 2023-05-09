@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegisterForm</class>
+ <widget class="QWidget" name="RegisterForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>590</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>266</x>
+     <y>198</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="courseList">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>51</y>
+     <width>321</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+color : rgb(0, 9, 40);
+border-radius: 10px;
+background:rgb(203, 203, 203);</string>
+   </property>
+   <property name="placeholderText">
+    <string>Course ID |          Course Name </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_4">
+   <property name="geometry">
+    <rect>
+     <x>266</x>
+     <y>264</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:white;
+color:black;
+    border-radius: 10px;
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="couseName">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>134</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>Course Name</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="insName">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>198</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>Instructor Name</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="maxstd">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>264</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>Maximum Students</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>116</x>
+     <y>408</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:10px;
+color:white;
+font: 16pt &quot;Arial&quot;;
+background-color: transparent;
+QCheckBox::indicator:checked { background-color: green; } ;</string>
+   </property>
+   <property name="text">
+    <string>Elective</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>604</x>
+     <y>134</y>
+     <width>271</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: white ;
+border-radius:10px;
+font: 600 12pt &quot;Yu Gothic UI Semibold&quot;;
+color : black ; </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="check_add">
+   <property name="geometry">
+    <rect>
+     <x>104</x>
+     <y>468</y>
+     <width>531</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    background-color: transparent;
+color : white ;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>644</x>
+     <y>98</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;
+font: 12pt &quot;Arial&quot;;
+    background-color: transparent;</string>
+   </property>
+   <property name="text">
+    <string>PreRequiredcourse</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>58</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font: 700;
+color:white;
+    background-color: transparent;</string>
+   </property>
+   <property name="text">
+    <string>Select Course:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_1">
+   <property name="geometry">
+    <rect>
+     <x>266</x>
+     <y>134</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:white;
+color:black;
+    border-radius: 10px;
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="hours">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>330</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>Hours</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RegisterButton">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>450</y>
+     <width>141</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:18px;
+    border-radius: 30px;
+    color: #ffffff;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_5">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>330</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:white;
+color:black;
+    border-radius: 10px;
+</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

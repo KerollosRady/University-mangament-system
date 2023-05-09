@@ -174,7 +174,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>My Courses</string>
+    <string>Current
+Courses</string>
    </property>
   </widget>
   <widget class="QPushButton" name="RegisterButton">
@@ -198,7 +199,7 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>Register
+    <string>View/Register
 course</string>
    </property>
   </widget>

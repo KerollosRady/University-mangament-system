@@ -82,6 +82,19 @@
    </attribute>
    <column>
     <property name="text">
+     <string>GPA</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
      <string>Code</string>
     </property>
     <property name="font">
@@ -96,32 +109,6 @@
    <column>
     <property name="text">
      <string>Hours</string>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="textAlignment">
-     <set>AlignCenter</set>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>GPA</string>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-     </font>
-    </property>
-    <property name="textAlignment">
-     <set>AlignCenter</set>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Finished</string>
     </property>
     <property name="font">
      <font>

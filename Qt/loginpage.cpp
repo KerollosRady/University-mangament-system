@@ -59,9 +59,9 @@ void LoginPage::load_data(){
         c.DisplayData() ;
      student.resize(last_year+1) ;
      student[last_year]={
-                               Student(2023, 0, "abdo", 3),
-                               Student(2023, 1, "kero", 3),
-                               Student(2023, 2, "bebo", 3)};
+                           Student(2023, 0, "abdo", 3,"Faculty of Computer and Information Sciences"),
+                               Student(2023, 1, "kero", 3,"Faculty of Computer and Information Sciences"),
+                               Student(2023, 2, "bebo", 3,"Faculty of Computer and Information Sciences")};
      for (auto &s : student[last_year]){
         s.progressCourses = {0,1,2} ;
 //        for(int i=0 ;i<3 ;i++)
@@ -115,7 +115,7 @@ void LoginPage::on_toolButton_20_clicked()
              id<student[year].size() && student[year][id].getPassword() == pass.toStdString() ){
              ptrStudentPage->load_data(year,id,student) ;
             ui->incorrectEmail->hide();
-            ptrStudentPage->show(), this->hide();
+             ptrStudentPage->home() , ptrStudentPage->show(), this->hide() ;
          }
          else
          {

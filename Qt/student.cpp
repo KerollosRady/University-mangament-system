@@ -7,17 +7,19 @@
 #define el  '\n'
 #define inRange(x, l, r) (l <= x && x <= r)
 
-Student::Student(int year, int id, const string& name, int numberOfCourses)
+Student::Student(int year, int id, const string& name, int numberOfCourses,const string& collegeName )
 {
     this->name = name;
     this->ID = GenerateID(id, year);
     setPassword(GeneratePassword());
     setEmail(GenerateEmail());
+    this->collegeName = collegeName ;
     this->finishedCourses = vector<bool>(numberOfCourses);
     this->courseGPA       = vector<float>(numberOfCourses);
     this->academicSemster = 1  ;
     this->academicYear    = 1  ;
     this->CGPA            = 0.0;
+    this->maximumHoursAllowed = 14 ;
 }
 
 Student::Student()

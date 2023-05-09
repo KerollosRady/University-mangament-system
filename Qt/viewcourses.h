@@ -12,7 +12,7 @@ class ViewCourses : public QWidget
     Q_OBJECT
 
 public:
-    explicit ViewCourses(QWidget *parent = nullptr , Student * stud = nullptr , vector<Course> *course = nullptr);
+    explicit ViewCourses(QWidget *parent = nullptr , Student * stud = nullptr , vector<Course> *course = nullptr , bool current   = 0);
     ~ViewCourses();
 
 private:

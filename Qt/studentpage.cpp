@@ -1,11 +1,13 @@
 #include "studentpage.h"
 #include "ui_studentpage.h"
 #include <viewcourses.h>
+#include <registerform.h>
 StudentPage::StudentPage(QWidget *parent , QMainWindow *loginpage , vector<Course>* courses   ) :QDialog(parent),ui(new Ui::StudentPage)
 {
     ui->setupUi(this);
     this->loginpage = loginpage ;
     this->courses= courses ;
+    home() ;
 }
 
 StudentPage::~StudentPage()
@@ -49,6 +51,18 @@ void StudentPage::home(){
 
 void StudentPage::on_MyCoursesButton_clicked()
 {
-    ui->scrollArea->setWidget(new ViewCourses(nullptr, stud,courses)) ;
+    ui->scrollArea->setWidget(new ViewCourses(nullptr, stud,courses,1)) ;
+}
+
+
+void StudentPage::on_GradeButton_clicked()
+{
+     ui->scrollArea->setWidget(new ViewCourses(nullptr, stud,courses,0)) ;
+}
+
+
+void StudentPage::on_RegisterButton_clicked()
+{
+     ui->scrollArea->setWidget(new RegisterForm(nullptr,courses, stud)) ;
 }
 

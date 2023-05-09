@@ -12,10 +12,11 @@ public:
     int academicYear;
     int academicSemster;
     bool graduated = false;
+    string collegeName ;
     vector<bool> finishedCourses;
     vector<code> progressCourses ;
     vector<float> courseGPA;
-    Student(int year, int id, const string& name, int numberOfCourses);
+    Student(int year, int id, const string& name, int numberOfCourses ,const string& collegeName );
     Student();
     void SemesterUpdate();
     void ViewAvailableCourses(const vector<Course>&);

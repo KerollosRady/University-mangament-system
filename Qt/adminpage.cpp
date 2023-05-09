@@ -17,7 +17,6 @@ AdminPage::~AdminPage()
 {
     cout<<"delete ui; delete ptrCourse ; delete welcome;" ;
     delete ui;
-    delete ptrCourse ;
     delete welcome;
 }
 void AdminPage::on_logout_clicked()

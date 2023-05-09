@@ -21,6 +21,7 @@ SOURCES += \
     loginpage.cpp \
     newcourse.cpp \
     newstudent.cpp \
+    registerform.cpp \
     student.cpp \
     studentpage.cpp \
     user.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     loginpage.h \
     newcourse.h \
     newstudent.h \
+    registerform.h \
     student.h \
     studentpage.h \
     user.h \
@@ -53,6 +55,7 @@ FORMS += \
     loginpage.ui \
     newcourse.ui \
     newstudent.ui \
+    registerform.ui \
     studentpage.ui \
     viewcourses.ui
 

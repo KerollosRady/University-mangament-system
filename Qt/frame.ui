@@ -81,7 +81,7 @@ text-align:center;</string>
     <string>Change Password</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="NameLabel">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -97,7 +97,7 @@ text-align:center;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="emailLabel">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -113,7 +113,7 @@ text-align:center;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="college">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -123,13 +123,13 @@ text-align:center;</string>
     </rect>
    </property>
    <property name="text">
-    <string>Password</string>
+    <string>College Name </string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="pass">
+  <widget class="QLabel" name="collegeName">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -150,7 +150,7 @@ text-align:center;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="newPasslabel">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -190,7 +190,7 @@ text-align:center;</string>
     <string>Write a new password</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="idlabel">
    <property name="geometry">
     <rect>
      <x>530</x>
@@ -248,7 +248,7 @@ text-align:center;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="acadimicyearlabel">
    <property name="geometry">
     <rect>
      <x>530</x>
@@ -267,7 +267,7 @@ text-align:center;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="allowed_hours_label">
    <property name="geometry">
     <rect>
      <x>530</x>
@@ -379,7 +379,7 @@ text-align:center;</string>
     <string>confirm new password</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
+  <widget class="QLabel" name="confirmpasslabel">
    <property name="geometry">
     <rect>
      <x>530</x>
