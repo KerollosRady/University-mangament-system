@@ -14,6 +14,7 @@ SOURCES += \
     adminpage.cpp \
     adminwelcome.cpp \
     course.cpp \
+    data.cpp \
     editCourse.cpp \
     debuging.cpp \
     frame.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     adminpage.h \
     adminwelcome.h \
     course.h \
+    data.h \
     editCourse.h \
     debuging.h \
     frame.h \

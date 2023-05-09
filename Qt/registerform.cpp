@@ -65,6 +65,8 @@ void RegisterForm::invalidMessages(int i ){
         ui->check_add->setText("This Course had been registered before .");
     else if(i==1)
         ui->check_add->setText(QString::fromStdString("Minimum "+to_string(courses->at(coursecode).hours)+" hours to register this course  . "));
+    else if(i==2)
+        ui->check_add->setText("You should finish Prerequired courses first  .");
     ui->check_add->setStyleSheet("color : red ;background-color: transparent;font-size:20px;") ;
 }
 
@@ -76,7 +78,7 @@ void RegisterForm::on_RegisterButton_clicked()
     Course *c = &courses->at(coursecode) ;
     for(auto i : c->PreReqCourses){
         if(!stud->finishedCourses[i])
-            return invalidMessages(0) ;
+            return invalidMessages(2) ;
     }
     set<int> progress(stud->progressCourses.begin(), stud->progressCourses.end());
     if(progress.find(coursecode)!=progress.end())

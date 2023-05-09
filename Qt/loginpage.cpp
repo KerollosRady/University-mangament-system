@@ -125,3 +125,4 @@ void LoginPage::on_toolButton_20_clicked()
 void LoginPage::save_data(){
 
 }
+

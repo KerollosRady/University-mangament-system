@@ -3,7 +3,10 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
-
+#include <data.h>
+unordered_map<string,set<int>> Data::filterByInstructor = {} ;
+vector<set<int>> Data::filterByHours = {} ;
+vector<set<int>> Data::filterByElectivity = {} ;
 int main(int argc, char *argv[])
 {
 
@@ -16,8 +19,7 @@ int main(int argc, char *argv[])
         if (translator.load(":/i18n/" + baseName)) {
             a.installTranslator(&translator);
             break;
-        }
-    }
+        }}
     LoginPage w;
     return a.exec();
 }

@@ -14,8 +14,8 @@ Student::Student(int year, int id, const string& name, int numberOfCourses,const
     setPassword(GeneratePassword());
     setEmail(GenerateEmail());
     this->collegeName = collegeName ;
-    this->finishedCourses = vector<bool>(numberOfCourses);
-    this->courseGPA       = vector<float>(numberOfCourses);
+    this->finishedCourses = vector<bool>(20);
+    this->courseGPA       = vector<float>(20);
     this->academicSemster = 1  ;
     this->academicYear    = 1  ;
     this->CGPA            = 0.0;
