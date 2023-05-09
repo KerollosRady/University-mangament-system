@@ -147,7 +147,7 @@ color:white;</string>
       <string>Password</string>
      </property>
     </widget>
-    <widget class="QLabel" name="incorrectEmail">
+    <widget class="QLabel" name="IncorrectEmail">
      <property name="geometry">
       <rect>
        <x>70</x>

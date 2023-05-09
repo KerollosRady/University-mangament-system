@@ -25,7 +25,7 @@ string user::GeneratePassword()
 
     for (int i = 0; i < standardSize; i++)
     {
-        int choosedRange = rand() % 3;
+        int choosedRange = i % 3;
         int start = ranges[choosedRange].first, end = ranges[choosedRange].second;
         password += start + rand() % (end - start + 1);
     }

@@ -2,7 +2,7 @@
 #include "ui_adminpage.h"
 #include <loginpage.h>
 
-AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, vector<Course>*courses) :
+AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, vector<Course>*courses, vector<vector<Student>>*st) :
     QDialog(parent),
     ui(new Ui::AdminPage)
 {
@@ -11,6 +11,7 @@ AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, vector<Course>*cou
     ui->scrollArea->setWidget(welcome) , welcome->show();
     this->courses =  courses ;
     this->loginpage = loginpage ;
+    this->students = st;
 }
 
 AdminPage::~AdminPage()
@@ -49,8 +50,7 @@ void AdminPage::on_EditCourse_clicked()
 
 void AdminPage::on_NewStudent_clicked()
 {
-    newStd = new newStudent(nullptr);
+    newStd = new newStudent(nullptr, courses, students);
     ui->scrollArea->setWidget(newStd);
     newStd->show();
 }
-

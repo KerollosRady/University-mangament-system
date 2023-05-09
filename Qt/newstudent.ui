@@ -41,9 +41,122 @@ font-size:20px;</string>
   <widget class="QLineEdit" name="lineEdit_1">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>230</x>
      <y>60</y>
-     <width>271</width>
+     <width>311</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;
+font-size:20px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name_2">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>120</y>
+     <width>331</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 20px;
+font:600 italic 9pt &quot;Segoe UI&quot;;
+background:transparent;
+color:white;
+font-size:20px;</string>
+   </property>
+   <property name="text">
+    <string>Select finished courses if the student
+ transferred from another university</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Add">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>500</y>
+     <width>131</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 30px;
+background:white;
+color:black;
+font : 800;
+font-size:20px;
+</string>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clear">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>500</y>
+     <width>131</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 30px;
+background:white;
+color:black;
+font : 800;
+font-size:20px;
+</string>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="courseList">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>210</y>
+     <width>331</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+color :white;
+border-radius: 10px;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="maxVisibleItems">
+    <number>4</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Course ID |          Course Name </string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLineEdit" name="grade">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>405</y>
+     <width>101</width>
      <height>41</height>
     </rect>
    </property>
@@ -51,7 +164,92 @@ font-size:20px;</string>
     <string notr="true">background:white;
 color:black;
     border-radius: 10px;
+font-size:15px;
 </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="placeholderText">
+    <string>Grade</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ok">
+   <property name="geometry">
+    <rect>
+     <x>297</x>
+     <y>410</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 30px;
+background:white;
+color:black;
+font : 800;
+font-size:20px;
+    border-radius: 10px;
+</string>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>30</y>
+     <width>311</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:15px;
+color :white;
+border-radius: 10px;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <column>
+    <property name="text">
+     <string>CourseName</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Grade</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLabel" name="check_add">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>460</y>
+     <width>531</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="studentID">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>520</y>
+     <width>541</width>
+     <height>71</height>
+    </rect>
    </property>
   </widget>
  </widget>

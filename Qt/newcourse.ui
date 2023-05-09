@@ -73,10 +73,11 @@ font: 16pt &quot;Arial&quot;;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: white ;
-border-radius:10px;
-font: 600 12pt &quot;Yu Gothic UI Semibold&quot;;
-color : black ; </string>
+    <string notr="true">font-size:20px;
+color :white;
+border-radius: 10px;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_4">
@@ -98,7 +99,7 @@ color:black;
   <widget class="QPushButton" name="clear">
    <property name="geometry">
     <rect>
-     <x>844</x>
+     <x>684</x>
      <y>440</y>
      <width>131</width>
      <height>61</height>
@@ -143,7 +144,7 @@ font: 12pt &quot;Arial&quot;;
   <widget class="QPushButton" name="Add">
    <property name="geometry">
     <rect>
-     <x>684</x>
+     <x>844</x>
      <y>440</y>
      <width>131</width>
      <height>61</height>

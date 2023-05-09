@@ -13,10 +13,10 @@ LoginPage::LoginPage(QWidget *parent)
 {
     ui->setupUi(this);
     ptrStudentPage = new StudentPage(nullptr, this, &course) ;
-    ptrAdminPage   = new AdminPage(nullptr,this,&course) ;
+    ptrAdminPage   = new AdminPage(nullptr,this,&course,&student) ;
     pre() ;
     show();
-    ui->incorrectEmail->hide();
+    ui->IncorrectEmail->hide();
 }
 
 void LoginPage::load_data(){
@@ -91,10 +91,10 @@ void LoginPage::on_toolButton_20_clicked()
     QString pass= ui->password_11->text() ;
     if(usr=="" &&  pass == ""){
          ptrAdminPage->home(), ptrAdminPage->show() , this->hide();
-         ui->incorrectEmail->hide();
+         ui->IncorrectEmail->hide();
     }
     else if(usr.size()!=19)
-         ui->incorrectEmail->show();
+         ui->IncorrectEmail->show();
     else
     {
          string s = "@cis.asu.eg" ;
@@ -114,12 +114,12 @@ void LoginPage::on_toolButton_20_clicked()
          if( year>=0 && year<=last_year && id>=0 &&
              id<student[year].size() && student[year][id].getPassword() == pass.toStdString() ){
              ptrStudentPage->load_data(year,id,student) ;
-            ui->incorrectEmail->hide();
+            ui->IncorrectEmail->hide();
             ptrStudentPage->show(), this->hide();
          }
          else
          {
-            ui->incorrectEmail->show();
+            ui->IncorrectEmail->show();
          }
     }
 }
