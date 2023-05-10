@@ -11,13 +11,9 @@ set<int> Data::filter(int elective, int hours, const string &Instructor)
         byh = (hours != -1),
         byins = (Instructor != "-1");
 
-    set<int> s;
-
-    for(auto a : filterByElectivity[0])
-        s.insert(a);
-
-    for(auto a : filterByElectivity[1])
-        s.insert(a);
+    set<int> s={};
+    for(int i=0 ;i<course.size();i++)
+        s.insert(i) ;
 
     auto it = s.begin();
     while (it != s.end())

@@ -47,7 +47,7 @@ void AdminViewCourse::on_fitler_clicked()
         int electivity , hours  ;
         string instructor  ;
         if(selected->item(2)->checkState()== Qt::Checked)
-                electivity = !(ui->electivity->isChecked()) ;
+            electivity = ui->electivity->isChecked() ;
         else
                 electivity = -1 ;
     if(selected->item(1)->checkState()== Qt::Checked)

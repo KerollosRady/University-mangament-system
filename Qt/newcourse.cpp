@@ -97,6 +97,9 @@ void newCourse::on_Add_clicked(){
     }
     c.isElective = ui->checkBox->isChecked();
     c.insert(_name, _instructor, _maxStd, hours, s);
+    data->filterByElectivity[c.isElective==true].insert(data->course.size()) ;
+    data->filterByHours[c.hours].insert(data->course.size()) ;
+    data->filterByInstructor[c.instructor].insert(data->course.size()) ;
     data->course.push_back(c);
     ui->check_add->setText("Added successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");

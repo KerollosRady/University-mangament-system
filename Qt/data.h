@@ -3,13 +3,10 @@
 #include<set>
 #include<unordered_map>
 #include<string>
-#include<course.h>
 #include<student.h>
 
 using namespace std ;
-#define s1      Data::filterByElectivity
-#define s2      Data::filterByHours
-#define s3      Data::filterByInstructor
+
 
 class Data
 {
