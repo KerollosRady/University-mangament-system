@@ -4,12 +4,12 @@
 #include <iostream>
 using namespace std;
 
-newCourse::newCourse(QWidget *parent, vector<Course>*courses) :
+newCourse::newCourse(QWidget *parent, Data* data) :
     QDialog(parent),
     ui(new Ui::newCourse)
 {
     ui->setupUi(this);
-    this->courses = courses ;
+    this->data = data ;
     clear();
 }
 
@@ -19,7 +19,7 @@ newCourse::~newCourse()
 }
 void newCourse::clear(){
     ui->listWidget->clear();
-    for(auto c : *courses)
+    for(auto c : data->course)
     {
         // Create checkable items and add them to the list widget
         QListWidgetItem *item1 = new QListWidgetItem(QString::fromStdString(c.name), ui->listWidget);
@@ -78,8 +78,8 @@ void newCourse::on_Add_clicked(){
         invalidInputData(1);
         return;
     }
-    for (int i = 0 ; i < courses->size(); i++){
-        if (_name == courses->at(i).name){
+    for (int i = 0 ; i < data->course.size(); i++){
+        if (_name == data->course[i].name){
             invalidInputData(2);
             return;
         }
@@ -97,7 +97,10 @@ void newCourse::on_Add_clicked(){
     }
     c.isElective = ui->checkBox->isChecked();
     c.insert(_name, _instructor, _maxStd, hours, s);
-    courses->push_back(c);
+    data->filterByElectivity[c.isElective==true].insert(data->course.size()) ;
+    data->filterByHours[c.hours].insert(data->course.size()) ;
+    data->filterByInstructor[c.instructor].insert(data->course.size()) ;
+    data->course.push_back(c);
     ui->check_add->setText("Added successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
     clear();

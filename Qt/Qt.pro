@@ -17,7 +17,6 @@ SOURCES += \
     data.cpp \
     editCourse.cpp \
     debuging.cpp \
-    filtercourses.cpp \
     frame.cpp \
     framewelcome.cpp \
     main.cpp \
@@ -39,7 +38,6 @@ HEADERS += \
     data.h \
     editCourse.h \
     debuging.h \
-    filtercourses.h \
     frame.h \
     framewelcome.h \
     loginpage.h \

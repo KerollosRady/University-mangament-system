@@ -1,4 +1,3 @@
-
 #ifndef FILTERCOURSES_H
 #define FILTERCOURSES_H
 #include <string>

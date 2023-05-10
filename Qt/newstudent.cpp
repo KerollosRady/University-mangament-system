@@ -1,17 +1,16 @@
 #include "newstudent.h"
 #include "ui_newstudent.h"
 
-newStudent::newStudent(QWidget *parent, vector<Course>* courses , vector<vector<Student>>* st) :
+newStudent::newStudent(QWidget *parent, Data* data) :
     QDialog(parent),
     ui(new Ui::newStudent)
 {
     ui->setupUi(this);
-    this->courses = courses;
-    this->students = st;
+    this->data = data;
     ui->studentID->setReadOnly(true);
     ui->tableWidget->horizontalHeader()->resizeSection(0, 180);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    for (int i = 0 ; i < courses->size(); i++){
+    for (int i = 0 ; i < data->course.size(); i++){
 
         QString str = QString::fromStdString(to_string(i));
         int sz = str.size();
@@ -19,7 +18,7 @@ newStudent::newStudent(QWidget *parent, vector<Course>* courses , vector<vector<
             str.push_back(' ');
         }
         str.push_back("|          ");
-        str += QString::fromStdString(courses->at(i).name);
+        str += QString::fromStdString(data->course[i].name);
 
         ui->courseList->addItem(str);
     }
@@ -42,7 +41,7 @@ void newStudent::clear(){
     ui->check_add->setText("");
     ui->grade->hide();
     ui->ok->hide();
-    enteredGrades = vector<float> (courses->size(), -1);
+    enteredGrades = vector<float> (data->course.size(), -1);
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
     ui->lineEdit_1->setText("");
@@ -120,7 +119,7 @@ void newStudent::on_ok_clicked()
         if (enteredGrades[i] == -1) continue;
         int sz = ui->tableWidget->rowCount();
         ui->tableWidget->insertRow(sz);
-        QString name = QString::fromStdString(courses->at(i).name);
+        QString name = QString::fromStdString(data->course[i].name);
         string gr = to_string(enteredGrades[i]);
         if (gr.size() > 5)gr = gr.substr(0,5);
         ui->tableWidget->setItem(sz,0,new QTableWidgetItem(name));
@@ -141,10 +140,10 @@ void newStudent::on_Add_clicked()
 
     for (int i = 0 ; i < enteredGrades.size(); i++){
         if (enteredGrades[i] == -1) continue;
-        for (auto &p : courses->at(i).PreReqCourses){
+        for (auto &p : data->course[i].PreReqCourses){
             if (enteredGrades[p] == -1){
-                QString pre = QString::fromStdString(courses->at(p).name);
-                QString crs = QString::fromStdString(courses->at(i).name);
+                QString pre = QString::fromStdString(data->course[p].name);
+                QString crs = QString::fromStdString(data->course[i].name);
 
                 ui->check_add->setText(pre + " is pre Required for " + crs);
                 ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
@@ -160,8 +159,8 @@ void newStudent::on_Add_clicked()
     tm *ltm = localtime(&now);
     int year = ltm->tm_year - 100;
 
-    int id = students->at(year).size();
-    Student newStd(year+2000, id , _name,courses->size() , "Faculty of computer and information science .");
+    int id = data->student[year].size();
+    Student newStd(year+2000, id , _name,data->course.size() , "Faculty of computer and information science .");
     ui->studentID->setText(
         "Student ID:     " + QString::fromStdString(newStd.ID) + "            "+
          "Password :    " + QString::fromStdString(newStd.getPassword()));
@@ -182,7 +181,7 @@ void newStudent::on_Add_clicked()
     newStd.academicSemster = 1;
     newStd.academicYear = finishedCnt/10 + 1;
 
-    students->at(year).push_back(newStd);
+    data->student[year].push_back(newStd);
 }
 
 void newStudent::on_clear_clicked()
