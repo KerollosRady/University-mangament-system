@@ -98,7 +98,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>View Courses</string>
+    <string>View courses
+of student</string>
    </property>
   </widget>
   <widget class="QPushButton" name="EditCourse">
@@ -122,7 +123,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>Edit Course</string>
+    <string>Edit course
+data</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ViewStudent">
@@ -146,7 +148,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>View Students</string>
+    <string>View students
+of course</string>
    </property>
   </widget>
   <widget class="QPushButton" name="NewStudent">
@@ -170,7 +173,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>New Student</string>
+    <string>Add new 
+student</string>
    </property>
   </widget>
   <widget class="QPushButton" name="HomeButton">
@@ -248,7 +252,8 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 </string>
    </property>
    <property name="text">
-    <string>New Course</string>
+    <string>Add new
+course</string>
    </property>
   </widget>
   <widget class="QLabel" name="name">

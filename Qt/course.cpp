@@ -6,8 +6,8 @@ void Course::insert(const string& name, const string& instructor, int MaxNumOfSt
     this->name = name;
     this->instructor = instructor;
     this->MaxNumOfStud = MaxNumOfStud;
+    this->hours = hours;
     this->PreReqCourses = PreReqCourses;
-    this->hours = hours ;
 }
 
 void Course::DisplayData()

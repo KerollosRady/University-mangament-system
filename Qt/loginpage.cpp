@@ -65,8 +65,12 @@ void LoginPage::load_data(){
                                Student(2023, 0, "abdo", 100,"Faculty of Computer and Information Sciences"),
                                Student(2023, 1, "kero", 100,"Faculty of Computer and Information Sciences"),
                                Student(2023, 2, "bebo", 100,"Faculty of Computer and Information Sciences")};
+     int j =0 ;
      for (auto &s : data.student[last_year]){
         s.progressCourses = {0,1,2} ;
+        for(int i=0 ;i<3 ;i++)
+            data.course[i].CurStudents.emplace(last_year,j) ;
+        j++ ;
         cout<<s.getEmail()<<' '<<s.getPassword()<<el ;
      }
 }

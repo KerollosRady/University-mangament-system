@@ -1,7 +1,7 @@
 #include "adminpage.h"
 #include "ui_adminpage.h"
 #include <loginpage.h>
-
+#include <viewstudent.h>
 AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, Data* data) :
     QDialog(parent),
     ui(new Ui::AdminPage)
@@ -52,3 +52,9 @@ void AdminPage::on_NewStudent_clicked()
     ui->scrollArea->setWidget(newStd);
     newStd->show();
 }
+
+void AdminPage::on_ViewStudent_clicked()
+{
+    ui->scrollArea->setWidget(new viewStudent(nullptr , &data->course , &data->student)) ;
+}
+

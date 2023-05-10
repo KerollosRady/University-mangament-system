@@ -52,7 +52,6 @@ void AdminViewCourse::additem_treewidget(int c)
             s+=to_string(a)+" " ;
         item->setText(5,QString::fromStdString(s));
         ui->tree_Widget->addTopLevelItem(item) ;
-        qCritical()<<QString::fromStdString(to_string(c))<<el ;
 }
 void AdminViewCourse::additem_filter(QString s )
 {
