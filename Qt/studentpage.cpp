@@ -2,11 +2,13 @@
 #include "ui_studentpage.h"
 #include <viewcourses.h>
 #include <registerform.h>
-StudentPage::StudentPage(QWidget *parent , QMainWindow *loginpage , vector<Course>* courses   ) :QDialog(parent),ui(new Ui::StudentPage)
+#include <adminviewcourse.h>
+StudentPage::StudentPage(QWidget *parent , QMainWindow *loginpage , vector<Course>* courses, filtercourses * filter_courses    ) :QDialog(parent),ui(new Ui::StudentPage)
 {
     ui->setupUi(this);
     this->loginpage = loginpage ;
     this->courses= courses ;
+    this->filter_courses = filter_courses ;
     home() ;
 }
 
@@ -59,5 +61,11 @@ void StudentPage::on_Logout_clicked()
 {
      loginpage->show() ;
      this->hide() ;
+}
+
+
+void StudentPage::on_RegisterButton_2_clicked()
+{
+     ui->scrollArea->setWidget(new AdminViewCourse(nullptr,filter_courses,courses));
 }
 

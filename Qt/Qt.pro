@@ -28,7 +28,8 @@ SOURCES += \
     student.cpp \
     studentpage.cpp \
     user.cpp \
-    viewcourses.cpp
+    viewcourses.cpp \
+    adminviewcourse.cpp
 
 HEADERS += \
     admin.h \
@@ -48,7 +49,8 @@ HEADERS += \
     student.h \
     studentpage.h \
     user.h \
-    viewcourses.h
+    viewcourses.h \
+    adminviewcourse.h
 
 FORMS += \
     adminpage.ui \
@@ -62,8 +64,8 @@ FORMS += \
     newstudent.ui \
     registerform.ui \
     studentpage.ui \
-    viewcourses.ui
-
+    viewcourses.ui \
+    adminviewcourse.ui
 TRANSLATIONS += \
     Qt_en_GB.ts
 CONFIG += lrelease

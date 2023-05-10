@@ -11,10 +11,10 @@ LoginPage::LoginPage(QWidget *parent)
     , ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
-    ptrStudentPage = new StudentPage(nullptr, this, &course) ;
-    ptrAdminPage   = new AdminPage(nullptr,this,&course,&student) ;
     filter_courses.filterByElectivity.resize(2);
     filter_courses.filterByHours.resize(10) ;
+    ptrStudentPage = new StudentPage(nullptr, this, &course,&filter_courses) ;
+    ptrAdminPage   = new AdminPage(nullptr,this,&course,&student) ;
     pre() ;
     show();
     ui->IncorrectEmail->hide();

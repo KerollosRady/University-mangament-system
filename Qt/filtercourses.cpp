@@ -11,14 +11,9 @@ set<int> filtercourses::filter(int elective, int hours, const string &Instructor
         byh = (hours != -1),
         byins = (Instructor != "-1");
     set<int> s;
-    if (bye)
-        for (auto a : filterByElectivity[elective])
+    for(auto a : filterByElectivity[0])
             s.insert(a);
-    if (byh)
-        for (auto a : filterByHours[hours])
-            s.insert(a);
-    if (byins)
-        for (auto a : filterByInstructor[Instructor])
+    for(auto a : filterByElectivity[1])
             s.insert(a);
     auto it = s.begin();
     while (it != s.end())
