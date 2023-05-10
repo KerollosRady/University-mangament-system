@@ -5,7 +5,7 @@
 #include <QScrollArea>
 #include <framewelcome.h>
 #include <ui_loginpage.h>
-#include <filtercourses.h>
+#include <data.h>
 namespace Ui {
 class StudentPage;
 }
@@ -15,18 +15,17 @@ class StudentPage : public QDialog
     Q_OBJECT
 
 public:
-    explicit StudentPage(QWidget *parent = nullptr,QMainWindow *loginpage = nullptr , vector<Course>* courses  = nullptr ,filtercourses * filter_courses =nullptr );
+    explicit StudentPage(QWidget *parent = nullptr,QMainWindow *loginpage = nullptr,Data * data = nullptr );
     void ProfileProperties();
     ~StudentPage();
 
 private:
     Ui::StudentPage *ui;
-    Student *stud ;
-    vector<Course>* courses ;
     QMainWindow *loginpage ;
-    filtercourses * filter_courses ;
+    Data* data ;
+    int year,id;
 public:
-    void load_data(int year , int id , vector<vector<Student>>&student) ;
+    void load_data(int year , int id) ;
     void home() ;
 private slots:
     void on_HomeButton_clicked();

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
-#include <filtercourses.h>
+#include <Data.h>
 #include <course.h>
 namespace Ui {
 class AdminViewCourse;
@@ -14,7 +14,7 @@ class AdminViewCourse : public QWidget
     Q_OBJECT
 
 public:
-    explicit AdminViewCourse(QWidget *parent = nullptr,filtercourses * filter_courses =nullptr , vector<Course> * courses  = nullptr );
+    explicit AdminViewCourse(QWidget *parent = nullptr,Data * data =nullptr);
     ~AdminViewCourse();
 
 private slots:
@@ -22,8 +22,7 @@ private slots:
 
 private:
     Ui::AdminViewCourse *ui;
-    filtercourses * filter_courses  ;
-    vector<Course> * courses ;
+    Data * data  ;
 };
 
 #endif // ADMINVIEWCOURSE_H

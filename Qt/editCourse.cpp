@@ -1,14 +1,14 @@
 #include "editCourse.h"
 #include "ui_editcourse.h"
 using namespace std;
-EditCourse::EditCourse(QWidget *parent, vector<Course>*courses) :
+EditCourse::EditCourse(QWidget *parent, Data* data) :
     QDialog(parent),
     ui(new Ui::EditCourse)
 {
     ui->setupUi(this);
-    this->courses = courses;
+    this->data = data;
 
-    for (int i = 0 ; i < courses->size(); i++){
+    for (int i = 0 ; i < data->course.size(); i++){
 
         QString str = QString::fromStdString(to_string(i));
         int sz = str.size();
@@ -16,7 +16,7 @@ EditCourse::EditCourse(QWidget *parent, vector<Course>*courses) :
             str.push_back(' ');
         }
         str.push_back("|          ");
-        str += QString::fromStdString(courses->at(i).name);
+        str += QString::fromStdString(data->course[i].name);
 
         ui->courseList->addItem(str);
     }
@@ -36,7 +36,7 @@ void EditCourse::clear(){
     ui->lineEdit_4->setText("");
     ui->listWidget->clear();
 
-    for(auto cc : *courses)
+    for(auto cc : data->course)
     {
         // Create checkable items and add them to the list widget
         QListWidgetItem *item1 = new QListWidgetItem(QString::fromStdString(cc.name), ui->listWidget);
@@ -50,7 +50,7 @@ void EditCourse::on_courseList_currentIndexChanged(int index)
     index--;
 
     if (index != -1){
-        Course &c = courses->at(index);
+        Course &c = data->course[index];
         ui->lineEdit_1->setText(QString::fromStdString(c.name));
         ui->lineEdit_2->setText(QString::fromStdString(c.instructor));
         ui->spinBox->setValue(c.hours);
@@ -123,7 +123,7 @@ void EditCourse::on_Edit_clicked()
         invalidInputData(1);
         return;
     }
-    Course &selected = courses->at(idx);
+    Course &selected = data->course[idx];
     set<int> s;
 
     QListWidget *pre = ui->listWidget ;
@@ -146,9 +146,9 @@ void EditCourse::on_Edit_clicked()
         invalidInputData(3);
         return;
     }
-    for (int i = 0 ; i < courses->size(); ++i){
+    for (int i = 0 ; i < data->course.size(); ++i){
         if (i == idx) continue;
-        if (_name == courses->at(i).name){
+        if (_name == data->course[i].name){
             invalidInputData(2);
             return;
         }

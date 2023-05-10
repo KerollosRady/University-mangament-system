@@ -6,15 +6,16 @@
 #include <QTextStream>
 #include <debuging.h>
 #include <ui_debuging.h>
+
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
-    filter_courses.filterByElectivity.resize(2);
-    filter_courses.filterByHours.resize(10) ;
-    ptrStudentPage = new StudentPage(nullptr, this, &course,&filter_courses) ;
-    ptrAdminPage   = new AdminPage(nullptr,this,&course,&student) ;
+    data.filterByElectivity.resize(2);
+    data.filterByHours.resize(10) ;
+    ptrStudentPage = new StudentPage(nullptr, this, &data) ;
+    ptrAdminPage   = new AdminPage(nullptr,this, &data) ;
     pre() ;
     show();
     ui->IncorrectEmail->hide();
@@ -54,23 +55,23 @@ void LoginPage::load_data(){
             s.insert(stoi(snum)) ;
         Course c ;
         c.insert(line[0].toStdString(),line[1].toStdString(),line[2].toInt(),line[3].toInt(),s) ;
-        course.push_back(c) ;
+        data.course.push_back(c) ;
     }
     int i=0 ;
-    for(auto c : course)
+    for(auto c : data.course)
     {
         c.DisplayData() ;
         int b = (c.isElective==true) ;
-        filter_courses.filterByElectivity[b].insert(i) ;
-        filter_courses.filterByHours[c.hours].insert(i) ;
-        filter_courses.filterByInstructor[c.instructor].insert(i++) ;
+        data.filterByElectivity[b].insert(i) ;
+        data.filterByHours[c.hours].insert(i) ;
+        data.filterByInstructor[c.instructor].insert(i++) ;
     }
-     student.resize(last_year+1) ;
-     student[last_year]={
+     data.student.resize(last_year+1) ;
+     data.student[last_year]={
                                Student(2023, 0, "abdo", 3,"Faculty of Computer and Information Sciences"),
                                Student(2023, 1, "kero", 3,"Faculty of Computer and Information Sciences"),
                                Student(2023, 2, "bebo", 3,"Faculty of Computer and Information Sciences")};
-     for (auto &s : student[last_year]){
+     for (auto &s : data.student[last_year]){
         s.progressCourses = {0,1,2} ;
         cout<<s.getEmail()<<' '<<s.getPassword()<<el ;
      }
@@ -117,8 +118,8 @@ void LoginPage::on_toolButton_20_clicked()
             id+=pow(10,8-i-1)*usr[i].digitValue() ;
          year-=2000 ;
          if( year>=0 && year<=last_year && id>=0 &&
-             id<student[year].size() && student[year][id].getPassword() == pass.toStdString() ){
-             ptrStudentPage->load_data(year,id,student) ;
+             id<data.student[year].size() && data.student[year][id].getPassword() == pass.toStdString() ){
+             ptrStudentPage->load_data(year,id) ;
             ui->IncorrectEmail->hide();
              ptrStudentPage->home() , ptrStudentPage->show(), this->hide() ;
             ui->IncorrectEmail->hide();
@@ -134,4 +135,3 @@ void LoginPage::on_toolButton_20_clicked()
 void LoginPage::save_data(){
 
 }
-

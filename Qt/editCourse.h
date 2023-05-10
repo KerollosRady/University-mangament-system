@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <course.h>
+#include <data.h>
 namespace Ui {
 class EditCourse;
 }
@@ -12,7 +13,7 @@ class EditCourse : public QDialog
     Q_OBJECT
 
 public:
-    explicit EditCourse(QWidget *parent = nullptr, vector<Course>*courses =nullptr);
+    explicit EditCourse(QWidget *parent = nullptr, Data* data = nullptr);
     void clear();
     void invalidInputData(int);
     bool isInt(std::string);
@@ -28,7 +29,7 @@ private slots:
 
 private:
     Ui::EditCourse *ui;
-    vector<Course> * courses;
+    Data* data;
 };
 
 #endif // EDITCOURSE_H

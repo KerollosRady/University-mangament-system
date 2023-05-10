@@ -6,6 +6,8 @@
 #include <ctime>
 #include <unordered_map>
 #include <filtercourses.h>
+#include <data.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginPage; }
 QT_END_NAMESPACE
@@ -26,9 +28,7 @@ private:
     StudentPage* ptrStudentPage  ;
     AdminPage* ptrAdminPage ;
     int last_year=0;
-    vector<Course> course ;
-    vector<vector<Student>> student ;
-    filtercourses filter_courses ;
+    Data data;
 public :
     void load_data() ;
     void pre() ;

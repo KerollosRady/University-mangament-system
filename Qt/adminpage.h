@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <editCourse.h>
 #include <newstudent.h>
+#include <data.h>
 
 namespace Ui {
 class AdminPage;
@@ -15,8 +16,7 @@ class AdminPage : public QDialog
     Q_OBJECT
 
 public:
-    explicit AdminPage(QWidget *parent = nullptr, QMainWindow * loginpage= nullptr ,  vector<Course>*courses = nullptr,
-                       vector<vector<Student>>* st = nullptr);
+    explicit AdminPage(QWidget *parent = nullptr, QMainWindow * loginpage= nullptr, Data* data = nullptr);
     ~AdminPage();
 
 private slots:
@@ -31,10 +31,9 @@ private:
     newCourse * ptrCourse ;
     adminwelcome * welcome;
     QMainWindow * loginpage ;
-    vector<Course>* courses ;
+    Data* data;
     EditCourse * ptrEdit;
     newStudent *newStd;
-    vector<vector<Student>> * students;
 public :
     void home() ;
 };

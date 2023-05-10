@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "course.h"
 #include "student.h"
+#include <data.h>
 
 namespace Ui {
 class newStudent;
@@ -14,8 +15,7 @@ class newStudent : public QDialog
     Q_OBJECT
 
 public:
-    explicit newStudent(QWidget *parent = nullptr, vector<Course>* courses = nullptr,
-                        vector<vector<Student>>*st = nullptr);
+    explicit newStudent(QWidget *parent = nullptr, Data* data = nullptr);
     ~newStudent();
 
 private slots:
@@ -29,8 +29,7 @@ private slots:
 
 private:
     Ui::newStudent *ui;
-    vector<Course> * courses;
-    vector<vector<Student>> * students;
+    Data* data;
     vector<float> enteredGrades;
     bool isFloat(std::string);
     void clear();
