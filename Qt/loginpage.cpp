@@ -12,8 +12,6 @@ LoginPage::LoginPage(QWidget *parent)
     , ui(new Ui::LoginPage)
 {
     ui->setupUi(this);
-    data.filterByElectivity.resize(2);
-    data.filterByHours.resize(10) ;
     ptrStudentPage = new StudentPage(nullptr, this, &data) ;
     ptrAdminPage   = new AdminPage(nullptr,this, &data) ;
     pre() ;
@@ -37,8 +35,10 @@ void LoginPage::load_data(){
     QTextStream stream (&file) ;
     while(!stream.atEnd()){
         QString line[5]  ;
-        for(int i=0 ;i<5 ;i++)
-            line[i] = stream.readLine() ;
+        for(int i=0 ;i<5 ;i++){
+            line[i] = stream.readLine()  ;
+            qCritical()<<line[i]<<el ;
+            }
         set<int> s;
         string snum ="";
         for(int i=0 ;i<line[4].size() ;i++)
@@ -55,22 +55,16 @@ void LoginPage::load_data(){
             s.insert(stoi(snum)) ;
         Course c ;
         c.insert(line[0].toStdString(),line[1].toStdString(),line[2].toInt(),line[3].toInt(),s) ;
+        c.isElective = true ;
         data.course.push_back(c) ;
     }
-    int i=0 ;
     for(auto c : data.course)
-    {
         c.DisplayData() ;
-        int b = (c.isElective==true) ;
-        data.filterByElectivity[b].insert(i) ;
-        data.filterByHours[c.hours].insert(i) ;
-        data.filterByInstructor[c.instructor].insert(i++) ;
-    }
      data.student.resize(last_year+1) ;
      data.student[last_year]={
-                               Student(2023, 0, "abdo", 3,"Faculty of Computer and Information Sciences"),
-                               Student(2023, 1, "kero", 3,"Faculty of Computer and Information Sciences"),
-                               Student(2023, 2, "bebo", 3,"Faculty of Computer and Information Sciences")};
+                               Student(2023, 0, "abdo", 100,"Faculty of Computer and Information Sciences"),
+                               Student(2023, 1, "kero", 100,"Faculty of Computer and Information Sciences"),
+                               Student(2023, 2, "bebo", 100,"Faculty of Computer and Information Sciences")};
      for (auto &s : data.student[last_year]){
         s.progressCourses = {0,1,2} ;
         cout<<s.getEmail()<<' '<<s.getPassword()<<el ;

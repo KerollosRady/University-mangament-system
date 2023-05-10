@@ -16,7 +16,8 @@ class AdminViewCourse : public QWidget
 public:
     explicit AdminViewCourse(QWidget *parent = nullptr,Data * data =nullptr);
     ~AdminViewCourse();
-
+    void additem_treewidget(int c) ;
+    void additem_filter(QString s) ;
 private slots:
     void on_fitler_clicked();
 

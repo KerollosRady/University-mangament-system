@@ -15,7 +15,7 @@ public:
     bool isElective;
     string instructor;
     int MaxNumOfStud;
-    int hours=2;
+    int hours;
     set<code> PreReqCourses;
     void insert(const string& name, const string& instructor, int MaxNumOfStud, int hours,const set<int>& PreReqCourses);
     void DisplayData();

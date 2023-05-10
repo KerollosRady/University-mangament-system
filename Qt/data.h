@@ -17,7 +17,7 @@ public:
     unordered_map<string, set<int>> filterByInstructor;
     vector<Course> course ;
     vector<vector<Student>> student ;
-    set<int> filter(int elective, int hours, const string &Instructor);
+    vector<int> filter(int elective, int hours, const string &Instructor);
 };
 
 
