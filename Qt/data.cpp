@@ -2,8 +2,6 @@
 #include "data.h"
 Data::Data()
 {
-    this->filterByElectivity.resize(4) ;
-    this->filterByHours.resize(11) ;
 }
 
 vector<int> Data::filter(int elective, int hours, const string &Instructor)
