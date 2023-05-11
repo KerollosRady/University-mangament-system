@@ -37,7 +37,7 @@ void Data::UploadDataToCourse()
         {
             outfile << course[i].name << "\n" << (int)course[i].isElective << "\n" << course[i].instructor << "\n" << course[i].hours << "\n" << course[i].MaxNumOfStud << '\n';
 
-            outfile << course[i].PreReqCourses.size();
+        outfile << course[i].PreReqCourses.size() << '\n';
             for (auto& x : course[i].PreReqCourses)
                 outfile << x << '\n';
             outfile<<course[i].CurStudents.size()<<'\n' ;
@@ -58,11 +58,13 @@ void Data::LoadDataFromCourse()
         course = vector<Course>(sz);
         for (int i = 0; i < sz; i++)
         {
+            infile.ignore();
             getline(infile,course[i].name) ;
             infile  >> elec  ;
+            course[i].isElective = elec;
+            infile.ignore();
             getline(infile,course[i].instructor) ;
             infile>> course[i].hours >> course[i].MaxNumOfStud;
-            course[i].isElective = elec;
             int preqSz;
             infile >> preqSz;
             for (int j = 0, x; j < preqSz; j++)
