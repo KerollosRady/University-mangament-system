@@ -1,5 +1,6 @@
 #include "viewcoursesofstudent.h"
 #include "ui_viewcoursesofstudent.h"
+#include <QTimer>
 ViewCoursesOfStudent::ViewCoursesOfStudent(QWidget *parent , Data * data ) :
     QWidget(parent),
     ui(new Ui::ViewCoursesOfStudent)
@@ -43,6 +44,8 @@ void ViewCoursesOfStudent::hide_items(){
     ui->StudentNamelineEdit_2->hide() ;
     ui->filter->hide() ;
     ui->save->hide() ;
+    ui->saved_message->hide() ;
+
 }
 void ViewCoursesOfStudent::show_items(){
     ui->treeWidget->show() ;
@@ -92,7 +95,7 @@ void ViewCoursesOfStudent::on_save_clicked()
         QDoubleSpinBox *spinBox = qobject_cast<QDoubleSpinBox*>(ui->treeWidget->itemWidget(item, 0)); // Get a pointer to the double spin box widget
         double grade = spinBox->value();
         qCritical()<<QString::fromStdString(to_string(grade)) ;
-        stud->courseGPA[c] = grade ;
+        stud->courseGPA[c] = grade*4/100 ;
         stud->finishedCourses[c]= (item->checkState(1)==Qt::Checked) ;
         if(stud->finishedCourses[c] && s.find(c)!=s.end())
             s.erase(c) ;
@@ -100,12 +103,16 @@ void ViewCoursesOfStudent::on_save_clicked()
             s.insert(c) ;
     }
     stud->progressCourses = vector(s.begin(),s.end()) ;
-    // message "saved successfully"
+    ui->saved_message->show() ;
+    QTimer::singleShot(5000, this, [=]() {
+        ui->saved_message->hide();
+    });
 }
 void ViewCoursesOfStudent::on_treeWidget_itemChanged(QTreeWidgetItem *item, int column)
 {
     if(column==1)
     {
+        int c = item->text(2).toInt(nullptr ,10);
         QDoubleSpinBox *Grade = new QDoubleSpinBox(ui->treeWidget);
         Qt::CheckState state = item->checkState(column); // Get the state of the item
         if (state == Qt::Checked) {
@@ -113,6 +120,7 @@ void ViewCoursesOfStudent::on_treeWidget_itemChanged(QTreeWidgetItem *item, int 
         } else {
             Grade->setRange(0,100) ;
         }
+        Grade->setValue(stud->courseGPA[c]*100/4);
         ui->treeWidget->setItemWidget(item, 0, Grade);
     }
 }

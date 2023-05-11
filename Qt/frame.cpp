@@ -1,12 +1,13 @@
 #include "frame.h"
 #include "ui_frame.h"
-
+#include <qtimer.h>
 Frame::Frame(QWidget *parent,  Student *stud) :
     QFrame(parent),
     ui(new Ui::Frame)
 {
     this->stud = stud;
     ui->setupUi(this);
+    ui->validation->hide() ;
     load_data() ;
 }
 
@@ -46,5 +47,9 @@ void Frame::on_ChangePassBtn_clicked()
 
         ui->validation->setStyleSheet("background-color: transparent;color : red ;") ;
     }
+    ui->validation->show() ;
+    QTimer::singleShot(5000, this, [=]() {
+        ui->validation->hide();
+    });
 }
 

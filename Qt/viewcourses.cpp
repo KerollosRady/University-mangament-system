@@ -37,8 +37,6 @@ ViewCourses::ViewCourses(QWidget *parent, Student * stud  , vector<Course> *cour
                 ostringstream stream;
                 stream  << fixed << setprecision(2) << stud->courseGPA.at(codeCourse);
                 string s = stream.str() ;
-                for(int i=0 ;i<3 ;i++)
-                    s.pop_back() ;
                 item->setText(0,QString::fromStdString(s))  ;
                 item->setText(1,QString::fromStdString(to_string(codeCourse))) ;
                 item->setText(2,QString::fromStdString(to_string(course->at(codeCourse).hours))) ;

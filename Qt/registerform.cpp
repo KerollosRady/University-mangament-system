@@ -3,6 +3,7 @@
 #include "ui_registerform.h"
 #include <QCheckBox>
 #include <QFont>
+#include <qtimer.h>
 RegisterForm::RegisterForm(QWidget *parent,vector<Course> * courses, Student * stud  ) :
     QWidget(parent),
     ui(new Ui::RegisterForm)
@@ -22,6 +23,7 @@ RegisterForm::RegisterForm(QWidget *parent,vector<Course> * courses, Student * s
 
         ui->courseList->addItem(str);
     }
+    ui->check_add->hide() ;
     ui->courseList->show();
    // ui->checkBox->setEnabled(false); // disable the checkbox
     ui->checkBox->setAttribute(Qt::WA_TransparentForMouseEvents);
@@ -60,14 +62,19 @@ void RegisterForm::on_courseList_currentIndexChanged(int index)
 }
 void RegisterForm::invalidMessages(int i ){
     int coursecode = ui->courseList->currentIndex();
-
     if(i==0)
         ui->check_add->setText("This Course had been registered before .");
     else if(i==1)
         ui->check_add->setText(QString::fromStdString("Minimum "+to_string(courses->at(coursecode).hours)+" hours to register this course  . "));
     else if(i==2)
         ui->check_add->setText("You should finish Prerequired courses first  .");
+    else if(i==3)
+        ui->check_add->setText("This course has been closed ");
     ui->check_add->setStyleSheet("color : red ;background-color: transparent;font-size:20px;") ;
+    ui->check_add->show() ;
+    QTimer::singleShot(5000, this, [=]() {
+        ui->check_add->hide();
+    });
 }
 
 void RegisterForm::on_RegisterButton_clicked()
@@ -89,6 +96,9 @@ void RegisterForm::on_RegisterButton_clicked()
     }
     if(stud->maximumHoursAllowed<courses->at(coursecode).hours)
         return invalidMessages(1) ;
+    if(c->MaxNumOfStud==c->CurStudents.size())
+        return invalidMessages(3) ;
+    c->CurStudents.emplace(stoi(stud->ID.substr(0,4))-2000,stoi(stud->ID.substr(4,4))) ;
     stud->RegisterCourse(coursecode) ;
     stud->maximumHoursAllowed-=courses->at(coursecode).hours ;
     ui->check_add->setText("course has been registerd successfully") ;

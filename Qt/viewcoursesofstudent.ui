@@ -339,6 +339,30 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
     <string>save</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="saved_message">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>540</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;color:black;
+    border-radius: 10px;
+color : rgb(15, 254, 23) ;</string>
+   </property>
+   <property name="text">
+    <string>Saved Successfully</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
