@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <course.h>
 #include <data.h>
+#include <QTimer>
 namespace Ui {
 class EditCourse;
 }

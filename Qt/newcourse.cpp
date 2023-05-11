@@ -10,6 +10,7 @@ newCourse::newCourse(QWidget *parent, Data* data) :
 {
     ui->setupUi(this);
     this->data = data ;
+    ui->check_add->hide();
     clear();
 }
 
@@ -48,8 +49,12 @@ void newCourse::invalidInputData(int idx){
         ui->check_add->setText("Muximum Students must be a positive integer");
     else if(idx == 2)
         ui->check_add->setText("The course name already exist");
-
     ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+
+    ui->check_add->show();
+    QTimer::singleShot(5000, this, [=]() {
+        ui->check_add->hide();
+    });
 }
 void newCourse::on_Add_clicked(){
 

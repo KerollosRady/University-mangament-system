@@ -104,14 +104,16 @@ void newStudent::on_ok_clicked()
         float x = stof(v);
         enteredGrades[idx] = x >= 50 && x <= 100 ? x : -1;
     }
-
     if (enteredGrades[idx] == -1){
         ui->check_add->setText("Finish course grade must be an integer >= 50 and <= 100");
         ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+        ui->check_add->show();
+        QTimer::singleShot(5000, this, [=]() {
+            ui->check_add->hide();
+        });
     }
     else
         ui->check_add->setText("");
-
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
 
@@ -135,6 +137,10 @@ void newStudent::on_Add_clicked()
     if (_name.size() < 15){
         ui->check_add->setText("Student name is too short");
         ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+        ui->check_add->show();
+        QTimer::singleShot(5000, this, [=]() {
+            ui->check_add->hide();
+        });
         return;
     }
 
@@ -147,6 +153,10 @@ void newStudent::on_Add_clicked()
 
                 ui->check_add->setText(pre + " is pre Required for " + crs);
                 ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+                ui->check_add->show();
+                QTimer::singleShot(5000, this, [=]() {
+                    ui->check_add->hide();
+                });
                 return;
             }
         }
@@ -154,7 +164,10 @@ void newStudent::on_Add_clicked()
 
     ui->check_add->setText("Added successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
-
+    ui->check_add->show();
+    QTimer::singleShot(5000, this, [=]() {
+        ui->check_add->hide();
+    });
     time_t now = time(0);
     tm *ltm = localtime(&now);
     int year = ltm->tm_year - 100;

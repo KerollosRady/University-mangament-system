@@ -5,6 +5,7 @@
 #include "course.h"
 #include "student.h"
 #include <data.h>
+#include <Qtimer>
 
 namespace Ui {
 class newStudent;

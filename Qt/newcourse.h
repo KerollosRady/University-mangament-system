@@ -4,6 +4,7 @@
 #include <string>
 #include "course.h"
 #include <data.h>
+#include <Qtimer>
 namespace Ui {
 class newCourse;
 }

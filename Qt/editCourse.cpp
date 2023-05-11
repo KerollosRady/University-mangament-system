@@ -22,6 +22,7 @@ EditCourse::EditCourse(QWidget *parent, Data* data) :
     }
     ui->courseList->show();
     clear();
+    ui->check_add->hide();
 }
 
 EditCourse::~EditCourse()
@@ -84,6 +85,10 @@ void EditCourse::invalidInputData(int idx){
         ui->check_add->setText("Course can't be pre Required for itself");
 
         ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+    ui->check_add->show();
+    QTimer::singleShot(5000, this, [=]() {
+        ui->check_add->hide();
+    });
 }
 bool EditCourse::isInt(string s){
 
@@ -158,6 +163,10 @@ void EditCourse::on_Edit_clicked()
     selected.isElective = isElective;
     ui->check_add->setText("Modified successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
+    ui->check_add->show();
+    QTimer::singleShot(5000, this, [=]() {
+        ui->check_add->hide();
+    });
     QString str = QString::fromStdString(to_string(idx));
     int sz = str.size();
     for (int j = 0; j < 17 - sz ; j++){
