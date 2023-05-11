@@ -19,10 +19,10 @@ LoginPage::LoginPage(QWidget *parent)
     ui->IncorrectEmail->hide();
 }
 void LoginPage::load_data(){
-    data.student.resize(last_year+1) ;
-        data.LoadDataFromStudent() ;
-        data.LoadDataFromCourse() ;
-        qCritical()<<QString::fromStdString(data.student[last_year][0].getPassword()) ;
+    //data.student.resize(last_year+1);
+    data.LoadDataFromStudent() ;
+    data.LoadDataFromCourse() ;
+    //qCritical()<<QString::fromStdString(data.student[last_year][0].getPassword());
 }
 void LoginPage::pre(){
      // get current system time

@@ -79,9 +79,12 @@ void Data::LoadDataFromCourse()
 void Data::UploadDataToStudent()
 {
     ofstream outfile("../Qt/Student.txt");
-    outfile << student.size() << '\n';
-        for(auto &syear : student){
-            outfile<<syear.size()<<'\n' ;
+    if (outfile.is_open())
+    {
+        outfile << student.size() << '\n';
+        for(auto &syear : student)
+        {
+            outfile << syear.size()<< '\n';
             for (auto& s : syear)
             {
                 outfile << s.name << '\n';
@@ -101,11 +104,12 @@ void Data::UploadDataToStudent()
                 for (auto isFinshed : s.finishedCourses)
                     outfile << isFinshed << '\n';
 
-                outfile << s.courseGPA.size()<<'\n';
+                outfile << s.courseGPA.size() <<'\n';
                 for (auto& cg : s.courseGPA)
                     outfile << cg << '\n';
             }
         }
+    }
     outfile.close();
 }
 
@@ -113,22 +117,24 @@ void Data::LoadDataFromStudent()
 {
     ifstream infile("../Qt/Student.txt");
 
-    if (infile.is_open())
+    int sz;
+    if (infile.is_open() && (infile >> sz))
     {
-        int sz;
-        infile >> sz;
         student = vector<vector<Student>>(sz);
         for (auto& syear : student)
         {
             int szs ;
             infile >>szs ;
             syear= vector<Student>(szs) ;
-            for(auto &s:syear){
-                getline(infile,s.name) ;
+            for(auto &s:syear)
+            {
+                infile.ignore();
+                getline(infile, s.name);
                 infile >> s.ID;
                 string email, password;
-                infile >> email ;
-                getline(infile,s.password) ;
+                infile >> email;
+                infile.ignore();
+                getline(infile, password) ;
                 s.setEmail(email);
                 s.setPassword(password);
                 infile >> s.maximumHoursAllowed >> s.academicYear >> s.academicSemster >> s.CGPA;
