@@ -158,6 +158,14 @@ void EditCourse::on_Edit_clicked()
     selected.isElective = isElective;
     ui->check_add->setText("Modified successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
+    QString str = QString::fromStdString(to_string(idx));
+    int sz = str.size();
+    for (int j = 0; j < 17 - sz ; j++){
+        str.push_back(' ');
+    }
+    str.push_back("|          ");
+    str += name;
+    ui->courseList->setItemText(idx + 1, str);
     clear();
     ui->courseList->setCurrentIndex(0);
 }

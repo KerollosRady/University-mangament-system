@@ -31,6 +31,7 @@ void LoginPage::pre(){
      tm *ltm = localtime(&now);
      // get current year
      last_year = ltm->tm_year-100;
+     data.last_year = last_year ;
      load_data() ;
 }
 LoginPage::~LoginPage()

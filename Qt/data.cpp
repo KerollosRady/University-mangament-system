@@ -157,7 +157,9 @@ void Data::LoadDataFromStudent()
     }
     infile.close();
 }
-
+QString Data::string_to_Qstring(string s){
+    return QString::fromStdString(s) ;
+}
 
 
 

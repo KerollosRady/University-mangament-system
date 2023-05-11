@@ -28,6 +28,8 @@ private slots:
 
     void on_ViewStudent_clicked();
 
+    void on_ViewCourse_clicked();
+
 private:
     Ui::AdminPage *ui;
     newCourse * ptrCourse ;
