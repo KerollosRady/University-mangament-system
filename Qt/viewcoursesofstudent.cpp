@@ -63,9 +63,9 @@ void ViewCoursesOfStudent::filter(){
 }
 void ViewCoursesOfStudent::show_course(int c ){
     QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
-    QSpinBox *Grade = new QSpinBox(ui->treeWidget);
-    Grade->setValue(round(stud->courseGPA[c]*100/4));
+    QDoubleSpinBox *Grade = new QDoubleSpinBox(ui->treeWidget);
     Grade->setRange(0,100) ;
+    Grade->setValue(stud->courseGPA[c]*100/4);
     Grade->setStyleSheet("color : white ;") ;
     ui->treeWidget->setItemWidget(item, 0, Grade);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
@@ -83,12 +83,30 @@ void ViewCoursesOfStudent::on_filter_clicked()
 void ViewCoursesOfStudent::on_save_clicked()
 {
 
+    int rowCount = ui->treeWidget->topLevelItemCount(); // the number of rows in the column
+    set<int> s= set(stud->progressCourses.begin(),stud->progressCourses.end()) ;
+    for (int row = 0; row < rowCount; ++row) {
+        QTreeWidgetItem *item = ui->treeWidget->topLevelItem(row);
+        int c = item->text(2).toInt(nullptr ,10);
+        qCritical()<<QString::fromStdString(to_string(c)) ;
+        QDoubleSpinBox *spinBox = qobject_cast<QDoubleSpinBox*>(ui->treeWidget->itemWidget(item, 0)); // Get a pointer to the double spin box widget
+        double grade = spinBox->value();
+        qCritical()<<QString::fromStdString(to_string(grade)) ;
+        stud->courseGPA[c] = grade ;
+        stud->finishedCourses[c]= (item->checkState(1)==Qt::Checked) ;
+        if(stud->finishedCourses[c] && s.find(c)!=s.end())
+            s.erase(c) ;
+        else if(!stud->finishedCourses[c])
+            s.insert(c) ;
+    }
+    stud->progressCourses = vector(s.begin(),s.end()) ;
+    // message "saved successfully"
 }
 void ViewCoursesOfStudent::on_treeWidget_itemChanged(QTreeWidgetItem *item, int column)
 {
     if(column==1)
     {
-        QSpinBox *Grade = new QSpinBox(ui->treeWidget);
+        QDoubleSpinBox *Grade = new QDoubleSpinBox(ui->treeWidget);
         Qt::CheckState state = item->checkState(column); // Get the state of the item
         if (state == Qt::Checked) {
             Grade->setRange(50,100) ;
