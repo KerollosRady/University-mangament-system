@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <time.h>
 
 int main(int argc, char *argv[])
 {
@@ -16,7 +17,9 @@ int main(int argc, char *argv[])
         if (translator.load(":/i18n/" + baseName)) {
             a.installTranslator(&translator);
             break;
-        }}
+        }
+    }
+    srand ( time(NULL) );
     LoginPage w;
     return a.exec();
 }

@@ -1,12 +1,15 @@
 #pragma once
 #include<iostream>
 #include <vector>
-#include "user.h"
 #include"Course.h"
 #define el '\n'
-class Student : public user
+class Student
 {
 public:
+    string email;
+    string password;
+    string name;
+    string ID;
     int maximumHoursAllowed;
     float CGPA;
     int academicYear;
@@ -18,6 +21,14 @@ public:
     vector<float> courseGPA;
     Student(int year, int id, const string& name, int numberOfCourses ,const string& collegeName );
     Student();
+    void setEmail(string email);
+    string GenerateEmail();
+    void setPassword(string password);
+    string GeneratePassword();
+    string GenerateID(int id, int year);
+    string getEmail();
+    string getPassword();
+    bool validate_password(string password);
     void SemesterUpdate();
     void ViewAvailableCourses(const vector<Course>&);
     void FilterCourse(const vector<Course>&);

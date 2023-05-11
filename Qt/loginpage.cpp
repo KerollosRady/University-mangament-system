@@ -6,7 +6,7 @@
 #include <QTextStream>
 #include <debuging.h>
 #include <ui_debuging.h>
-
+#include <QPushButton>
 LoginPage::LoginPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::LoginPage)
@@ -18,61 +18,11 @@ LoginPage::LoginPage(QWidget *parent)
     show();
     ui->IncorrectEmail->hide();
 }
-
 void LoginPage::load_data(){
-    QFile file("../Qt/Courses.txt") ;
-    /*
-    name
-    instructore
-    MaxNumOfStud
-    hours
-    PreReqCourses
-    */
-    if(!file.exists() || !file.open(QIODevice::ReadOnly)){
-        qCritical()<<file.errorString()<<el ;
-        return ;
-    }
-    QTextStream stream (&file) ;
-    while(!stream.atEnd()){
-        QString line[5]  ;
-        for(int i=0 ;i<5 ;i++){
-            line[i] = stream.readLine()  ;
-            qCritical()<<line[i]<<el ;
-            }
-        set<int> s;
-        string snum ="";
-        for(int i=0 ;i<line[4].size() ;i++)
-        {
-            if(!line[4][i].isDigit())
-            {
-                s.insert(stoi(snum)) ;
-                snum="" ;
-                continue ;
-            }
-            snum+=line[4][i].toLatin1();
-        }
-        if(!snum.empty())
-            s.insert(stoi(snum)) ;
-        Course c ;
-        c.insert(line[0].toStdString(),line[1].toStdString(),line[2].toInt(),line[3].toInt(),s) ;
-        c.isElective = true ;
-        data.course.push_back(c) ;
-    }
-    for(auto c : data.course)
-        c.DisplayData() ;
-     data.student.resize(last_year+1) ;
-     data.student[last_year]={
-                               Student(2023, 0, "abdo", 100,"Faculty of Computer and Information Sciences"),
-                               Student(2023, 1, "kero", 100,"Faculty of Computer and Information Sciences"),
-                               Student(2023, 2, "bebo", 100,"Faculty of Computer and Information Sciences")};
-     int j =0 ;
-     for (auto &s : data.student[last_year]){
-        s.progressCourses = {0,1,2} ;
-        for(int i=0 ;i<3 ;i++)
-            data.course[i].CurStudents.emplace(last_year,j) ;
-        j++ ;
-        cout<<s.getEmail()<<' '<<s.getPassword()<<el ;
-     }
+    data.student.resize(last_year+1) ;
+        data.LoadDataFromStudent() ;
+        data.LoadDataFromCourse() ;
+        qCritical()<<QString::fromStdString(data.student[last_year][0].getPassword()) ;
 }
 void LoginPage::pre(){
      // get current system time
@@ -80,11 +30,12 @@ void LoginPage::pre(){
      // convert to local time
      tm *ltm = localtime(&now);
      // get current year
-     last_year = 1900 + ltm->tm_year - 2000;
+     last_year = ltm->tm_year-100;
      load_data() ;
 }
 LoginPage::~LoginPage()
 {
+     save_data() ;
     delete ui;
     delete ptrAdminPage ;
     delete ptrStudentPage ;
@@ -131,5 +82,7 @@ void LoginPage::on_toolButton_20_clicked()
 }
 
 void LoginPage::save_data(){
-
+    cout<<"done" ;
+    data.UploadDataToCourse() ;
+    data.UploadDataToStudent() ;
 }

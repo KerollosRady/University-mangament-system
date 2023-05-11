@@ -14,8 +14,8 @@ Student::Student(int year, int id, const string& name, int numberOfCourses,const
     setPassword(GeneratePassword());
     setEmail(GenerateEmail());
     this->collegeName = collegeName ;
-    this->finishedCourses = vector<bool>(20);
-    this->courseGPA       = vector<float>(20);
+    this->finishedCourses = vector<bool>(20,0);
+    this->courseGPA       = vector<float>(20,0);
     this->academicSemster = 1  ;
     this->academicYear    = 1  ;
     this->CGPA            = 0.0;
@@ -135,6 +135,74 @@ void Student::EditData()
         if (newPass == reNewPass)
             setPassword(newPass);
     }
+}
+string Student::GenerateEmail()
+{
+    return ID + "@cis.asu.eg";
+}
+
+string Student::GeneratePassword()
+{
+    string password;
+    pair<char, char> ranges[3] = { {'0', '9'}, {'A', 'Z'}, {'a', 'z'} };
+    int standardSize = 10;
+
+    for (int i = 0; i < standardSize; i++)
+    {
+        int choosedRange = i % 3;
+        int start = ranges[choosedRange].first, end = ranges[choosedRange].second;
+        password += start + rand() % (end - start + 1);
+    }
+
+    return password;
+}
+
+string Student::GenerateID(int id, int year)
+{
+    string ID = to_string(id);
+    string leadingZeros = string(4 - ID.size(), '0');
+    return to_string(year) + leadingZeros + ID;
+}
+
+void Student::setEmail(string email)
+{
+    this->email = email;
+}
+
+void Student::setPassword(string password)
+{
+    this->password = password;
+}
+
+string Student::getEmail()
+{
+    return email;
+}
+
+string Student::getPassword()
+{
+    return password;
+}
+
+//check whether the password is valid
+bool Student::validate_password(string password)
+{
+    if (password.size() < 8 || password.size() > 16)
+        return false;
+
+    // at least 1 digit
+    if (!count_if(password.begin(), password.end(), [&](auto c) {return '0' <= c && c <= '9'; }))
+        return false;
+
+    // at least 1 lower case
+    if (!count_if(password.begin(), password.end(), [&](auto c) {return 'a' <= c && c <= 'z'; }))
+        return false;
+
+    // at least 1 upper case
+    if (!count_if(password.begin(), password.end(), [&](auto c) {return 'A' <= c && c <= 'Z'; }))
+        return false;
+
+    return true;
 }
 
 

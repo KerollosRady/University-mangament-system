@@ -30,8 +30,8 @@ private:
     int last_year=0;
     Data data;
 public :
-    void load_data() ;
     void pre() ;
+    void load_data() ;
     void save_data() ;
 };
 

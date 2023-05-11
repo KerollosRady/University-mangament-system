@@ -158,7 +158,6 @@ void newStudent::on_Add_clicked()
     time_t now = time(0);
     tm *ltm = localtime(&now);
     int year = ltm->tm_year - 100;
-
     int id = data->student[year].size();
     Student newStd(year+2000, id , _name,data->course.size() , "Faculty of computer and information science .");
     ui->studentID->setText(
