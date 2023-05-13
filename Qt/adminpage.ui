@@ -81,7 +81,7 @@ border-radius:10px;</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>500</y>
+     <y>460</y>
      <width>161</width>
      <height>71</height>
     </rect>
@@ -106,7 +106,7 @@ of student</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>590</y>
+     <y>550</y>
      <width>161</width>
      <height>71</height>
     </rect>
@@ -131,7 +131,7 @@ data</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>320</y>
+     <y>280</y>
      <width>161</width>
      <height>71</height>
     </rect>
@@ -156,7 +156,7 @@ of course</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>230</y>
+     <y>190</y>
      <width>161</width>
      <height>71</height>
     </rect>
@@ -181,7 +181,7 @@ student</string>
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>140</y>
+     <y>100</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -229,7 +229,7 @@ font: 25pt &quot;Castellar&quot;;
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>410</y>
+     <y>370</y>
      <width>161</width>
      <height>71</height>
     </rect>
@@ -299,6 +299,31 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
     <string>Logout</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="CourseVisual">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>640</y>
+     <width>161</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:18px;
+    border-radius:30px;
+    color: #ffffff;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>Course
+Visualization</string>
+   </property>
+  </widget>
   <zorder>listView</zorder>
   <zorder>scrollArea</zorder>
   <zorder>ViewCourse</zorder>
@@ -310,6 +335,7 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <zorder>NewCourse</zorder>
   <zorder>name</zorder>
   <zorder>logout</zorder>
+  <zorder>CourseVisual</zorder>
  </widget>
  <resources/>
  <connections/>

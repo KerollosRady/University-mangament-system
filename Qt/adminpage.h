@@ -30,6 +30,8 @@ private slots:
 
     void on_ViewCourse_clicked();
 
+    void on_CourseVisual_clicked();
+
 private:
     Ui::AdminPage *ui;
     newCourse * ptrCourse ;
@@ -38,6 +40,7 @@ private:
     Data* data;
     EditCourse * ptrEdit;
     newStudent *newStd;
+
 public :
     void home() ;
 };

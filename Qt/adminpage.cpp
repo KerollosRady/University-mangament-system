@@ -3,6 +3,7 @@
 #include <loginpage.h>
 #include <viewstudent.h>
 #include <viewcoursesofstudent.h>
+#include<coursevisualize.h>
 AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, Data* data) :
     QDialog(parent),
     ui(new Ui::AdminPage)
@@ -63,5 +64,11 @@ void AdminPage::on_ViewStudent_clicked()
 void AdminPage::on_ViewCourse_clicked()
 {
     ui->scrollArea->setWidget(new ViewCoursesOfStudent(nullptr ,data)) ;
+}
+
+
+void AdminPage::on_CourseVisual_clicked()
+{
+    ui->scrollArea->setWidget(new CourseVisualize(nullptr));
 }
 
