@@ -18,6 +18,7 @@ public:
     void clear();
     void invalidInputData(int);
     bool isInt(std::string);
+    bool dfsCycle(int cur, vector<bool> &vis);
     ~EditCourse();
 
 private slots:

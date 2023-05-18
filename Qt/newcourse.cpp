@@ -52,7 +52,7 @@ void newCourse::invalidInputData(int idx){
     ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
 
     ui->check_add->show();
-    QTimer::singleShot(5000, this, [=]() {
+    QTimer::singleShot(2000, this, [=]() {
         ui->check_add->hide();
     });
 }
@@ -103,8 +103,13 @@ void newCourse::on_Add_clicked(){
     c.isElective = ui->checkBox->isChecked()==true;
     c.insert(_name, _instructor, _maxStd, hours, s);
     data->course.push_back(c);
+    ui->check_add->show();
+
     ui->check_add->setText("Added successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
+    QTimer::singleShot(2000, this, [=]() {
+        ui->check_add->hide();
+    });
     clear();
 }
 

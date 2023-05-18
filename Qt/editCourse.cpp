@@ -83,10 +83,14 @@ void EditCourse::invalidInputData(int idx){
         ui->check_add->setText("select a course you need edit");
     else if (idx == 5)
         ui->check_add->setText("Course can't be pre Required for itself");
+    else if (idx == 6)
+        ui->check_add->setText("Course pre Required in a cycle");
 
         ui->check_add->setStyleSheet("background-color: transparent;color : red;font-size:20px;");
+
     ui->check_add->show();
-    QTimer::singleShot(5000, this, [=]() {
+
+    QTimer::singleShot(2000, this, [=]() {
         ui->check_add->hide();
     });
 }
@@ -97,6 +101,18 @@ bool EditCourse::isInt(string s){
             return false;
     return true;
 }
+
+bool EditCourse::dfsCycle(int cur, vector<bool> &vis){
+    vis[cur] = true;
+    bool cycle = false;
+    for (auto &p : data->course[cur].PreReqCourses){
+        if (vis[p])
+            return true;
+        cycle |= dfsCycle(p, vis);
+    }
+    return cycle;
+}
+
 void EditCourse::on_Edit_clicked()
 {
     QString name = ui->lineEdit_1->text();
@@ -129,7 +145,7 @@ void EditCourse::on_Edit_clicked()
         return;
     }
     Course &selected = data->course[idx];
-    set<int> s;
+    set<int> newPre;
 
     QListWidget *pre = ui->listWidget ;
     if (pre->item(idx)->checkState()== Qt::Checked){
@@ -141,12 +157,12 @@ void EditCourse::on_Edit_clicked()
     {
         if(pre->item(i)->checkState()== Qt::Checked)
         {
-            s.insert(i) ;
+            newPre.insert(i) ;
         }
     }
     bool isElective = ui->checkBox->isChecked();
     if (_name == selected.name && _instructor == selected.instructor && isElective == selected.isElective
-        && _maxStd == selected.MaxNumOfStud && hours == selected.hours && s == selected.PreReqCourses ){
+        && _maxStd == selected.MaxNumOfStud && hours == selected.hours && newPre == selected.PreReqCourses ){
 
         invalidInputData(3);
         return;
@@ -157,14 +173,25 @@ void EditCourse::on_Edit_clicked()
             invalidInputData(2);
             return;
         }
+    }    
+    set<int> oldPre = selected.PreReqCourses;
+    selected.PreReqCourses = newPre;
+
+    vector<bool> vis(data->course.size(), false);
+
+    if (dfsCycle(idx, vis)){
+        selected.PreReqCourses = oldPre;
+        invalidInputData(6);
+        return;
     }
+
     selected.PreReqCourses.clear();
-    selected.insert(_name,_instructor,_maxStd,hours,s);
+    selected.insert(_name,_instructor,_maxStd,hours,newPre);
     selected.isElective = isElective;
     ui->check_add->setText("Modified successfully");
     ui->check_add->setStyleSheet("background-color: transparent;color : green;font-size:20px;");
     ui->check_add->show();
-    QTimer::singleShot(5000, this, [=]() {
+    QTimer::singleShot(2000, this, [=]() {
         ui->check_add->hide();
     });
     QString str = QString::fromStdString(to_string(idx));
