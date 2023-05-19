@@ -2,22 +2,27 @@
 #include "ui_registertime.h"
 #include <QTimer>
 
-RegisterTime::RegisterTime(QWidget *parent , Data *data) :
+RegisterTime::RegisterTime(QWidget *parent , Data *data, QPushButton* semsterUpd) :
     QDialog(parent),
     ui(new Ui::RegisterTime)
 {
     ui->setupUi(this);
     this->data = data;
+    this->semsterUpd = semsterUpd;
     ui->calendarWidget->setMinimumDate(QDate::currentDate());
     ui->save->hide();
     ui->calendarWidget->hide();
     ui->message->hide();
+    ui->updSem->hide();
+    semsterUpd->show();
+    connect(semsterUpd, &QPushButton::clicked, this, &RegisterTime::semsterUpdButton);
+
 }
 RegisterTime::~RegisterTime()
 {
     delete ui;
+    semsterUpd->hide();
 }
-
 
 void RegisterTime::on_open_clicked()
 {
@@ -58,4 +63,15 @@ void RegisterTime::on_save_clicked()
         ui->message->hide();
     });
 }
-
+void RegisterTime::semsterUpdButton(){
+    for (auto &y: data->student){
+        for (auto &stud: y){
+            if (!stud.graduated)
+                stud.SemesterUpdate();
+        }
+    }
+    ui->updSem->show();
+    QTimer::singleShot(2000, this, [=]() {
+        ui->updSem->hide();
+    });
+}

@@ -87,7 +87,7 @@ void ViewCoursesOfStudent::on_save_clicked()
 {
 
     int rowCount = ui->treeWidget->topLevelItemCount(); // the number of rows in the column
-    set<int> s= set(stud->progressCourses.begin(),stud->progressCourses.end()) ;
+    set<int> s= set(stud->progressCourses.begin(),stud->progressCourses.end());
     for (int row = 0; row < rowCount; ++row) {
         QTreeWidgetItem *item = ui->treeWidget->topLevelItem(row);
         int c = item->text(2).toInt(nullptr ,10);
@@ -103,6 +103,16 @@ void ViewCoursesOfStudent::on_save_clicked()
             s.insert(c) ;
     }
     stud->progressCourses = vector(s.begin(),s.end()) ;
+    double totalGrades = 0;
+    int cntFinished = 0;
+    for (int i = 0; i < data->course.size(); ++i){
+        if (stud->finishedCourses[i]){
+            totalGrades += stud->courseGPA[i];
+            cntFinished++;
+        }
+    }
+    stud->CGPA = totalGrades/ max(1, cntFinished);
+    stud->academicYear = cntFinished/10 + 1;
     ui->saved_message->show() ;
     QTimer::singleShot(5000, this, [=]() {
         ui->saved_message->hide();

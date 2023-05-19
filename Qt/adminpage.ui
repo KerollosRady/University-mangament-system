@@ -259,8 +259,8 @@ course</string>
   <widget class="QLabel" name="name">
    <property name="geometry">
     <rect>
-     <x>477</x>
-     <y>32</y>
+     <x>310</x>
+     <y>30</y>
      <width>201</width>
      <height>41</height>
     </rect>
@@ -348,6 +348,78 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
     <string>Register Time</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="auto_generate">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>30</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:19px;
+    border-radius: 20px;
+    color: rgb(255, 33, 25);
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>Auto Generate</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="save">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>30</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:20px;
+    border-radius: 20px;
+    color: rgb(255, 33, 25);
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="updateSem">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>30</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:20px;
+    border-radius: 20px;
+    color: rgb(255, 33, 25);
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>Update semster</string>
+   </property>
+  </widget>
   <zorder>listView</zorder>
   <zorder>scrollArea</zorder>
   <zorder>ViewCourse</zorder>
@@ -361,6 +433,9 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <zorder>logout</zorder>
   <zorder>CourseVisual</zorder>
   <zorder>RegTim</zorder>
+  <zorder>auto_generate</zorder>
+  <zorder>save</zorder>
+  <zorder>updateSem</zorder>
  </widget>
  <resources/>
  <connections/>

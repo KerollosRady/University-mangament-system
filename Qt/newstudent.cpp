@@ -180,16 +180,18 @@ void newStudent::on_Add_clicked()
     ui->studentID->setStyleSheet("background-color: transparent;color : white;font-size:20px;");
 
     int finishedCnt = 0;
-
+    double GPA = 0;
     for (int i = 0 ; i < enteredGrades.size(); ++i){
         if (enteredGrades[i] != -1){
             finishedCnt++;
             newStd.finishedCourses[i] = 1;
             newStd.courseGPA[i] = 4.0 * enteredGrades[i] / 100;
+            GPA += enteredGrades[i];
         }
     }
 
     newStd.SemesterUpdate();
+    newStd.CGPA = 4.0 * GPA / 100;
     newStd.academicSemster = 1;
     newStd.academicYear = finishedCnt/10 + 1;
 

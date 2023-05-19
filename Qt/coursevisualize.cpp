@@ -1,3 +1,4 @@
+#pragma once
 #include <Edge.h>
 #include <coursevisualize.h>
 #include <stack>
@@ -7,7 +8,8 @@
 #include <QVBoxLayout>
 #include <QPointF>
 #include <queue>
-CourseVisualize::CourseVisualize(QWidget *parent , Data * data) :
+#include <QPushButton>
+CourseVisualize::CourseVisualize(QWidget *parent , Data * data, QPushButton * save , QPushButton * auto_generate ) :
     QWidget(parent),
     ui(new Ui::CourseVisualize)
 {
@@ -22,13 +24,56 @@ CourseVisualize::CourseVisualize(QWidget *parent , Data * data) :
     QVBoxLayout* layout = new QVBoxLayout(contentWidget);
     layout->addWidget(view);
     view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    stack<int> s  ;
     for(int i=0 ;i<data->course.size() ;i++)
         if(!vis[i])
-            dfs(i,s) ;
+            dfs(i) ;
+    this->save = save ;
+    this->auto_generate = auto_generate ;
+    if(save!=nullptr){
+        save->show() ;
+        auto_generate->show() ;
+        connect(save, &QPushButton::clicked, this, &CourseVisualize::save_button);
+        connect(auto_generate, &QPushButton::clicked, this, &CourseVisualize::auto_generate_button);
+    }
+    generate() ;
+}
+CourseVisualize::~CourseVisualize()
+{
+    if(save!=nullptr){
+        save->hide() ;
+        auto_generate->hide() ;
+    }
+    delete ui;
+    delete scene ;
+    delete view ;
+}
+void CourseVisualize::dfs( int node )
+{
+    vis[node]=true ;
+    item_node[node] = new Node(node,nullptr,data) ;
+    scene->addItem(item_node[node]) ;
+    for(auto child : data->course[node].PreReqCourses){
+        if(!vis[child])
+            dfs(child) ;
+        Edge *edge = new Edge(item_node[node],item_node[child],view) ;
+        scene->addItem(edge) ;
+    }
+    s.push(node) ;
+}
+void CourseVisualize::save_button()
+{
+    for(int i=0 ;i<data->course.size() ;i++)
+        data->course[i].x = item_node[i]->pos().x() ,
+            data->course[i].y = item_node[i]->pos().y()  ;
+}
+void CourseVisualize::auto_generate_button(){
+    generate() ;
+}
+void CourseVisualize::generate(){
     QPointF curr(10,10) ;
     int cnt =0 ;
     bool flag =true ;
+    stack<int> tmp = s ;
     while(!s.empty()){
         if(cnt%5==0 && cnt){
             curr.setY(curr.y()+180);
@@ -43,25 +88,5 @@ CourseVisualize::CourseVisualize(QWidget *parent , Data * data) :
         curr.setX(curr.x()+180);
         s.pop() ;
     }
-    view->setMinimumHeight(curr.y()+180) ;
-}
-
-CourseVisualize::~CourseVisualize()
-{
-    delete ui;
-    delete scene ;
-    delete view ;
-}
-void CourseVisualize::dfs( int node , stack<int>&s )
-{
-    vis[node]=true ;
-    item_node[node] = new Node(node,nullptr,data) ;
-    scene->addItem(item_node[node]) ;
-    for(auto child : data->course[node].PreReqCourses){
-        if(!vis[child])
-            dfs(child,s) ;
-        Edge *edge = new Edge(item_node[node],item_node[child],view) ;
-        scene->addItem(edge) ;
-    }
-    s.push(node) ;
+    s = tmp ;
 }

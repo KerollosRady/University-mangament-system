@@ -1,4 +1,4 @@
-10
+12
 OOP
 1
 mohmed
@@ -19,14 +19,16 @@ Dr.koko
 3
 500
 0
-0
+1
+23 0
 Intro
 0
 Bedo
 5
 500
 0
-0
+1
+23 0
 Data Structure
 0
 Bishoy Vector
@@ -61,18 +63,36 @@ bedo
 2
 500
 0
-0
+1
+23 0
 Calculus 1
 0
 Bedo
 2
 900
 0
-0
+1
+23 0
 intro2
 0
 bedo
 2
 900
+0
+1
+23 0
+newCourse for warraky
+0
+Mr. warraky
+3
+500
+0
+1
+23 0
+okkop
+0
+lkl
+1
+666
 0
 0

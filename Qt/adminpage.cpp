@@ -14,6 +14,9 @@ AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, Data* data) :
     ui->scrollArea->setWidget(welcome) , welcome->show();
     this->data =  data ;
     this->loginpage = loginpage ;
+    ui->save->hide() ;
+    ui->auto_generate->hide() ;
+    ui->updateSem->hide();
 }
 
 AdminPage::~AdminPage()
@@ -70,15 +73,12 @@ void AdminPage::on_ViewCourse_clicked()
 
 void AdminPage::on_CourseVisual_clicked()
 {
-    ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    ui->scrollArea->setWidget(new CourseVisualize(nullptr , data));
+    ui->scrollArea->setWidget(new CourseVisualize(nullptr , data , ui->save , ui->auto_generate));
 }
 
 
 void AdminPage::on_RegTim_clicked()
 {
-    ui->scrollArea->setWidget(new RegisterTime(nullptr , data));
+    ui->scrollArea->setWidget(new RegisterTime(nullptr , data, ui->updateSem));
 }
 

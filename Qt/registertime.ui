@@ -118,6 +118,22 @@ color : black;</string>
     <string>Save</string>
    </property>
   </widget>
+  <widget class="QLabel" name="updSem">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>17</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;color : green;font-size:20px;</string>
+   </property>
+   <property name="text">
+    <string>Updated successfully</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

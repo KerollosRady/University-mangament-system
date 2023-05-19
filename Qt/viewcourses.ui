@@ -33,9 +33,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>89</y>
      <width>1000</width>
-     <height>590</height>
+     <height>500</height>
     </rect>
    </property>
    <property name="sizeIncrement">
@@ -132,6 +132,42 @@
      <set>AlignCenter</set>
     </property>
    </column>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>30</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    border-radius: 10px;
+background:white;
+color:black;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>30</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:transparent;
+color:white;
+font-size : 26px ;</string>
+   </property>
+   <property name="text">
+    <string>CGPA</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>

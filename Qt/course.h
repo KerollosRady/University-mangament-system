@@ -15,6 +15,7 @@ public:
     string instructor;
     int MaxNumOfStud;
     int hours;
+    double x, y;
     set<code> PreReqCourses;
     set<pair<int , int>> CurStudents;
     void insert(const string& name, const string& instructor, int MaxNumOfStud, int hours,const set<int>& PreReqCourses);
