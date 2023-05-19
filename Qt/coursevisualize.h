@@ -20,8 +20,7 @@ class CourseVisualize : public QWidget
 
 public:
     explicit CourseVisualize(QWidget *parent = nullptr , Data * data = nullptr );
-    void dfs1(int node , stack<int>&) ;
-    void dfs2(int node,int lev ) ;
+    void dfs(int node , stack<int>&) ;
     ~CourseVisualize();
     vector<bool> vis ;
     Data *data ;

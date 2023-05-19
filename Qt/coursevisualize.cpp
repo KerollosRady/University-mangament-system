@@ -22,16 +22,28 @@ CourseVisualize::CourseVisualize(QWidget *parent , Data * data) :
     QVBoxLayout* layout = new QVBoxLayout(contentWidget);
     layout->addWidget(view);
     view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    stack<int> s  ; // toplogical sort
+    stack<int> s  ;
     for(int i=0 ;i<data->course.size() ;i++)
         if(!vis[i])
-            dfs1(i,s) ;
-    int lev=0  ;
+            dfs(i,s) ;
+    QPointF curr(10,10) ;
+    int cnt =0 ;
+    bool flag =true ;
     while(!s.empty()){
-        if(vis[s.top()])
-            dfs2(s.top(),lev) ;
+        if(cnt%5==0 && cnt){
+            curr.setY(curr.y()+180);
+            if(flag)
+                curr.setX(60) ;
+            else
+                curr.setX(10) ;
+            flag = !flag ;
+        }
+        cnt++ ;
+        item_node[s.top()]->setPos(curr);
+        curr.setX(curr.x()+180);
         s.pop() ;
     }
+    view->setMinimumHeight(curr.y()+180) ;
 }
 
 CourseVisualize::~CourseVisualize()
@@ -40,35 +52,16 @@ CourseVisualize::~CourseVisualize()
     delete scene ;
     delete view ;
 }
-void CourseVisualize::dfs1( int node , stack<int>&s )
+void CourseVisualize::dfs( int node , stack<int>&s )
 {
     vis[node]=true ;
     item_node[node] = new Node(node,nullptr,data) ;
     scene->addItem(item_node[node]) ;
     for(auto child : data->course[node].PreReqCourses){
         if(!vis[child])
-            dfs1(child,s) ;
+            dfs(child,s) ;
         Edge *edge = new Edge(item_node[node],item_node[child],view) ;
         scene->addItem(edge) ;
     }
     s.push(node) ;
-}
-void CourseVisualize::dfs2( int node ,int lev )
-{
-    queue<int> q ;
-    q.push(node) ;
-    for(int sz ; (sz = q.size()) ;lev++)
-    {
-        int x = 500 - (((sz+1)/2-1)*200+100*(!(sz&1))) ;
-        int y = lev*200+10 ;
-        for(int i=0 ;i<sz ;i++){
-            int node = q.front();
-            item_node[node]->setPos(x,y) ;
-            for(auto child: data->course[node].PreReqCourses)
-                q.push(child) ;
-            x+=200 ;
-            vis[node]=false ;
-            q.pop() ;
-        }
-    }
 }

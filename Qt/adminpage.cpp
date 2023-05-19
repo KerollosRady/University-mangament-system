@@ -69,6 +69,9 @@ void AdminPage::on_ViewCourse_clicked()
 
 void AdminPage::on_CourseVisual_clicked()
 {
+    ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     ui->scrollArea->setWidget(new CourseVisualize(nullptr , data));
 }
 
