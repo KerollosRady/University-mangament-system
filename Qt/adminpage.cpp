@@ -4,6 +4,7 @@
 #include <viewstudent.h>
 #include <viewcoursesofstudent.h>
 #include <coursevisualize.h>
+#include <registertime.h>
 AdminPage::AdminPage(QWidget *parent,QMainWindow * loginpage, Data* data) :
     QDialog(parent),
     ui(new Ui::AdminPage)
@@ -73,5 +74,11 @@ void AdminPage::on_CourseVisual_clicked()
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     ui->scrollArea->setWidget(new CourseVisualize(nullptr , data));
+}
+
+
+void AdminPage::on_RegTim_clicked()
+{
+    ui->scrollArea->setWidget(new RegisterTime(nullptr , data));
 }
 

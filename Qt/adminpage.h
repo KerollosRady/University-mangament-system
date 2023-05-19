@@ -32,6 +32,8 @@ private slots:
 
     void on_CourseVisual_clicked();
 
+    void on_RegTim_clicked();
+
 private:
     Ui::AdminPage *ui;
     newCourse * ptrCourse ;

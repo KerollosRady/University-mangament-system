@@ -23,8 +23,10 @@ SOURCES += \
     newcourse.cpp \
     newstudent.cpp \
     registerform.cpp \
+    registertime.cpp \
     student.cpp \
     studentpage.cpp \
+    studregpage.cpp \
     viewcourses.cpp \
     viewcoursesofstudent.cpp \
     viewstudent.cpp \
@@ -46,8 +48,10 @@ HEADERS += \
     newcourse.h \
     newstudent.h \
     registerform.h \
+    registertime.h \
     student.h \
     studentpage.h \
+    studregpage.h \
     viewcourses.h \
     viewcoursesofstudent.h \
     viewstudent.h \
@@ -67,7 +71,9 @@ FORMS += \
     newcourse.ui \
     newstudent.ui \
     registerform.ui \
+    registertime.ui \
     studentpage.ui \
+    studregpage.ui \
     viewcourses.ui \
     viewcoursesofstudent.ui \
     viewstudent.ui \

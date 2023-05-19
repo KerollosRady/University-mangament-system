@@ -70,6 +70,8 @@ void RegisterForm::invalidMessages(int i ){
         ui->check_add->setText("You should finish Prerequired courses first  .");
     else if(i==3)
         ui->check_add->setText("This course has been closed ");
+    else if (i==4)
+        ui->check_add->setText("You should selecd a course");
     ui->check_add->setStyleSheet("color : red ;background-color: transparent;font-size:20px;") ;
     ui->check_add->show() ;
     QTimer::singleShot(5000, this, [=]() {
@@ -80,6 +82,10 @@ void RegisterForm::invalidMessages(int i ){
 void RegisterForm::on_RegisterButton_clicked()
 {
     int coursecode = ui->courseList->currentIndex();
+    coursecode--;
+    if (coursecode == -1){
+        return invalidMessages(4);
+    }
     if(stud->finishedCourses[coursecode])
         return invalidMessages(0) ;
     Course *c = &courses->at(coursecode) ;

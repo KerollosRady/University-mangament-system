@@ -81,9 +81,9 @@ border-radius:10px;</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>460</y>
+     <y>405</y>
      <width>161</width>
-     <height>71</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="cursor">
@@ -106,9 +106,9 @@ of student</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>550</y>
+     <y>484</y>
      <width>161</width>
-     <height>71</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="cursor">
@@ -131,9 +131,9 @@ data</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>280</y>
+     <y>252</y>
      <width>161</width>
-     <height>71</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="cursor">
@@ -156,9 +156,9 @@ of course</string>
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>190</y>
+     <y>176</y>
      <width>161</width>
-     <height>71</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="cursor">
@@ -183,7 +183,7 @@ student</string>
      <x>70</x>
      <y>100</y>
      <width>141</width>
-     <height>71</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="cursor">
@@ -229,9 +229,9 @@ font: 25pt &quot;Castellar&quot;;
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>370</y>
+     <y>328</y>
      <width>161</width>
-     <height>71</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -303,9 +303,9 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>640</y>
+     <y>564</y>
      <width>161</width>
-     <height>61</height>
+     <height>60</height>
     </rect>
    </property>
    <property name="cursor">
@@ -324,6 +324,30 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
 Visualization</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="RegTim">
+   <property name="geometry">
+    <rect>
+     <x>59</x>
+     <y>640</y>
+     <width>161</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">    font-weight: 600;
+	font-size:18px;
+    border-radius:30px;
+    color: #ffffff;
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
+</string>
+   </property>
+   <property name="text">
+    <string>Register Time</string>
+   </property>
+  </widget>
   <zorder>listView</zorder>
   <zorder>scrollArea</zorder>
   <zorder>ViewCourse</zorder>
@@ -336,6 +360,7 @@ Visualization</string>
   <zorder>name</zorder>
   <zorder>logout</zorder>
   <zorder>CourseVisual</zorder>
+  <zorder>RegTim</zorder>
  </widget>
  <resources/>
  <connections/>

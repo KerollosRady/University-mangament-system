@@ -4,6 +4,7 @@
 #include <registerform.h>
 #include <adminviewcourse.h>
 #include <coursevisualize.h>
+#include <studregpage.h>
 
 StudentPage::StudentPage(QWidget *parent , QMainWindow *loginpage , Data * data    ) :QDialog(parent),ui(new Ui::StudentPage)
 {
@@ -49,7 +50,13 @@ void StudentPage::on_GradeButton_clicked()
 
 void StudentPage::on_RegisterButton_clicked()
 {
-     ui->scrollArea->setWidget(new RegisterForm(nullptr,&data->course, &data->student[year][id])) ;
+    QDate curDate = QDate::currentDate();
+    if (curDate >= data->startRegDate && curDate <= data->endRegDate){
+       ui->scrollArea->setWidget(new RegisterForm(nullptr,&data->course, &data->student[year][id])) ;
+    }
+    else {
+       ui->scrollArea->setWidget(new StudRegPage(nullptr,data));
+    }
 }
 
 
@@ -68,7 +75,7 @@ void StudentPage::on_Logout_clicked()
 
 void StudentPage::on_RegisterButton_2_clicked()
 {
-     ui->scrollArea->setWidget(new AdminViewCourse(nullptr,data));
+    ui->scrollArea->setWidget(new AdminViewCourse(nullptr,data));
 }
 
 
