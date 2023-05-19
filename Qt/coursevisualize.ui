@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>640</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,6 +19,16 @@
 background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
 </string>
   </property>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>590</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

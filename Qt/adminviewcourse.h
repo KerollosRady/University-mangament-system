@@ -20,7 +20,6 @@ public:
     void additem_filter(QString s) ;
 private slots:
     void on_fitler_clicked();
-
 private:
     Ui::AdminViewCourse *ui;
     Data * data  ;

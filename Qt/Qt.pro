@@ -28,7 +28,9 @@ SOURCES += \
     viewcourses.cpp \
     viewcoursesofstudent.cpp \
     viewstudent.cpp \
-    adminviewcourse.cpp
+    adminviewcourse.cpp \
+    Edge.cpp \
+    Node.cpp
 
 HEADERS += \
     adminpage.h \
@@ -49,7 +51,9 @@ HEADERS += \
     viewcourses.h \
     viewcoursesofstudent.h \
     viewstudent.h \
-    adminviewcourse.h
+    adminviewcourse.h \
+    Edge.h \
+    Node.h
 
 FORMS += \
     adminpage.ui \

@@ -1,19 +1,17 @@
-3
+5
 oop
 1
 mohmed
 3
 122
-1
-1
+0
 0
 physics
 1
 hisham
 2
 222
-1
-2
+0
 0
 math1
 0
@@ -21,4 +19,22 @@ Dr.koko
 3
 500
 0
+0
+Intro
+0
+Bedo
+5
+500
+0
+0
+Data Structure
+0
+Bishoy Vector
+5
+900
+4
+0
+1
+2
+3
 0

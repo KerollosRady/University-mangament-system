@@ -1,6 +1,5 @@
 #include "adminviewcourse.h"
 #include "ui_adminviewcourse.h"
-
 AdminViewCourse::AdminViewCourse(QWidget *parent ,Data * data) :
     QWidget(parent),
     ui(new Ui::AdminViewCourse)
@@ -59,3 +58,6 @@ void AdminViewCourse::additem_filter(QString s )
         item1->setFlags(item1->flags() | Qt::ItemIsUserCheckable);
         item1->setCheckState(Qt::Unchecked);
 }
+
+
+

@@ -35,5 +35,6 @@ private slots:
     void on_MyProfile_clicked();
     void on_Logout_clicked();
     void on_RegisterButton_2_clicked();
+    void on_DataVisualization_clicked();
 };
 
