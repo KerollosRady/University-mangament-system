@@ -15,7 +15,7 @@ public:
     int academicYear;
     int academicSemster;
     bool graduated = false;
-    string collegeName ;
+    string collegeName = "Faculty Of Computer Science" ;
     vector<bool> finishedCourses;
     vector<code> progressCourses ;
     vector<float> courseGPA;
@@ -35,7 +35,7 @@ public:
     // gui
     void ViewDetailsCourse( vector<Course>& , code );
     void RegisterCourse(code);
-    void ViewAllcourses(const vector<Course>&);
+    void delete_progresscourse( vector<Course>&);
     void ViewCourseGrade_CGPA(const vector<Course>&);
     void EditData();
 };

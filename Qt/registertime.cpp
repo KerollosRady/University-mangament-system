@@ -67,7 +67,9 @@ void RegisterTime::semsterUpdButton(){
     for (auto &y: data->student){
         for (auto &stud: y){
             if (!stud.graduated)
+            {
                 stud.SemesterUpdate();
+            }
         }
     }
     ui->updSem->show();

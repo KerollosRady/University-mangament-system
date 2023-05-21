@@ -43,8 +43,7 @@ void viewStudent::on_courseList_currentIndexChanged(int idx)
     }
     ui->treeWidget->show();
     ui->treeWidget->clear();
-    for (auto &[year , idx] : courses->at(idx).CurStudents){
-
+    for ( auto &[year , idx] : courses->at(idx).CurStudents){
         QTreeWidgetItem* item = new QTreeWidgetItem(ui->treeWidget);
         item->setText(0,QString::fromStdString(students->at(year).at(idx).ID));
         item->setText(1,QString::fromStdString(students->at(year).at(idx).name));

@@ -98,9 +98,9 @@ void ViewCoursesOfStudent::on_save_clicked()
         stud->courseGPA[c] = grade*4/100 ;
         stud->finishedCourses[c]= (item->checkState(1)==Qt::Checked) ;
         if(stud->finishedCourses[c] && s.find(c)!=s.end())
-            s.erase(c) ;
+            s.erase(c) , data->course[c].CurStudents.erase({stoi(stud->ID.substr(0,4))-2000,stoi(stud->ID.substr(4,4))}) ;
         else if(!stud->finishedCourses[c])
-            s.insert(c) ;
+            s.insert(c) , data->course[c].CurStudents.insert({stoi(stud->ID.substr(0,4))-2000,stoi(stud->ID.substr(4,4))}) ;
     }
     stud->progressCourses = vector(s.begin(),s.end()) ;
     double totalGrades = 0;

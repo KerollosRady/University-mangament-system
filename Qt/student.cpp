@@ -13,9 +13,9 @@ Student::Student(int year, int id, const string& name, int numberOfCourses,const
     this->ID = GenerateID(id, year);
     setPassword(GeneratePassword());
     setEmail(GenerateEmail());
-    this->collegeName = collegeName ;
-    this->finishedCourses = vector<bool>(20,0);
-    this->courseGPA       = vector<float>(20,0);
+    this->collegeName = "Faculty Of Computer Science ." ;
+    this->finishedCourses = vector<bool>(100,0);
+    this->courseGPA       = vector<float>(100,0);
     this->academicSemster = 1  ;
     this->academicYear    = 1  ;
     this->CGPA            = 0.0;
@@ -94,19 +94,10 @@ void Student::RegisterCourse(code c)
 {
     progressCourses.push_back(c);
 }
-void Student::ViewAllcourses(const vector<Course>&course)
+void Student::delete_progresscourse(vector<Course>&course)
 {
-    cout << "Finished courses"<<el;
-    for (int i = 0; i < finishedCourses.size(); i++)
-    {
-        if (finishedCourses[i])
-        {
-            cout << course[i].name << el;
-        }
-    }
-    cout << "Progress Courses" << el;
-    for (auto c : progressCourses)
-        cout << course[c].name << el;
+    for(auto c : progressCourses)
+        course[c].CurStudents.erase({stoi(this->ID.substr(0,4))-2000,stoi(this->ID.substr(4,4))}) ;
 }
 void Student::ViewCourseGrade_CGPA(const vector<Course>&course)
 {

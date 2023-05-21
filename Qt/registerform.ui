@@ -50,6 +50,11 @@ background:rgb(203, 203, 203);</string>
    <property name="placeholderText">
     <string>Course ID |          Course Name </string>
    </property>
+   <item>
+    <property name="text">
+     <string>Course ID |          Course Name </string>
+    </property>
+   </item>
   </widget>
   <widget class="QLineEdit" name="lineEdit_4">
    <property name="geometry">

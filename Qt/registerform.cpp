@@ -20,7 +20,6 @@ RegisterForm::RegisterForm(QWidget *parent,vector<Course> * courses, Student * s
         }
         str.push_back("|          ");
         str += QString::fromStdString(courses->at(i).name);
-
         ui->courseList->addItem(str);
     }
     ui->check_add->hide() ;
@@ -41,7 +40,17 @@ RegisterForm::~RegisterForm()
 
 void RegisterForm::on_courseList_currentIndexChanged(int index)
 {
-        ui->check_add->clear() ;
+        index-- ;
+        if(index==-1)
+        {
+        ui->listWidget->clear();
+        ui->lineEdit_1->setText("");
+        ui->lineEdit_2->setText("");
+        ui->lineEdit_4->setText("");
+        ui->lineEdit_5->setText("") ;
+        ui->checkBox->setCheckState(Qt::Unchecked);
+        return  ;
+        }
         Course &c = courses->at(index);
         ui->lineEdit_1->setText(QString::fromStdString(c.name));
         ui->lineEdit_2->setText(QString::fromStdString(c.instructor));
@@ -61,7 +70,7 @@ void RegisterForm::on_courseList_currentIndexChanged(int index)
         }
 }
 void RegisterForm::invalidMessages(int i ){
-    int coursecode = ui->courseList->currentIndex();
+    int coursecode = ui->courseList->currentIndex()-1;
     if(i==0)
         ui->check_add->setText("This Course had been registered before .");
     else if(i==1)
@@ -74,15 +83,14 @@ void RegisterForm::invalidMessages(int i ){
         ui->check_add->setText("You should selecd a course");
     ui->check_add->setStyleSheet("color : red ;background-color: transparent;font-size:20px;") ;
     ui->check_add->show() ;
-    QTimer::singleShot(5000, this, [=]() {
+    QTimer::singleShot(2000, this, [=]() {
         ui->check_add->hide();
     });
 }
 
 void RegisterForm::on_RegisterButton_clicked()
 {
-    int coursecode = ui->courseList->currentIndex();
-    coursecode--;
+    int coursecode = ui->courseList->currentIndex() -1;
     if (coursecode == -1){
         return invalidMessages(4);
     }
@@ -109,5 +117,9 @@ void RegisterForm::on_RegisterButton_clicked()
     stud->maximumHoursAllowed-=courses->at(coursecode).hours ;
     ui->check_add->setText("course has been registerd successfully") ;
     ui->check_add->setStyleSheet("color : green ;     background-color: transparent;font-size:20px;") ;
+    ui->check_add->show() ;
+    QTimer::singleShot(2000, this, [=]() {
+        ui->check_add->hide();
+    });
 }
 

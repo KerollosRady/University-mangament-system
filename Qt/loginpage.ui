@@ -80,10 +80,11 @@ color:white;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">    border-radius: 10px;
+      <string notr="true">  border-radius: 10px;
 background:white;
 color:black;
-text-align:center;</string>
+text-align:center;
+padding-left : 10px ;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_21">
@@ -120,7 +121,8 @@ color:white;</string>
       <string notr="true">    border-radius: 10px;
 background:white;
 color:black;
-text-align:center;</string>
+text-align:center;
+padding-left : 10px ;</string>
      </property>
      <property name="text">
       <string/>

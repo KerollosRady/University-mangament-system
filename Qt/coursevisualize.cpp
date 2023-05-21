@@ -27,6 +27,8 @@ CourseVisualize::CourseVisualize(QWidget *parent , Data * data, QPushButton * sa
     for(int i=0 ;i<data->course.size() ;i++)
         if(!vis[i])
             dfs(i) ;
+    ui->message->hide() ;
+    ui->message->raise() ;
     this->save = save ;
     this->auto_generate = auto_generate ;
     if(save!=nullptr){
@@ -35,7 +37,8 @@ CourseVisualize::CourseVisualize(QWidget *parent , Data * data, QPushButton * sa
         connect(save, &QPushButton::clicked, this, &CourseVisualize::save_button);
         connect(auto_generate, &QPushButton::clicked, this, &CourseVisualize::auto_generate_button);
     }
-    generate() ;
+    for(int i=0 ;i<data->course.size() ;i++)
+        item_node[i]->setPos(data->course[i].x , data->course[i].y) ;
 }
 CourseVisualize::~CourseVisualize()
 {
@@ -65,6 +68,10 @@ void CourseVisualize::save_button()
     for(int i=0 ;i<data->course.size() ;i++)
         data->course[i].x = item_node[i]->pos().x() ,
             data->course[i].y = item_node[i]->pos().y()  ;
+    ui->message->show();
+    QTimer::singleShot(1000, this, [=]() {
+        ui->message->hide();
+    });
 }
 void CourseVisualize::auto_generate_button(){
     generate() ;

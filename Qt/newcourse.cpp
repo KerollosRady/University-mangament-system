@@ -102,6 +102,8 @@ void newCourse::on_Add_clicked(){
     }
     c.isElective = ui->checkBox->isChecked()==true;
     c.insert(_name, _instructor, _maxStd, hours, s);
+    c.x = rand()%900 ;
+    c.y = rand()%450 ;
     data->course.push_back(c);
     ui->check_add->show();
 

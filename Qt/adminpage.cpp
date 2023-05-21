@@ -74,11 +74,14 @@ void AdminPage::on_ViewCourse_clicked()
 void AdminPage::on_CourseVisual_clicked()
 {
     ui->scrollArea->setWidget(new CourseVisualize(nullptr , data , ui->save , ui->auto_generate));
+    ui->save->show() ;
+    ui->auto_generate->show() ;
 }
 
 
 void AdminPage::on_RegTim_clicked()
 {
     ui->scrollArea->setWidget(new RegisterTime(nullptr , data, ui->updateSem));
+    ui->updateSem->show() ;
 }
 

@@ -45,7 +45,7 @@ void LoginPage::on_toolButton_20_clicked()
 {
     QString usr = ui->username_11->text() ;
     QString pass= ui->password_11->text() ;
-    if(usr=="" &&  pass == ""){
+    if(usr=="Admin" &&  pass == "Admin123"){
          ptrAdminPage->home(), ptrAdminPage->show() , this->hide();
          ui->IncorrectEmail->hide();
     }
@@ -60,7 +60,7 @@ void LoginPage::on_toolButton_20_clicked()
          for(int i=0 ;i<8 && ok ;i++)
             ok&= usr[i].isDigit();
          if(!ok)
-            return ;
+            return void(ui->IncorrectEmail->show());
          int year = 0 , id = 0  ;
          for(int i=0 ;i<4 ;i++)
             year+=pow(10,4-i-1)* usr[i].digitValue() ;
