@@ -195,7 +195,7 @@ student</string>
     border-radius: 30px;
     color: #ffffff;
 background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #13112d);
-</string>
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(255, 255, 255), stop:1 rgb(53, 53, 53));</string>
    </property>
    <property name="text">
     <string>Home</string>
@@ -205,7 +205,7 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>20</y>
+     <y>0</y>
      <width>261</width>
      <height>91</height>
     </rect>
@@ -254,25 +254,6 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
    <property name="text">
     <string>Add new
 course</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="name">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>30</y>
-     <width>201</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color:white;
-font: 40pt &quot;Arial&quot;;
-    background-color: transparent;
-font: 700 ;</string>
-   </property>
-   <property name="text">
-    <string>ADMIN</string>
    </property>
   </widget>
   <widget class="QPushButton" name="logout">
@@ -429,7 +410,6 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
   <zorder>HomeButton</zorder>
   <zorder>label</zorder>
   <zorder>NewCourse</zorder>
-  <zorder>name</zorder>
   <zorder>logout</zorder>
   <zorder>CourseVisual</zorder>
   <zorder>RegTim</zorder>

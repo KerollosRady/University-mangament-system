@@ -18,7 +18,8 @@ public:
     explicit StudentPage(QWidget *parent = nullptr,QMainWindow *loginpage = nullptr,Data * data = nullptr );
     void ProfileProperties();
     ~StudentPage();
-
+    void paint_button() ;
+    void paint_current(QPushButton * b , int i) ;
 private:
     Ui::StudentPage *ui;
     QMainWindow *loginpage ;
@@ -34,7 +35,7 @@ private slots:
     void on_RegisterButton_clicked();
     void on_MyProfile_clicked();
     void on_Logout_clicked();
-    void on_RegisterButton_2_clicked();
     void on_DataVisualization_clicked();
+    void on_filterCourses_clicked();
 };
 

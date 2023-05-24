@@ -4,7 +4,7 @@ Edge::Edge(Node * SourceNode ,Node * DestinationNode , QGraphicsView* view , QGr
     QGraphicsItem( parent ){
 	setFlag( QGraphicsItem::ItemIsFocusable );
 	setZValue( -1 );
-    mSourceNode= SourceNode ;
+    mSourceNode = SourceNode ;
     this->view = view ;
     mDestinationNode = DestinationNode  ;
 }

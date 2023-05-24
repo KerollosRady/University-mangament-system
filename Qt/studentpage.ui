@@ -296,7 +296,7 @@ background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1c335f, stop:1 #1311
     <string>Abanoub Ashraf Kamel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="RegisterButton_2">
+  <widget class="QPushButton" name="filterCourses">
    <property name="geometry">
     <rect>
      <x>70</x>
