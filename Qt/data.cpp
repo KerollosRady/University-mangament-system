@@ -32,6 +32,10 @@ bool Data::Search_String(string base , string child){
 void Data::UploadDataToCourse()
 {
     ofstream outfile("../Qt/Course.txt");
+    qCritical()<<startRegDate.toString(Qt::ISODate); // Print the current date in ISO format
+    qCritical()<<endRegDate.toString(Qt::ISODate); // Print the current date in ISO format
+    outfile<<startRegDate.toString(Qt::ISODate).toStdString()<<el ;
+    outfile<<endRegDate.toString(Qt::ISODate).toStdString()<<el ;
     outfile << course.size() << '\n';
         for (int i = 0; i < course.size(); i++)
         {
@@ -50,11 +54,19 @@ void Data::UploadDataToCourse()
 void Data::LoadDataFromCourse()
 {
     ifstream infile("../Qt/Course.txt");
-
     int elec, sz;
     if (infile.is_open())
     {
-        infile >> sz;
+            string s ;
+            infile>>s ;
+            QString dateString = QString::fromStdString(s); // Example string representing a date
+            QDate convertedDate = QDate::fromString(dateString, Qt::ISODate);
+            startRegDate = convertedDate ;
+            infile>>s ;
+             dateString = QString::fromStdString(s); // Example string representing a date
+             convertedDate = QDate::fromString(dateString, Qt::ISODate);
+            endRegDate = convertedDate ;
+            infile >> sz;
         course = vector<Course>(sz);
         for (int i = 0; i < sz; i++)
         {

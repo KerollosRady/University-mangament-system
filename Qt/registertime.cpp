@@ -15,8 +15,11 @@ RegisterTime::RegisterTime(QWidget *parent , Data *data, QPushButton* semsterUpd
     ui->message->hide();
     ui->updSem->hide();
     semsterUpd->show();
+    ui->startDate->setText(data->startRegDate.toString(Qt::ISODate)) ;
+    ui->EndDate->setText(data->endRegDate.toString(Qt::ISODate)) ;
+    ui->startDate->setReadOnly(true) ;
+    ui->EndDate->setReadOnly(true);
     connect(semsterUpd, &QPushButton::clicked, this, &RegisterTime::semsterUpdButton);
-
 }
 RegisterTime::~RegisterTime()
 {
@@ -58,6 +61,8 @@ void RegisterTime::on_save_clicked()
     else {
         data->endRegDate = ui->calendarWidget->selectedDate();
     }
+    ui->startDate->setText(data->startRegDate.toString(Qt::ISODate)) ;
+    ui->EndDate->setText(data->endRegDate.toString(Qt::ISODate)) ;
     ui->message->show();
     QTimer::singleShot(2000, this, [=]() {
         ui->message->hide();
