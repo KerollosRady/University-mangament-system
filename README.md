@@ -1,3 +1,4 @@
 # University-mangament-system
-College Data Structures Project built with C++
-
+A university Management system made using C++ and QT
+•Applied: OOP, Algorithms and Data Structure
+•Tech used: C++ - QT
