@@ -19,8 +19,8 @@ LoginPage::LoginPage(QWidget *parent)
     ui->IncorrectEmail->hide();
 }
 void LoginPage::load_data(){
-    //data.student.resize(last_year+1);
     data.LoadDataFromStudent() ;
+    data.student.resize(last_year+1);
     data.LoadDataFromCourse() ;
     //qCritical()<<QString::fromStdString(data.student[last_year][0].getPassword());
 }
@@ -83,7 +83,6 @@ void LoginPage::on_toolButton_20_clicked()
 }
 
 void LoginPage::save_data(){
-    cout<<"done" ;
     data.UploadDataToCourse() ;
     data.UploadDataToStudent() ;
 }
