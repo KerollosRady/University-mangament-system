@@ -1,44 +1,46 @@
-2023-05-25
-2023-06-10
+2024-01-24
+2024-01-24
 16
 OOP
 1
-mohmed
+Mohamed
 3
 122
 350 396
 0
+0
+Physics I
 1
-23 0
-Physics 1
-1
-hisham
+Hisham
 2
 222
 228 242
 0
+1
+24 0
+LinearAlgebra
 0
-Math1
-0
-Dr.koko
+Dr.Koko
 3
 500
 224 402
 0
-1
+2
 23 0
-Intro
+24 0
+IntroCS
 0
 Bedo
 5
 500
 630 340
 0
-1
+2
 23 0
-Data Structure
+24 0
+DSA
 0
-Bishoy Vector
+BishoyVector
 5
 900
 387 236
@@ -49,7 +51,7 @@ Bishoy Vector
 3
 9
 0
-Math2
+DiscreteMath
 0
 Bedo
 2
@@ -58,73 +60,69 @@ Bedo
 1
 2
 0
-Physics 2
+EM
 0
 Bedo
 2
 900
-192 12
+213 43
 1
 1
 1
 23 0
-ReportWriting
+TechWriting
 1
-bedo
+Bedo
 2
 500
 792 209
 0
-1
+2
 23 0
-Calculus 1
+24 0
+Calculus I
 0
 Bedo
 2
 900
 657 140
 0
-1
+2
 23 0
-intro2
+24 0
+Intro TO CS
 0
-bedo
+Bedo
 2
 900
 486 380
 0
-1
+2
 23 0
-newCourse for warraky
+24 0
+SE Principles
 0
-Mr. warraky
+Mr.Warraky
 3
 500
-372 16
+373 28
 0
-1
+2
 23 0
-DS
+24 0
+DBSystems
 1
-Dr bishoy
+Dr.Bishoy
 2
 666
 534 26
 0
-1
+2
 23 0
-fdsafjalkdsf
+24 0
+MLBasics
 1
-fadsfjasldkfj
-3
-456
-769 14
-1
-11
-0
-ML
-1
-beshoy
+Beshoy
 3
 100
 37 162
@@ -133,22 +131,30 @@ beshoy
 2
 1
 23 0
-asdfsfasdfs
+AIFoundations
 0
-asdfasdf
+Asdfasdf
 1
 6465
 789 346
 0
 1
 23 0
-fdsafsd
+OSConcepts
 0
-fasf
+Fasf
 2
 545
 512 145
-2
+1
 13
-14
 0
+SAAD
+1
+Dr. Yasmin afify
+2
+600
+73 28
+0
+1
+24 0
