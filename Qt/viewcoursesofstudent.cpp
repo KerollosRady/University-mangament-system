@@ -1,6 +1,7 @@
 #include "viewcoursesofstudent.h"
 #include "ui_viewcoursesofstudent.h"
 #include <QTimer>
+#include <QSignalMapper>
 ViewCoursesOfStudent::ViewCoursesOfStudent(QWidget *parent , Data * data ) :
     QWidget(parent),
     ui(new Ui::ViewCoursesOfStudent)
@@ -10,7 +11,7 @@ ViewCoursesOfStudent::ViewCoursesOfStudent(QWidget *parent , Data * data ) :
     this->data  =data ;
     ui->StudentNamelineEdit_2->setReadOnly(true) ;
     hide_items() ;
-    ui->Student_ID->setMaximum((2000+data->last_year)*10000+data->student[data->last_year].size());
+    ui->Student_ID->setMaximum((2000+data->last_year)*10000+data->student[data->last_year].size()-1);
     ui->progress->setCheckState(Qt::Checked) ;
     ui->finished->setCheckState(Qt::Checked) ;
     ui->treeWidget->setStyleSheet("color : white ; ") ;
@@ -57,19 +58,23 @@ void ViewCoursesOfStudent::show_items(){
 void ViewCoursesOfStudent::filter(){
     ui->treeWidget->clear() ;
     if(ui->progress->checkState() == Qt::Checked)
-        for(auto c : stud->progressCourses)
+        for(auto &c : stud->progressCourses)
             show_course(c) ;
     if(ui->finished->checkState() == Qt::Checked)
         for(int i=0 ;i<data->course.size() ;i++)
             if(stud->finishedCourses[i])
                 show_course(i) ;
 }
+unordered_map<QDoubleSpinBox*,QTreeWidgetItem*> mp;
 void ViewCoursesOfStudent::show_course(int c ){
     QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
     QDoubleSpinBox *Grade = new QDoubleSpinBox(ui->treeWidget);
     Grade->setRange(0,100) ;
     Grade->setValue(stud->courseGPA[c]*100/4);
     Grade->setStyleSheet("color : white ;") ;
+    QDoubleSpinBox *spinBox = qobject_cast<QDoubleSpinBox*>(ui->treeWidget->itemWidget(item, 0));
+    mp[Grade]=item ;
+    connect(Grade,SIGNAL(editingFinished()),this,SLOT(onSpinBoxEditingFinished()));
     ui->treeWidget->setItemWidget(item, 0, Grade);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setCheckState(1, (stud->finishedCourses[c]?(Qt::Checked):(Qt::Unchecked)));
@@ -120,18 +125,25 @@ void ViewCoursesOfStudent::on_save_clicked()
 }
 void ViewCoursesOfStudent::on_treeWidget_itemChanged(QTreeWidgetItem *item, int column)
 {
-    if(column==1)
+    if(column==1 || column==0)
     {
-        int c = item->text(2).toInt(nullptr ,10);
-        QDoubleSpinBox *Grade = new QDoubleSpinBox(ui->treeWidget);
-        Qt::CheckState state = item->checkState(column); // Get the state of the item
-        if (state == Qt::Checked) {
-            Grade->setRange(50,100) ;
-        } else {
-            Grade->setRange(0,100) ;
+        // Get a pointer to the double spin box widget
+        QDoubleSpinBox *spinBox = qobject_cast<QDoubleSpinBox*>(ui->treeWidget->itemWidget(item, 0));
+        double grade = spinBox->value();
+        // Get the state of the item
+        Qt::CheckState state = item->checkState(1);
+        if (state == Qt::Checked && grade<50) {
+            item->setCheckState(1, (Qt::Unchecked));
         }
-        Grade->setValue(stud->courseGPA[c]*100/4);
-        ui->treeWidget->setItemWidget(item, 0, Grade);
     }
 }
-
+void ViewCoursesOfStudent::onSpinBoxEditingFinished(){
+    QDoubleSpinBox *spinBox = qobject_cast<QDoubleSpinBox*>(sender());
+    QTreeWidgetItem *item= mp[spinBox];
+    double grade = spinBox->value();
+    // Get the state of the item
+    Qt::CheckState state = item->checkState(1);
+    if (state == Qt::Checked && grade<50) {
+        item->setCheckState(1, (Qt::Unchecked));
+    }
+}

@@ -21,8 +21,9 @@ private slots:
     void on_filter_clicked();
 
     void on_save_clicked();
-
     void on_treeWidget_itemChanged(QTreeWidgetItem *item, int column);
+public slots:
+    void onSpinBoxEditingFinished();
 
 private:
     Ui::ViewCoursesOfStudent *ui;
@@ -33,6 +34,8 @@ public :
     void show_items() ;
     void filter() ;
     void show_course(int c) ;
+
+
 };
 
 #endif // VIEWCOURSESOFSTUDENT_H
